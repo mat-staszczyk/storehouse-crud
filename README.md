@@ -1,5 +1,6 @@
 # storehouse-crud
 
-Basic CRUD warehouse management application.
+Basic [CRUD](https://pl.wikipedia.org/wiki/CRUD) warehouse management application.
 
 Functionalities:
+...
