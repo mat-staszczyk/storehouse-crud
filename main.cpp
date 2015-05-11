@@ -21,7 +21,9 @@ using namespace std;
         int id_klienta;
         string nazwa;
         string grupa;
+        string nip;
         int rabat;
+        unsigned int saldo;
     } klienci[N];
 
     void menu() {
@@ -46,8 +48,7 @@ using namespace std;
     }
 
     void dodaj_produkt() {
-        string nazwa, typ;
-        int ilosc, cena, promocja;
+        string nazwa;
 
         cout << "Podaj nazwę produktu, który chcesz dodać:" << endl;
         cin >> nazwa;
@@ -78,13 +79,13 @@ using namespace std;
         cout << endl << "Lista produktów:" << endl << endl;
         for (i = 1; i < N; i++) {
             if (!produkty[i].nazwa.empty()) {
-                cout << i << ". " << produkty[i].nazwa << "   " << "Ilość: " << produkty[i].ilosc << " szt." << "   " << "Cena: " << produkty[i].cena << " PLN" << endl;
+                cout << i << ". " << produkty[i].nazwa << "   " << "ilość: " << produkty[i].ilosc << " szt." << "   " << "cena: " << produkty[i].cena << " PLN" << endl;
                 if (promocja) {
                     if (produkty[i].promocja != 0) {
                         cena_promocyjna = produkty[i].cena - (produkty[i].cena * (produkty[i].promocja / 100.00));
-                        cout << "   " << "Cena promocyjna: " << cena_promocyjna << " PLN";
+                        cout << "   " << "cena promocyjna: " << cena_promocyjna << " PLN";
                     }
-                    cout << "   " << "Wielkość rabatu: " << produkty[i].promocja << "%" << endl;
+                    cout << "   " << "wielkość rabatu: " << produkty[i].promocja << "%" << endl;
                 }
                 pusta = 1;
             }
@@ -177,6 +178,46 @@ using namespace std;
         }
     }
 
+    void lista_klientow () {
+        int i;
+        int pusta = 0;
+        cout << endl << "Lista klientów:" << endl << endl;
+        for (i = 1; i < N; i++) {
+            if (!klienci[i].nazwa.empty()) {
+                cout << i << ". " << klienci[i].nazwa << "   " << "grupa: " << klienci[i].grupa << "   " << "NIP: " << klienci[i].nip << "   " << "saldo: " << klienci[i].saldo << " PLN" << "   " << "rabat: " << klienci[i].rabat << "%" << endl;
+                pusta = 1;
+            }
+        }
+        if (!pusta) {
+            cout << "Lista klientów jest pusta." << endl << endl;
+        } else {
+            cout << endl << endl;
+        }
+    }
+
+    void dodaj_klienta () {
+        string nazwa;
+
+        cout << "Podaj nazwę klienta, który chcesz dodać:" << endl;
+        cin >> nazwa;
+        int i;
+        for (i = 1; i < N; i++)
+        {
+            if (klienci[i].nazwa == nazwa) {
+                cout << "Nazwa produktu istnieje już w bazie." << endl;
+                break;
+            } else if (produkty[i].nazwa.empty()) {
+                klienci[i].nazwa = nazwa;
+                klienci[i].id_klienta = i;
+                cout << "Podaj grupę klienta" << endl;;
+                cin >> klienci[i].grupa;
+                cout << "Podaj NIP klienta:" << endl;
+                cin >> klienci[i].nip;
+                break;
+            }
+        }
+    }
+
 int main(void) {
 
     while (1)
@@ -200,6 +241,12 @@ int main(void) {
                 break;
             case 5:
                 promocje();
+                break;
+            case 6:
+                lista_klientow();
+                break;
+            case 7:
+                dodaj_klienta();
                 break;
             case 13:
                 cout << "Możesz teraz bezpiecznie wyłączyć program." << endl;
