@@ -104,6 +104,10 @@ using namespace std;
         cout << "Nie znaleziono produktu o podanej nazwie." << endl;
     }
 
+    void usun_produkt () {
+
+    }
+
 int main(void) {
 
     while (1)
