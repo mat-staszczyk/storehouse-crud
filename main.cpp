@@ -30,7 +30,7 @@ using namespace std;
         cout << "########################" << endl;
         cout << "### OBSŁUGA MAGAZYNU ###" << endl;
         cout << "########################" << endl << endl;
-        cout << "Prosze wybrac jedna z ponizszych opcji:" << endl << endl;
+        cout << "Proszę wybrać jedną z poniższych opcji:" << endl << endl;
         cout << "1. Wyświetl listę produktów." << endl;
         cout << "2. Dodaj nowy produkt." << endl;
         cout << "3. Edytuj produkty na liście." << endl;
@@ -91,10 +91,14 @@ using namespace std;
             }
         }
         if (!pusta) {
-            cout << "Lista produktów jest pusta." << endl << endl;
+            cout << "Lista klientów jest pusta." << endl << endl << "Naciśnij Enter aby kontyunować" << endl;
+            cin.ignore();
+            cin.get();
             return 1;
         } else {
-            cout << endl << endl;
+            cout << endl << endl << "Naciśnij Enter aby kontyunować" << endl;
+            cin.ignore();
+            cin.get();
             return 0;
         }
     }
@@ -189,9 +193,13 @@ using namespace std;
             }
         }
         if (!pusta) {
-            cout << "Lista klientów jest pusta." << endl << endl;
+            cout << "Lista klientów jest pusta." << endl << endl << "Naciśnij Enter aby kontyunować" << endl;
+            cin.ignore();
+            cin.get();
         } else {
-            cout << endl << endl;
+            cout << endl << "Naciśnij Enter aby kontyunować" << endl;
+            cin.ignore();
+            cin.get();
         }
     }
 
