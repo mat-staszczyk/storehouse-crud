@@ -73,13 +73,20 @@ using namespace std;
 
     void lista_produktow () {
         int i;
+        int pusta = 0;
         cout << endl << "Lista produktów:" << endl << endl;
         for (i = 1; i < N; i++) {
             if (!produkty[i].nazwa.empty()) {
                 cout << "Id: #" << i << ". " << produkty[i].nazwa << "   " << "Ilość: " << produkty[i].ilosc << " szt." << "   " << "Cena: " << produkty[i].cena << " PLN" << endl;
+                pusta = 1;
+                break;
             }
         }
-        cout << endl;
+        if (!pusta) {
+            cout << "Lista produktów jest pusta." << endl << endl;
+        } else {
+            cout << endl << endl;
+        }
     }
 
     void edytuj_produkt () {
@@ -105,7 +112,36 @@ using namespace std;
     }
 
     void usun_produkt () {
+        string nazwa;
+        char odp;
+        lista_produktow();
+        cout << "Podaj nazwę produktu, który chcesz usunąć: " << endl;
+        cin >> nazwa;
+        int i;
+        for (i = 1; i < N; i++) {
+            if (produkty[i].nazwa == nazwa) {
+                cout << "Czy na pewno chcesz usunąć produkt o nazwie " << produkty[i].nazwa << "? (T/n)" << endl;
+                cin >> odp;
+                if (odp == 'T') {
+                    produkty[i].nazwa = "";
+                    produkty[i].id_produktu = 0;
+                    produkty[i].cena = 0;
+                    produkty[i].ilosc = 0;
+                    produkty[i].typ = "";
+                    produkty[i].promocja = 0;
 
+                    cout << "Produkt został usunięty.";
+                    break;
+                } else if (odp == 'n') {
+                    cout << "Usuwanie anulowane.";
+                    break;
+                } else {
+                    cout << "Błędna odpowiedź.";
+                    break;
+                }
+            }
+        }
+        cout << "Nie znaleziono produktu o podanej nazwie." << endl;
     }
 
 int main(void) {
@@ -125,6 +161,9 @@ int main(void) {
                 break;
             case 3:
                 edytuj_produkt();
+                break;
+            case 4:
+                usun_produkt();
                 break;
             case 13:
                 cout << "Możesz teraz bezpiecznie wyłączyć program." << endl;
