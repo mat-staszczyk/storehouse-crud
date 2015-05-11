@@ -76,17 +76,32 @@ using namespace std;
         cout << endl << "Lista produktów:" << endl << endl;
         for (i = 1; i < N; i++) {
             if (!produkty[i].nazwa.empty()) {
-                cout << i << ". " << produkty[i].nazwa << "   " << "Ilość: " << produkty[i].ilosc << " szt." << "   " << "Cena: " << produkty[i].cena << " PLN" << endl;
+                cout << "Id: #" << i << ". " << produkty[i].nazwa << "   " << "Ilość: " << produkty[i].ilosc << " szt." << "   " << "Cena: " << produkty[i].cena << " PLN" << endl;
             }
         }
-        /*
-        cout << produkty[0].nazwa << endl;
-        cout << produkty[0].typ << endl;
-        cout << produkty[0].id_produktu << endl;
-        cout << produkty[0].ilosc << endl;
-        cout << produkty[0].cena << endl;
-        */
         cout << endl;
+    }
+
+    void edytuj_produkt () {
+        string nazwa;
+        lista_produktow();
+        cout << "Podaj nazwę produktu, który chcesz edytować: " << endl;
+        cin >> nazwa;
+        int i;
+        for (i = 1; i < N; i++) {
+            if (produkty[i].nazwa == nazwa) {
+                cout << "Edycja obiektu #" << i << ":" << endl;
+                cout << "Podaj nową nazwę produktu (aktualna nazwa: " << produkty[i].nazwa << " ):" << endl;
+                cin >> produkty[i].nazwa;
+                cout << "Podaj nowy typ produktu (aktualny typ: " << produkty[i].typ << " ):" << endl;
+                cin >> produkty[i].typ;
+                cout << "Podaj nową ilość produktu na stanie (aktualny stan: " << produkty[i].ilosc << " ):" << endl;
+                cin >> produkty[i].ilosc;
+                cout << "Podaj nową cenę (aktualny cena: " << produkty[i].cena << " ):" << endl;
+                cin >> produkty[i].cena;
+            }
+        }
+        cout << "Nie znaleziono produktu o podanej nazwie." << endl;
     }
 
 int main(void) {
@@ -103,6 +118,9 @@ int main(void) {
                 break;
             case 2:
                 dodaj_produkt();
+                break;
+            case 3:
+                edytuj_produkt();
                 break;
             case 13:
                 cout << "Możesz teraz bezpiecznie wyłączyć program." << endl;
