@@ -71,21 +71,30 @@ using namespace std;
         }
     }
 
-    void lista_produktow () {
+    int lista_produktow (int promocja=0) {
         int i;
         int pusta = 0;
+        float cena_promocyjna;
         cout << endl << "Lista produktów:" << endl << endl;
         for (i = 1; i < N; i++) {
             if (!produkty[i].nazwa.empty()) {
-                cout << "Id: #" << i << ". " << produkty[i].nazwa << "   " << "Ilość: " << produkty[i].ilosc << " szt." << "   " << "Cena: " << produkty[i].cena << " PLN" << endl;
+                cout << i << ". " << produkty[i].nazwa << "   " << "Ilość: " << produkty[i].ilosc << " szt." << "   " << "Cena: " << produkty[i].cena << " PLN" << endl;
+                if (promocja) {
+                    if (produkty[i].promocja != 0) {
+                        cena_promocyjna = produkty[i].cena - (produkty[i].cena * (produkty[i].promocja / 100.00));
+                        cout << "   " << "Cena promocyjna: " << cena_promocyjna << " PLN";
+                    }
+                    cout << "   " << "Wielkość rabatu: " << produkty[i].promocja << "%" << endl;
+                }
                 pusta = 1;
-                break;
             }
         }
         if (!pusta) {
             cout << "Lista produktów jest pusta." << endl << endl;
+            return 1;
         } else {
             cout << endl << endl;
+            return 0;
         }
     }
 
@@ -144,6 +153,30 @@ using namespace std;
         cout << "Nie znaleziono produktu o podanej nazwie." << endl;
     }
 
+    void promocje () {
+        string nazwa;
+        int pom = 0;
+        if (!lista_produktow(1)) {
+            cout << "Podaj nazwę produktu, który chcesz objąć promocją: " << endl;
+            cin >> nazwa;
+            int i;
+            for (i = 1; i < N; i++) {
+                if (produkty[i].nazwa == nazwa) {
+                    pom = 1;
+                    cout << "Podaj wartość promocji (np. 15%)";
+                    cin >> produkty[i].promocja;
+                }
+            }
+            if (!pom) {
+                cout << "Nie znaleziono produktu o podanej nazwie." << endl;
+            } else {
+                lista_produktow(1);
+                cout << endl;
+                cin.get();
+            }
+        }
+    }
+
 int main(void) {
 
     while (1)
@@ -164,6 +197,9 @@ int main(void) {
                 break;
             case 4:
                 usun_produkt();
+                break;
+            case 5:
+                promocje();
                 break;
             case 13:
                 cout << "Możesz teraz bezpiecznie wyłączyć program." << endl;
