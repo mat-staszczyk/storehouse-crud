@@ -79,7 +79,7 @@ using namespace std;
         cout << endl << "Lista produktów:" << endl << endl;
         for (i = 1; i < N; i++) {
             if (!produkty[i].nazwa.empty()) {
-                cout << i << ". " << produkty[i].nazwa << "   " << "ilość: " << produkty[i].ilosc << " szt." << "   " << "cena: " << produkty[i].cena << " PLN" << endl;
+                cout << i << ". " << produkty[i].nazwa << "   " << "rodzaj: " << produkty[i].typ << "   " << "ilość: " << produkty[i].ilosc << " szt." << "   " << "cena: " << produkty[i].cena << " PLN" << endl;
                 if (promocja) {
                     if (produkty[i].promocja != 0) {
                         cena_promocyjna = produkty[i].cena - (produkty[i].cena * (produkty[i].promocja / 100.00));
@@ -216,7 +216,7 @@ using namespace std;
 
     void dodaj_klienta () {
         string nazwa;
-        cout << "Podaj nazwę klienta, który chcesz dodać:" << endl;
+        cout << "Podaj nazwę klienta, którego chcesz dodać:" << endl;
         cin >> nazwa;
         int i;
         for (i = 1; i < N; i++)
@@ -337,6 +337,38 @@ using namespace std;
         }
     }
 
+    int szukaj() {
+        string fraza;
+        int pom = 0;
+        cout << "Wyszukaj hasło:" << endl;
+        cin >> fraza;
+        int i;
+        cout << endl << "Wyniki wyszukiwania dla kategorii 'Produkty':" << endl << endl;
+        for (i = 1; i < N; i++) {
+            if (produkty[i].nazwa == fraza || produkty[i].typ == fraza) {
+                pom = 1;
+                cout << "ID: #" << i << "   " << "nazwa: " << produkty[i].nazwa << "   " << "typ: " << produkty[i].typ << "   " << "ilość: " << produkty[i].ilosc << " szt." << "   " << "cena: " << produkty[i].cena << " PLN" << "   " << "promocja: " << produkty[i].promocja << "%" << endl << endl;
+            }
+        }
+        if (!pom) {
+            cout << "brak wyników" << endl << endl;
+        }
+        cout << "Wyniki wyszukiwania dla kategorii 'Klienci':" << endl << endl;
+        pom = 0;
+        for (i = 1; i < N; i++) {
+            if (klienci[i].nazwa == fraza || klienci[i].grupa == fraza || klienci[i].nip == fraza) {
+                pom = 1;
+                cout << "ID: #" << i << "   " << "nazwa: " << klienci[i].nazwa << "   " << "grupa: " << klienci[i].grupa << "   " << "NIP: " << klienci[i].nip << "   " << "saldo: " << klienci[i].saldo << " PLN" << "   " << "rabat: " << klienci[i].rabat << "%" << endl << endl;
+            }
+        }
+        if (!pom) {
+            cout << "brak wyników" << endl << endl;
+        }
+        cout << "Naciśnij klawisz enter, aby konynuować" << endl;
+        cin.ignore();
+        cin.get();
+    }
+
 
 int main(void) {
 
@@ -382,6 +414,9 @@ int main(void) {
                 break;
             case 10:
                 rabaty();
+                break;
+            case 11:
+                szukaj();
                 break;
             case 12:
                 cout << "Możesz teraz bezpiecznie wyłączyć program." << endl;
