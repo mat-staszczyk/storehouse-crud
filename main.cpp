@@ -42,8 +42,9 @@ using namespace std;
         cout << "9. Usuń klienta z listy." << endl;
         cout << "10. Zarządzanie rabatami." << endl;
         cout << "11. Przeszukaj bazę." << endl;
-        cout << "12. Zapisz stan." << endl;
-        cout << "13. Zapisz i zakończ." << endl << endl;
+        cout << "12. Zapisz aktualny stan." << endl;
+        cout << "13. Wczytaj ostatni stan." << endl;
+        cout << "14. Zakończ." << endl << endl;
 
         cout << "Wybór: ";
     }
@@ -487,11 +488,11 @@ int main(void) {
                 zapisz();
                 break;
             case 13:
-                cout << "Możesz teraz bezpiecznie wyłączyć program." << endl;
-                return 0;
-            case 14:
                 wczytaj_dane();
                 break;
+            case 14:
+                cout << "Możesz teraz bezpiecznie wyłączyć program." << endl;
+                return 0;
             default:
                 cout << "Błędny wybór." << endl;
                 return 0;
