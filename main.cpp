@@ -14,7 +14,7 @@ using namespace std;
         int ilosc;
         float cena;
         int promocja;
-    } produkty[N];
+    } produkty[N], ptemp;
 
     struct Klient
     {
@@ -24,7 +24,7 @@ using namespace std;
         string nip;
         int rabat;
         unsigned int saldo;
-    } klienci[N];
+    } klienci[N], ktemp;
 
     void menu() {
         cout << "###########################" << endl;
@@ -46,6 +46,51 @@ using namespace std;
         cout << "13. Zapisz i zakończ." << endl << endl;
 
         cout << "Wybór: ";
+    }
+
+    void wczytaj_dane () {
+        FILE * produkty_arch;
+        FILE * klienci_arch;
+
+        produkty_arch = fopen("produkty.store", "rb");
+        klienci_arch = fopen("klienci.store", "rb");
+
+        fread(&produkty, sizeof(produkty), 1, produkty_arch);
+        fread(&klienci, sizeof(klienci), 1, klienci_arch);
+
+        int i = 1;
+        while (fread(&ptemp, sizeof(struct Produkt), 1, produkty_arch))
+        {
+            produkty[i].nazwa = ptemp.nazwa;
+            produkty[i].id_produktu = ptemp.id_produktu;
+            produkty[i].cena = ptemp.cena;
+            produkty[i].ilosc = ptemp.ilosc;
+            produkty[i].typ = ptemp.typ;
+            produkty[i].promocja = ptemp.promocja;
+            i++;
+        }
+
+        i = 1;
+        while (fread(&ktemp, sizeof(struct Klient), 1, klienci_arch))
+        {
+            klienci[i].nazwa = ktemp.nazwa;
+            klienci[i].grupa = ktemp.grupa;
+            klienci[i].nip = ktemp.nip;
+            klienci[i].id_klienta = ktemp.id_klienta;
+            klienci[i].rabat = ktemp.rabat;
+            klienci[i].saldo = ktemp.saldo;
+            i++;
+        }
+
+
+ /*       {
+            cout << "Dane wczytane prawidłowo." << endl;
+        } else {
+            cout << "Brak dostępu do danych." << endl;
+        }
+*/
+        fclose(produkty_arch);
+        fclose(klienci_arch);
     }
 
     void dodaj_produkt() {
@@ -338,7 +383,7 @@ using namespace std;
         }
     }
 
-    int szukaj() {
+    void szukaj() {
         string fraza;
         int pom = 0;
         cout << "Wyszukaj hasło:" << endl;
@@ -371,15 +416,20 @@ using namespace std;
     }
 
     void zapisz () {
-        FILE *plik;
-        plik = fopen("plik1", "wb");
+        FILE *produkty_arch;
+        FILE *klienci_arch;
+        produkty_arch = fopen("produkty.store", "wb");
+        klienci_arch = fopen("klienci.store", "wb");
 
-        if (fwrite(produkty, sizeof(struct Produkt), N, plik)) {
+        if (fwrite(produkty, sizeof(struct Produkt), N, produkty_arch) &&
+            fwrite(klienci, sizeof(struct Klient), N, klienci_arch))
+        {
             cout << "Zapisywanie zakończone powodzeniem." << endl;
         } else {
             cout << "Brak dostępu do dysku!" << endl;
         }
-        fclose(plik);
+        fclose(produkty_arch);
+        fclose(klienci_arch);
         cout << "Naciśnij klawisz enter, aby konynuować" << endl;
         cin.ignore();
         cin.get();
@@ -439,6 +489,9 @@ int main(void) {
             case 13:
                 cout << "Możesz teraz bezpiecznie wyłączyć program." << endl;
                 return 0;
+            case 14:
+                wczytaj_dane();
+                break;
             default:
                 cout << "Błędny wybór." << endl;
                 return 0;
