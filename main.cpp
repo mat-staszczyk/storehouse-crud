@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
+#include <stdio.h>
 
 using namespace std;
-
     const int N = 100; // wielkość katalogu
     int wybor;
 
@@ -42,7 +42,8 @@ using namespace std;
         cout << "9. Usuń klienta z listy." << endl;
         cout << "10. Zarządzanie rabatami." << endl;
         cout << "11. Przeszukaj bazę." << endl;
-        cout << "12. Zapisz i zakończ." << endl << endl;
+        cout << "12. Zapisz stan." << endl;
+        cout << "13. Zapisz i zakończ." << endl << endl;
 
         cout << "Wybór: ";
     }
@@ -369,6 +370,20 @@ using namespace std;
         cin.get();
     }
 
+    void zapisz () {
+        FILE *plik;
+        plik = fopen("plik1", "wb");
+
+        if (fwrite(produkty, sizeof(struct Produkt), N, plik)) {
+            cout << "Zapisywanie zakończone powodzeniem." << endl;
+        } else {
+            cout << "Brak dostępu do dysku!" << endl;
+        }
+        fclose(plik);
+        cout << "Naciśnij klawisz enter, aby konynuować" << endl;
+        cin.ignore();
+        cin.get();
+    }
 
 int main(void) {
 
@@ -419,6 +434,9 @@ int main(void) {
                 szukaj();
                 break;
             case 12:
+                zapisz();
+                break;
+            case 13:
                 cout << "Możesz teraz bezpiecznie wyłączyć program." << endl;
                 return 0;
             default:
