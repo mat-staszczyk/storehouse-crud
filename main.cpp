@@ -42,7 +42,7 @@ using namespace std;
         cout << "9. Usuń klienta z listy." << endl;
         cout << "10. Zarządzanie rabatami." << endl;
         cout << "11. Przeszukaj bazę." << endl;
-        cout << "12. Zapisz i zakończ." << endl;
+        cout << "12. Zapisz i zakończ." << endl << endl;
 
         cout << "Wybór: ";
     }
@@ -91,18 +91,21 @@ using namespace std;
             }
         }
         if (!pusta) {
-            cout << "Lista klientów jest pusta." << endl << endl << "Naciśnij Enter aby kontyunować" << endl;
+            cout << "Lista klientów jest pusta." << endl << endl;
             return 1;
         } else {
-            cout << endl << endl << "Naciśnij Enter aby kontyunować" << endl;
+            cout << endl << endl;
             return 0;
         }
     }
 
-    void edytuj_produkt () {
+    int edytuj_produkt () {
         string nazwa;
         int pom = 0;
-        lista_produktow();
+        if (lista_produktow()) {
+            cout << endl;
+            return 0;
+        };
         cout << "Podaj nazwę produktu, który chcesz edytować: " << endl;
         cin >> nazwa;
         int i;
@@ -123,6 +126,7 @@ using namespace std;
         if (pom) {
             cout << "Nie znaleziono produktu o podanej nazwie." << endl;
         }
+        return 1;
     }
 
     void usun_produkt () {
@@ -146,18 +150,18 @@ using namespace std;
                     produkty[i].typ = "";
                     produkty[i].promocja = 0;
 
-                    cout << "Produkt został usunięty.";
+                    cout << "Produkt został usunięty." << endl;
                     break;
                 } else if (odp == 'n') {
-                    cout << "Usuwanie anulowane.";
+                    cout << "Usuwanie anulowane." << endl;
                     break;
                 } else {
-                    cout << "Błędna odpowiedź.";
+                    cout << "Błędna odpowiedź." << endl;
                     break;
                 }
             }
         }
-        if (pom) {
+        if (!pom) {
             cout << "Nie znaleziono produktu o podanej nazwie." << endl;
         }
     }
@@ -259,6 +263,42 @@ using namespace std;
 
     }
 
+    void usun_klienta () {
+        string nazwa;
+        int pom = 0;
+        char odp;
+        lista_klientow();
+        cout << "Podaj nazwę klienta, którego chcesz usunąć z bazy: " << endl;
+        cin >> nazwa;
+        int i;
+        for (i = 1; i < N; i++) {
+            if (klienci[i].nazwa == nazwa) {
+                pom = 1;
+                cout << "Czy na pewno chcesz usunąć wpis klienta o nazwie " << klienci[i].nazwa << "? (T/n)" << endl;
+                cin >> odp;
+                if (odp == 'T') {
+                    klienci[i].nazwa = "";
+                    klienci[i].grupa = "";
+                    klienci[i].nip = "";
+                    klienci[i].id_klienta = 0;
+                    klienci[i].rabat = 0;
+                    klienci[i].saldo = 0;
+                    cout << "Wpis klienta został usunięty." << endl;
+                    break;
+                } else if (odp == 'n') {
+                    cout << "Usuwanie anulowane.";
+                    break;
+                } else {
+                    cout << "Błędna odpowiedź.";
+                    break;
+                }
+            }
+        }
+        if (!pom) {
+            cout << "Nie znaleziono wpisu o podanej nazwie klienta." << endl;
+        }
+    }
+
 int main(void) {
 
     while (1)
@@ -297,6 +337,9 @@ int main(void) {
                 break;
             case 8:
                 edytuj_klienta();
+                break;
+            case 9:
+                usun_klienta();
                 break;
             case 12:
                 cout << "Możesz teraz bezpiecznie wyłączyć program." << endl;
