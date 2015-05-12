@@ -312,6 +312,32 @@ using namespace std;
         return 0;
     }
 
+    void rabaty () {
+        string nazwa;
+        int pom = 0;
+        if (!lista_klientow()) {
+            cout << "Podaj nazwę klienta, którego chcesz objąć rabatem: " << endl;
+            cin >> nazwa;
+            int i;
+            for (i = 1; i < N; i++) {
+                if (klienci[i].nazwa == nazwa) {
+                    pom = 1;
+                    cout << "Podaj wysokość rabatu (np. 5%)";
+                    cin >> klienci[i].rabat;
+                }
+            }
+            if (!pom) {
+                cout << "Nie znaleziono wpisu o podanej nazwie klienta." << endl;
+            } else {
+                lista_klientow();
+                cout << "Naciśnij klawisz enter, aby konynuować" << endl;
+                cin.ignore();
+                cin.get();
+            }
+        }
+    }
+
+
 int main(void) {
 
     while (1)
@@ -353,6 +379,9 @@ int main(void) {
                 break;
             case 9:
                 usun_klienta();
+                break;
+            case 10:
+                rabaty();
                 break;
             case 12:
                 cout << "Możesz teraz bezpiecznie wyłączyć program." << endl;
