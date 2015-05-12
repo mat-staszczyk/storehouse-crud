@@ -27,9 +27,9 @@ using namespace std;
     } klienci[N];
 
     void menu() {
-        cout << "########################" << endl;
-        cout << "### OBSŁUGA MAGAZYNU ###" << endl;
-        cout << "########################" << endl << endl;
+        cout << "###########################" << endl;
+        cout << "### ZARZĄDZANIE TOWAREM ###" << endl;
+        cout << "###########################" << endl << endl;
         cout << "Proszę wybrać jedną z poniższych opcji:" << endl << endl;
         cout << "1. Wyświetl listę produktów." << endl;
         cout << "2. Dodaj nowy produkt." << endl;
@@ -38,11 +38,11 @@ using namespace std;
         cout << "5. Zarządzanie promocjami." << endl;
         cout << "6. Wyświetl listę klientów." << endl;
         cout << "7. Dodaj nowego klienta." << endl;
-        cout << "9. Edytuj listę klientów." << endl;
-        cout << "10. Usuń klienta z listy." << endl;
-        cout << "11. Zarządzanie rabatami." << endl;
-        cout << "12. Przeszukaj bazę." << endl;
-        cout << "13. Zapisz i zakończ." << endl;
+        cout << "8. Edytuj listę klientów." << endl;
+        cout << "9. Usuń klienta z listy." << endl;
+        cout << "10. Zarządzanie rabatami." << endl;
+        cout << "11. Przeszukaj bazę." << endl;
+        cout << "12. Zapisz i zakończ." << endl;
 
         cout << "Wybór: ";
     }
@@ -92,41 +92,42 @@ using namespace std;
         }
         if (!pusta) {
             cout << "Lista klientów jest pusta." << endl << endl << "Naciśnij Enter aby kontyunować" << endl;
-            cin.ignore();
-            cin.get();
             return 1;
         } else {
             cout << endl << endl << "Naciśnij Enter aby kontyunować" << endl;
-            cin.ignore();
-            cin.get();
             return 0;
         }
     }
 
     void edytuj_produkt () {
         string nazwa;
+        int pom = 0;
         lista_produktow();
         cout << "Podaj nazwę produktu, który chcesz edytować: " << endl;
         cin >> nazwa;
         int i;
         for (i = 1; i < N; i++) {
             if (produkty[i].nazwa == nazwa) {
+                pom = 1;
                 cout << "Edycja obiektu #" << i << ":" << endl;
-                cout << "Podaj nową nazwę produktu (aktualna nazwa: " << produkty[i].nazwa << " ):" << endl;
+                cout << "Podaj nową nazwę produktu (aktualna nazwa: " << produkty[i].nazwa << "):" << endl;
                 cin >> produkty[i].nazwa;
-                cout << "Podaj nowy typ produktu (aktualny typ: " << produkty[i].typ << " ):" << endl;
+                cout << "Podaj nowy typ produktu (aktualny typ: " << produkty[i].typ << "):" << endl;
                 cin >> produkty[i].typ;
-                cout << "Podaj nową ilość produktu na stanie (aktualny stan: " << produkty[i].ilosc << " ):" << endl;
+                cout << "Podaj nową ilość produktu na stanie (aktualny stan: " << produkty[i].ilosc << "):" << endl;
                 cin >> produkty[i].ilosc;
-                cout << "Podaj nową cenę (aktualny cena: " << produkty[i].cena << " ):" << endl;
+                cout << "Podaj nową cenę (aktualny cena: " << produkty[i].cena << "):" << endl;
                 cin >> produkty[i].cena;
             }
         }
-        cout << "Nie znaleziono produktu o podanej nazwie." << endl;
+        if (pom) {
+            cout << "Nie znaleziono produktu o podanej nazwie." << endl;
+        }
     }
 
     void usun_produkt () {
         string nazwa;
+        int pom = 0;
         char odp;
         lista_produktow();
         cout << "Podaj nazwę produktu, który chcesz usunąć: " << endl;
@@ -134,6 +135,7 @@ using namespace std;
         int i;
         for (i = 1; i < N; i++) {
             if (produkty[i].nazwa == nazwa) {
+                pom = 1;
                 cout << "Czy na pewno chcesz usunąć produkt o nazwie " << produkty[i].nazwa << "? (T/n)" << endl;
                 cin >> odp;
                 if (odp == 'T') {
@@ -155,7 +157,9 @@ using namespace std;
                 }
             }
         }
-        cout << "Nie znaleziono produktu o podanej nazwie." << endl;
+        if (pom) {
+            cout << "Nie znaleziono produktu o podanej nazwie." << endl;
+        }
     }
 
     void promocje () {
@@ -177,6 +181,7 @@ using namespace std;
             } else {
                 lista_produktow(1);
                 cout << endl;
+                cin.ignore();
                 cin.get();
             }
         }
@@ -193,13 +198,9 @@ using namespace std;
             }
         }
         if (!pusta) {
-            cout << "Lista klientów jest pusta." << endl << endl << "Naciśnij Enter aby kontyunować" << endl;
-            cin.ignore();
-            cin.get();
+            cout << "Lista klientów jest pusta." << endl;
         } else {
-            cout << endl << "Naciśnij Enter aby kontyunować" << endl;
-            cin.ignore();
-            cin.get();
+            cout << endl;
         }
     }
 
@@ -226,6 +227,38 @@ using namespace std;
         }
     }
 
+    void edytuj_klienta () {
+        string nazwa;
+        int pom = 0;
+        lista_klientow();
+        cout << "Podaj nazwę klienta, którego chcesz edytować:" << endl;
+        cin >> nazwa;
+        int i;
+        for (i = 1; i < N; i++) {
+            if (klienci[i].nazwa == nazwa) {
+                pom = 1;
+                cout << "Edycja danych klienta o id #" << i << ":" << endl;
+                cout << "Podaj nową nazwę klienta (aktualna nazwa: " << klienci[i].nazwa << "):" << endl;
+                cin >> klienci[i].nazwa;
+                cout << "Podaj nową nazwę grupy (aktualna grupa: " << klienci[i].grupa << "):" << endl;
+                cin >> klienci[i].grupa;
+                cout << "Podaj nowy nr NIP (aktualny nip: " << klienci[i].nip << "):" << endl;
+                cin >> klienci[i].nip;
+            }
+        }
+        if (!pom) {
+            cout << "Nie znaleziono klienta o podanej nazwie." << endl << "Naciśnij klawisz enter, aby konynuować" << endl;
+            cin.ignore();
+            cin.get();
+        } else {
+            lista_klientow();
+            cout << "Naciśnij klawisz enter, aby konynuować" << endl;
+            cin.ignore();
+            cin.get();
+        }
+
+    }
+
 int main(void) {
 
     while (1)
@@ -237,6 +270,9 @@ int main(void) {
         {
             case 1:
                 lista_produktow();
+                cout << "Nacisnij klawisz enter, aby kontyunować." << endl;
+                cin.ignore();
+                cin.get();
                 break;
             case 2:
                 dodaj_produkt();
@@ -252,11 +288,17 @@ int main(void) {
                 break;
             case 6:
                 lista_klientow();
+                cout << "Nacisnij klawisz enter, aby kontyunować." << endl;
+                cin.ignore();
+                cin.get();
                 break;
             case 7:
                 dodaj_klienta();
                 break;
-            case 13:
+            case 8:
+                edytuj_klienta();
+                break;
+            case 12:
                 cout << "Możesz teraz bezpiecznie wyłączyć program." << endl;
                 return 0;
             default:
