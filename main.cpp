@@ -104,7 +104,7 @@ using namespace std;
         int pom = 0;
         if (lista_produktow()) {
             cout << endl;
-            return 0;
+            return 1;
         };
         cout << "Podaj nazwę produktu, który chcesz edytować: " << endl;
         cin >> nazwa;
@@ -126,14 +126,17 @@ using namespace std;
         if (pom) {
             cout << "Nie znaleziono produktu o podanej nazwie." << endl;
         }
-        return 1;
+        return 0;
     }
 
-    void usun_produkt () {
+    int usun_produkt () {
         string nazwa;
         int pom = 0;
         char odp;
-        lista_produktow();
+        if (lista_produktow()) {
+            cout << endl;
+            return 1;
+        };
         cout << "Podaj nazwę produktu, który chcesz usunąć: " << endl;
         cin >> nazwa;
         int i;
@@ -164,6 +167,7 @@ using namespace std;
         if (!pom) {
             cout << "Nie znaleziono produktu o podanej nazwie." << endl;
         }
+        return 0;
     }
 
     void promocje () {
@@ -191,7 +195,7 @@ using namespace std;
         }
     }
 
-    void lista_klientow () {
+    int lista_klientow () {
         int i;
         int pusta = 0;
         cout << endl << "Lista klientów:" << endl << endl;
@@ -203,14 +207,15 @@ using namespace std;
         }
         if (!pusta) {
             cout << "Lista klientów jest pusta." << endl;
+            return 1;
         } else {
             cout << endl;
+            return 0;
         }
     }
 
     void dodaj_klienta () {
         string nazwa;
-
         cout << "Podaj nazwę klienta, który chcesz dodać:" << endl;
         cin >> nazwa;
         int i;
@@ -231,10 +236,13 @@ using namespace std;
         }
     }
 
-    void edytuj_klienta () {
+    int edytuj_klienta () {
         string nazwa;
         int pom = 0;
-        lista_klientow();
+        if (lista_klientow()) {
+            cout << endl;
+            return 1;
+        }
         cout << "Podaj nazwę klienta, którego chcesz edytować:" << endl;
         cin >> nazwa;
         int i;
@@ -260,10 +268,14 @@ using namespace std;
             cin.ignore();
             cin.get();
         }
-
+        return 0;
     }
 
-    void usun_klienta () {
+    int usun_klienta () {
+        if (lista_klientow()) {
+            cout << endl;
+            return 1;
+        }
         string nazwa;
         int pom = 0;
         char odp;
@@ -297,6 +309,7 @@ using namespace std;
         if (!pom) {
             cout << "Nie znaleziono wpisu o podanej nazwie klienta." << endl;
         }
+        return 0;
     }
 
 int main(void) {
