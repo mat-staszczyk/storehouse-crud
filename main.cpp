@@ -139,7 +139,7 @@ using namespace std;
             }
         }
         if (!pusta) {
-            cout << "Lista klientów jest pusta." << endl << endl;
+            cout << "Lista produktów jest pusta." << endl << endl;
             return 1;
         } else {
             cout << endl << endl;
