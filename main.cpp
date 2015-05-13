@@ -13,6 +13,7 @@ using namespace std;
         string typ;
         int ilosc;
         float cena;
+        float cena_reg;
         int promocja;
     } produkty[N], ptemp;
 
@@ -65,6 +66,7 @@ using namespace std;
             produkty[i].nazwa = ptemp.nazwa;
             produkty[i].id_produktu = ptemp.id_produktu;
             produkty[i].cena = ptemp.cena;
+            produkty[i].cena_reg = ptemp.cena_reg;
             produkty[i].ilosc = ptemp.ilosc;
             produkty[i].typ = ptemp.typ;
             produkty[i].promocja = ptemp.promocja;
@@ -113,7 +115,8 @@ using namespace std;
                 cout << "Podaj ilość produktów na stanie:" << endl;
                 cin >> produkty[i].ilosc;
                 cout << "Podaj cenę jednego produktu:" << endl;
-                cin >> produkty[i].cena;
+                cin >> produkty[i].cena_reg;
+                produkty[i].cena = produkty[i].cena_reg;
                 break;
             }
         }
@@ -122,17 +125,15 @@ using namespace std;
     int lista_produktow (int promocja=0) {
         int i;
         int pusta = 0;
-        float cena_promocyjna;
         cout << endl << "Lista produktów:" << endl << endl;
         for (i = 1; i < N; i++) {
             if (!produkty[i].nazwa.empty()) {
                 cout << i << ". " << produkty[i].nazwa << "   " << "rodzaj: " << produkty[i].typ << "   " << "ilość: " << produkty[i].ilosc << " szt." << "   " << "cena: " << produkty[i].cena << " PLN" << endl;
                 if (promocja) {
                     if (produkty[i].promocja != 0) {
-                        cena_promocyjna = produkty[i].cena - (produkty[i].cena * (produkty[i].promocja / 100.00));
-                        cout << "   " << "cena promocyjna: " << cena_promocyjna << " PLN";
+                        cout << "   " << "cena regularna: " << produkty[i].cena_reg << " PLN";
                     }
-                    cout << "   " << "wielkość rabatu: " << produkty[i].promocja << "%" << endl;
+                    cout << "   " << "wysokość rabatu: " << produkty[i].promocja << "%" << endl;
                 }
                 pusta = 1;
             }
@@ -229,6 +230,7 @@ using namespace std;
                     pom = 1;
                     cout << "Podaj wartość promocji (np. 15%)";
                     cin >> produkty[i].promocja;
+                    produkty[i].cena = produkty[i].cena_reg - (produkty[i].cena_reg * (produkty[i].promocja / 100.00));
                 }
             }
             if (!pom) {
