@@ -237,7 +237,7 @@ using namespace std;
                 cout << "Nie znaleziono produktu o podanej nazwie." << endl;
             } else {
                 lista_produktow(1);
-                cout << endl;
+                cout << "Naciśnij klawisz enter, aby konynuować" << endl;
                 cin.ignore();
                 cin.get();
             }
