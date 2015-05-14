@@ -97,7 +97,6 @@ using namespace std;
         fclose(klienci_arch);
     }
 
-
     int lista_produktow (int promocja=0) {
         int i;
         int pusta = 0;
@@ -120,6 +119,32 @@ using namespace std;
         } else {
             cout << endl << endl;
             return 0;
+        }
+    }
+
+        void dodaj_produkt() {
+        string nazwa;
+
+        cout << "Podaj nazwę produktu, który chcesz dodać:" << endl;
+        cin >> nazwa;
+        int i;
+        for (i = 1; i < N; i++)
+        {
+            if (produkty[i].nazwa == nazwa) {
+                cout << "Nazwa produktu istnieje już w bazie." << endl;
+                break;
+            } else if (produkty[i].nazwa.empty()) {
+                produkty[i].nazwa = nazwa;
+                produkty[i].id_produktu = i;
+                cout << "Podaj typ produktu:" << endl;;
+                cin >> produkty[i].typ;
+                cout << "Podaj ilość produktów na stanie:" << endl;
+                cin >> produkty[i].ilosc;
+                cout << "Podaj cenę jednego produktu:" << endl;
+                cin >> produkty[i].cena_reg;
+                produkty[i].cena = produkty[i].cena_reg;
+                break;
+            }
         }
     }
 
@@ -437,7 +462,7 @@ using namespace std;
             }
         }
 
-        while (sukces) {
+        while (1) {
             lista_produktow();
             cout << endl;
             cout << "Podaj nazwę produktu, który chce kupić " << klienci[indeks].nazwa << ":" << endl;
@@ -457,16 +482,14 @@ using namespace std;
                     }
                 }
             }
+            if (!sukces) {
+                cout << endl <<"Nie znaleziono produktu '" << produkt << "' na liście produktów." << endl << endl;
+            }
 
             cout << "Czy klient chce dokonać kolejnej transakcji? (T/n):";
             cin >> wybor;
 
-            if (wybor == 'T') {
-                sukces = true;
-            } else {
-                sukces = false;
-            }
-
+            if (wybor != 'T') break;
 
         }
 
@@ -475,32 +498,6 @@ using namespace std;
             cout << "Transakcja nieudana." << endl;
         } else {
             cout << "Transakcja zakończona sukcesem." << endl;
-        }
-    }
-
-    void dodaj_produkt() {
-        string nazwa;
-
-        cout << "Podaj nazwę produktu, który chcesz dodać:" << endl;
-        cin >> nazwa;
-        int i;
-        for (i = 1; i < N; i++)
-        {
-            if (produkty[i].nazwa == nazwa) {
-                cout << "Nazwa produktu istnieje już w bazie." << endl;
-                break;
-            } else if (produkty[i].nazwa.empty()) {
-                produkty[i].nazwa = nazwa;
-                produkty[i].id_produktu = i;
-                cout << "Podaj typ produktu:" << endl;;
-                cin >> produkty[i].typ;
-                cout << "Podaj ilość produktów na stanie:" << endl;
-                cin >> produkty[i].ilosc;
-                cout << "Podaj cenę jednego produktu:" << endl;
-                cin >> produkty[i].cena_reg;
-                produkty[i].cena = produkty[i].cena_reg;
-                break;
-            }
         }
     }
 
