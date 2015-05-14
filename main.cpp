@@ -58,41 +58,14 @@ using namespace std;
         produkty_arch = fopen("produkty.store", "rb");
         klienci_arch = fopen("klienci.store", "rb");
 
-        fread(&produkty, sizeof(produkty), 1, produkty_arch);
-        fread(&klienci, sizeof(klienci), 1, klienci_arch);
-
-        int i = 1;
-        while (fread(&ptemp, sizeof(struct Produkt), 1, produkty_arch))
+        if (fread(&produkty, sizeof(produkty), N, produkty_arch) &&
+            fread(&klienci, sizeof(klienci), N, klienci_arch))
         {
-            produkty[i].nazwa = ptemp.nazwa;
-            produkty[i].id_produktu = ptemp.id_produktu;
-            produkty[i].cena = ptemp.cena;
-            produkty[i].cena_reg = ptemp.cena_reg;
-            produkty[i].ilosc = ptemp.ilosc;
-            produkty[i].typ = ptemp.typ;
-            produkty[i].promocja = ptemp.promocja;
-            i++;
-        }
-
-        i = 1;
-        while (fread(&ktemp, sizeof(struct Klient), 1, klienci_arch))
-        {
-            klienci[i].nazwa = ktemp.nazwa;
-            klienci[i].grupa = ktemp.grupa;
-            klienci[i].nip = ktemp.nip;
-            klienci[i].id_klienta = ktemp.id_klienta;
-            klienci[i].rabat = ktemp.rabat;
-            klienci[i].saldo = ktemp.saldo;
-            i++;
-        }
-
-
- /*       {
             cout << "Dane wczytane prawidłowo." << endl;
         } else {
             cout << "Brak dostępu do danych." << endl;
         }
-*/
+
         fclose(produkty_arch);
         fclose(klienci_arch);
     }
