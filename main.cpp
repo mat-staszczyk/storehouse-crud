@@ -451,8 +451,7 @@ using namespace std;
                     if (ilosc <= produkty[i].ilosc) {
                         sukces = true;
                         produkty[i].ilosc -= ilosc;
-                        cout << produkty[i].cena << endl;
-                        klienci[indeks].saldo -= produkty[i].cena;
+                        klienci[indeks].saldo -= (produkty[i].cena * produkty[i].ilosc);
                         break;
                     }
                 }
