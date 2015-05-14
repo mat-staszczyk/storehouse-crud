@@ -24,7 +24,7 @@ using namespace std;
         string grupa;
         string nip;
         int rabat;
-        unsigned int saldo;
+        float saldo;
     } klienci[N], ktemp;
 
     void menu() {
@@ -33,19 +33,20 @@ using namespace std;
         cout << "###########################" << endl << endl;
         cout << "Proszę wybrać jedną z poniższych opcji:" << endl << endl;
         cout << "1. Wyświetl listę produktów." << endl;
-        cout << "2. Dodaj nowy produkt." << endl;
-        cout << "3. Edytuj produkty na liście." << endl;
-        cout << "4. Usuń produkt z listy." << endl;
-        cout << "5. Zarządzanie promocjami." << endl;
-        cout << "6. Wyświetl listę klientów." << endl;
-        cout << "7. Dodaj nowego klienta." << endl;
-        cout << "8. Edytuj listę klientów." << endl;
-        cout << "9. Usuń klienta z listy." << endl;
-        cout << "10. Zarządzanie rabatami." << endl;
-        cout << "11. Przeszukaj bazę." << endl;
-        cout << "12. Zapisz aktualny stan." << endl;
-        cout << "13. Wczytaj ostatni stan." << endl;
-        cout << "14. Zakończ." << endl << endl;
+        cout << "2. Sprzedaj produkt." << endl;
+        cout << "3. Dodaj nowy produkt." << endl;
+        cout << "4. Edytuj produkty na liście." << endl;
+        cout << "5. Usuń produkt z listy." << endl;
+        cout << "6. Zarządzanie promocjami." << endl;
+        cout << "7. Wyświetl listę klientów." << endl;
+        cout << "8. Dodaj nowego klienta." << endl;
+        cout << "9. Edytuj listę klientów." << endl;
+        cout << "10. Usuń klienta z listy." << endl;
+        cout << "11. Zarządzanie rabatami." << endl;
+        cout << "12. Przeszukaj bazę." << endl;
+        cout << "13. Zapisz aktualny stan." << endl;
+        cout << "14. Wczytaj ostatni stan." << endl;
+        cout << "15. Zakończ." << endl << endl;
 
         cout << "Wybór: ";
     }
@@ -96,31 +97,6 @@ using namespace std;
         fclose(klienci_arch);
     }
 
-    void dodaj_produkt() {
-        string nazwa;
-
-        cout << "Podaj nazwę produktu, który chcesz dodać:" << endl;
-        cin >> nazwa;
-        int i;
-        for (i = 1; i < N; i++)
-        {
-            if (produkty[i].nazwa == nazwa) {
-                cout << "Nazwa produktu istnieje już w bazie." << endl;
-                break;
-            } else if (produkty[i].nazwa.empty()) {
-                produkty[i].nazwa = nazwa;
-                produkty[i].id_produktu = i;
-                cout << "Podaj typ produktu:" << endl;;
-                cin >> produkty[i].typ;
-                cout << "Podaj ilość produktów na stanie:" << endl;
-                cin >> produkty[i].ilosc;
-                cout << "Podaj cenę jednego produktu:" << endl;
-                cin >> produkty[i].cena_reg;
-                produkty[i].cena = produkty[i].cena_reg;
-                break;
-            }
-        }
-    }
 
     int lista_produktow (int promocja=0) {
         int i;
@@ -438,6 +414,96 @@ using namespace std;
         cin.get();
     }
 
+        void sprzedaj_produkt() {
+        string produkt;
+        string klient;
+        char wybor;
+        bool sukces = false;
+        int ilosc;
+        int i;
+        int indeks;
+
+        lista_klientow();
+        cout << endl;
+
+        cout << "Podaj nazwę klienta, który chce dokonać transakcji:" << endl;
+        cin >> klient;
+
+        for (i = 1; i < N; i++) {
+            if (klienci[i].nazwa == klient) {
+                indeks = i;
+                sukces = true;
+                break;
+            }
+        }
+
+        while (sukces) {
+            lista_produktow();
+            cout << endl;
+            cout << "Podaj nazwę produktu, który chce kupić " << klienci[indeks].nazwa << ":" << endl;
+            cin >> produkt;
+
+            sukces = false;
+            for (i = 1; i < N; i++) {
+                if (produkty[i].nazwa == produkt) {
+                    cout << "Ile sztuk produktu '" << produkty[i].nazwa << "' chcesz sprzedac? (stan: " << produkty[i].ilosc << ")" << endl;
+                    cin >> ilosc;
+                    if (ilosc <= produkty[i].ilosc) {
+                        sukces = true;
+                        produkty[i].ilosc -= ilosc;
+                        cout << produkty[i].cena << endl;
+                        klienci[indeks].saldo -= produkty[i].cena;
+                        break;
+                    }
+                }
+            }
+
+            cout << "Czy klient chce dokonać kolejnej transakcji? (T/n):";
+            cin >> wybor;
+
+            if (wybor == 'T') {
+                sukces = true;
+            } else {
+                sukces = false;
+            }
+
+
+        }
+
+
+        if (!sukces) {
+            cout << "Transakcja nieudana." << endl;
+        } else {
+            cout << "Transakcja zakończona sukcesem." << endl;
+        }
+    }
+
+    void dodaj_produkt() {
+        string nazwa;
+
+        cout << "Podaj nazwę produktu, który chcesz dodać:" << endl;
+        cin >> nazwa;
+        int i;
+        for (i = 1; i < N; i++)
+        {
+            if (produkty[i].nazwa == nazwa) {
+                cout << "Nazwa produktu istnieje już w bazie." << endl;
+                break;
+            } else if (produkty[i].nazwa.empty()) {
+                produkty[i].nazwa = nazwa;
+                produkty[i].id_produktu = i;
+                cout << "Podaj typ produktu:" << endl;;
+                cin >> produkty[i].typ;
+                cout << "Podaj ilość produktów na stanie:" << endl;
+                cin >> produkty[i].ilosc;
+                cout << "Podaj cenę jednego produktu:" << endl;
+                cin >> produkty[i].cena_reg;
+                produkty[i].cena = produkty[i].cena_reg;
+                break;
+            }
+        }
+    }
+
 int main(void) {
 
     while (1)
@@ -454,45 +520,48 @@ int main(void) {
                 cin.get();
                 break;
             case 2:
-                dodaj_produkt();
+                sprzedaj_produkt();
                 break;
             case 3:
-                edytuj_produkt();
+                dodaj_produkt();
                 break;
             case 4:
-                usun_produkt();
+                edytuj_produkt();
                 break;
             case 5:
-                promocje();
+                usun_produkt();
                 break;
             case 6:
+                promocje();
+                break;
+            case 7:
                 lista_klientow();
                 cout << "Nacisnij klawisz enter, aby kontyunować." << endl;
                 cin.ignore();
                 cin.get();
                 break;
-            case 7:
+            case 8:
                 dodaj_klienta();
                 break;
-            case 8:
+            case 9:
                 edytuj_klienta();
                 break;
-            case 9:
+            case 10:
                 usun_klienta();
                 break;
-            case 10:
+            case 11:
                 rabaty();
                 break;
-            case 11:
+            case 12:
                 szukaj();
                 break;
-            case 12:
+            case 13:
                 zapisz();
                 break;
-            case 13:
+            case 14:
                 wczytaj_dane();
                 break;
-            case 14:
+            case 15:
                 cout << "Możesz teraz bezpiecznie wyłączyć program." << endl;
                 return 0;
             default:
