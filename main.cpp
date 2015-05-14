@@ -439,14 +439,14 @@ using namespace std;
         cin.get();
     }
 
-        void sprzedaj_produkt() {
+    void sprzedaj_produkt() {
         string produkt;
         string klient;
         char wybor;
         bool sukces = false;
         int ilosc;
         int i;
-        int indeks;
+        int indeks = 0;
 
         lista_klientow();
         cout << endl;
@@ -462,7 +462,9 @@ using namespace std;
             }
         }
 
-        while (1) {
+
+
+        while (indeks) {
             lista_produktow();
             cout << endl;
             cout << "Podaj nazwę produktu, który chce kupić " << klienci[indeks].nazwa << ":" << endl;
@@ -493,6 +495,9 @@ using namespace std;
 
         }
 
+        if (!indeks) {
+            cout << "Klient o podanej nazwie nie figuruje w bazie." << endl;
+        }
 
         if (!sukces) {
             cout << "Transakcja nieudana." << endl;
