@@ -347,7 +347,7 @@ using namespace std;
             for (i = 1; i < N; i++) {
                 if (klienci[i].nazwa == nazwa) {
                     pom = 1;
-                    cout << "Podaj wysokość rabatu (np. 5%)";
+                    cout << "Podaj wysokość rabatu (np. 5%):" << endl;
                     cin >> klienci[i].rabat;
                 }
             }
@@ -455,6 +455,10 @@ using namespace std;
                     cout << "Ile sztuk produktu '" << produkty[i].nazwa << "' chcesz sprzedac? (stan: " << produkty[i].ilosc << ")" << endl;
                     cin >> ilosc;
                     if (ilosc <= produkty[i].ilosc) {
+                        if (klienci[indeks].rabat) {
+                            produkty[i].cena = ((produkty[i].cena * klienci[indeks].rabat) / 100.00);
+                            cout << "Przyznano rabat w wysokości: " << klienci[indeks].rabat << "." << endl << endl;;
+                        }
                         sukces = true;
                         klienci[indeks].saldo -= (produkty[i].cena * ilosc);
                         produkty[i].ilosc -= ilosc;
