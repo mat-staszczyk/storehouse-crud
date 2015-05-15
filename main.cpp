@@ -75,7 +75,8 @@ using namespace std;
         int pusta = 0;
         cout << endl << "Lista produktów:" << endl << endl;
         for (i = 1; i < N; i++) {
-            if (!produkty[i].nazwa.empty()) {
+            if (produkty[i].nazwa != "") {
+                pusta = 1;
                 cout << i << ". " << produkty[i].nazwa << "   " << "rodzaj: " << produkty[i].typ << "   " << "ilość: " << produkty[i].ilosc << " szt." << "   " << "cena: " << produkty[i].cena << " PLN" << endl;
                 if (promocja) {
                     if (produkty[i].promocja != 0) {
@@ -83,7 +84,6 @@ using namespace std;
                     }
                     cout << "   " << "wysokość rabatu: " << produkty[i].promocja << "%" << endl;
                 }
-                pusta = 1;
             }
         }
         if (!pusta) {
@@ -442,7 +442,9 @@ using namespace std;
 
 
         while (indeks) {
-            lista_produktow();
+            if (lista_produktow()) {
+                return;
+            }
             cout << endl;
             cout << "Podaj nazwę produktu, który chce kupić " << klienci[indeks].nazwa << ":" << endl;
             cin >> produkt;
@@ -454,9 +456,11 @@ using namespace std;
                     cin >> ilosc;
                     if (ilosc <= produkty[i].ilosc) {
                         sukces = true;
+                        klienci[indeks].saldo -= (produkty[i].cena * ilosc);
                         produkty[i].ilosc -= ilosc;
-                        klienci[indeks].saldo -= (produkty[i].cena * produkty[i].ilosc);
                         break;
+                    } else {
+                        cout << "Nie posiadamy wystarczającej ilości produktu." << endl;
                     }
                 }
             }
@@ -492,10 +496,11 @@ int main(void) {
         switch (wybor)
         {
             case 1:
-                lista_produktow();
-                cout << "Nacisnij klawisz enter, aby kontyunować." << endl;
-                cin.ignore();
-                cin.get();
+                if (!lista_produktow()) {
+                    cout << "Naciśnij klawisz enter, aby konynuować" << endl;
+                    cin.ignore();
+                    cin.get();
+                }
                 break;
             case 2:
                 sprzedaj_produkt();
@@ -513,10 +518,11 @@ int main(void) {
                 promocje();
                 break;
             case 7:
-                lista_klientow();
+                if (!lista_klientow()) {
                 cout << "Nacisnij klawisz enter, aby kontyunować." << endl;
                 cin.ignore();
                 cin.get();
+                }
                 break;
             case 8:
                 dodaj_klienta();
@@ -544,7 +550,7 @@ int main(void) {
                 return 0;
             default:
                 cout << "Błędny wybór." << endl;
-                return 0;
+                break;
         }
     }
 
