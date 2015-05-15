@@ -87,7 +87,10 @@ using namespace std;
             }
         }
         if (!pusta) {
-            cout << "Lista produktów jest pusta." << endl << endl;
+            cout << "Lista produktów jest pusta." << endl
+            << endl << "Naciśnij klawisz enter, aby konynuować" << endl;
+            cin.ignore();
+            cin.get();
             return 1;
         } else {
             cout << endl << endl;
@@ -125,7 +128,6 @@ using namespace std;
         string nazwa;
         int pom = 0;
         if (lista_produktow()) {
-            cout << endl;
             return 1;
         };
         cout << "Podaj nazwę produktu, który chcesz edytować: " << endl;
@@ -156,7 +158,6 @@ using namespace std;
         int pom = 0;
         char odp;
         if (lista_produktow()) {
-            cout << endl;
             return 1;
         };
         cout << "Podaj nazwę produktu, który chcesz usunąć: " << endl;
@@ -229,7 +230,10 @@ using namespace std;
             }
         }
         if (!pusta) {
-            cout << "Lista klientów jest pusta." << endl;
+            cout << "Lista klientów jest pusta." << endl
+            << endl << "Naciśnij klawisz enter, aby konynuować" << endl;
+            cin.ignore();
+            cin.get();
             return 1;
         } else {
             cout << endl;
@@ -263,7 +267,6 @@ using namespace std;
         string nazwa;
         int pom = 0;
         if (lista_klientow()) {
-            cout << endl;
             return 1;
         }
         cout << "Podaj nazwę klienta, którego chcesz edytować:" << endl;
@@ -296,7 +299,6 @@ using namespace std;
 
     int usun_klienta () {
         if (lista_klientow()) {
-            cout << endl;
             return 1;
         }
         string nazwa;
@@ -421,7 +423,9 @@ using namespace std;
         int i;
         int indeks = 0;
 
-        lista_klientow();
+        if (lista_klientow()) {
+            return;
+        }
         cout << endl;
 
         cout << "Podaj nazwę klienta, który chce dokonać transakcji:" << endl;
