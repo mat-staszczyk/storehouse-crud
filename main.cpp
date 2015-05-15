@@ -456,12 +456,14 @@ using namespace std;
                     cin >> ilosc;
                     if (ilosc <= produkty[i].ilosc) {
                         if (klienci[indeks].rabat) {
-                            produkty[i].cena = ((produkty[i].cena * klienci[indeks].rabat) / 100.00);
+                            produkty[i].cena -= ((produkty[i].cena * klienci[indeks].rabat) / 100.00);
                             cout << "Przyznano rabat w wysokości: " << klienci[indeks].rabat << "." << endl << endl;;
                         }
-                        sukces = true;
-                        klienci[indeks].saldo -= (produkty[i].cena * ilosc);
+                        float cena = produkty[i].cena * ilosc;
+                        klienci[indeks].saldo -= cena;
                         produkty[i].ilosc -= ilosc;
+                        sukces = true;
+                        cout << "Wartość transakcji to: " << cena << " PLN." << endl << endl;
                         break;
                     } else {
                         cout << "Nie posiadamy wystarczającej ilości produktu." << endl;
