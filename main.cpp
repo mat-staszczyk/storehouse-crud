@@ -460,7 +460,7 @@ using namespace std;
                 cout << endl <<"Nie znaleziono produktu '" << produkt << "' na liście produktów." << endl << endl;
             }
 
-            cout << "Czy klient chce dokonać kolejnej transakcji? (T/n):";
+            cout << "Czy klient chce dokonać kolejnej transakcji? (T/n):" << endl;
             cin >> wybor;
 
             if (wybor != 'T') break;
