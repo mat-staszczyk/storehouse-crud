@@ -30,7 +30,7 @@ void dodaj_klienta (void) {
     for (i = 1; i < N; i++)
     {
         if (klienci[i].nazwa == nazwa) {
-            cout << "Nazwa produktu istnieje już w bazie." << endl;
+            cout << "Nazwa klienta istnieje już w bazie." << endl;
             break;
         } else if (produkty[i].nazwa.empty()) {
             klienci[i].nazwa = nazwa;

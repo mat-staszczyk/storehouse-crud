@@ -30,6 +30,7 @@ int lista_produktow (int promocja = 0) {
 
 void dodaj_produkt(void) {
     string nazwa;
+    int dodaj;
     
     cout << "Podaj nazwę produktu, który chcesz dodać:" << endl;
     cin >> nazwa;
@@ -37,7 +38,11 @@ void dodaj_produkt(void) {
     for (i = 1; i < N; i++)
     {
         if (produkty[i].nazwa == nazwa) {
-            cout << "Nazwa produktu istnieje już w bazie." << endl;
+            cout << "Nazwa produktu istnieje już w bazie." << endl
+            << "Aktualna ilość '" << produkty[i].nazwa << "' to " << produkty[i].ilosc << "." << endl
+            << "Ile produktów dodać?" << endl;
+            cin >> dodaj;
+            produkty[i].ilosc += dodaj;
             break;
         } else if (produkty[i].nazwa.empty()) {
             produkty[i].nazwa = nazwa;
