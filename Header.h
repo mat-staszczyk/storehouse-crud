@@ -5,7 +5,7 @@
 using namespace std;
 
 const int N = 100;
-int wybor;
+extern int wybor;
 
 struct Produkt
 {
@@ -16,7 +16,9 @@ struct Produkt
     float cena;
     float cena_reg;
     int promocja;
-} produkty[N];
+};
+
+extern Produkt produkty[N];
 
 struct Klient
 {
@@ -26,22 +28,24 @@ struct Klient
     string nip;
     int rabat;
     float saldo;
-} klienci[N];
+};
 
-void menu();
-void szukaj();
-void wczytaj_dane();
-void zapisz ();
+extern Klient klienci[N];
 
-extern int lista_produktow (int);
-void dodaj_produkt();
-int edytuj_produkt();
-int usun_produkt();
-void promocje();
-void sprzedaj_produkt();
+int lista_klientow (void);
+void dodaj_klienta (void);
+int edytuj_klienta (void);
+int usun_klienta (void);
+void rabaty (void);
 
-int lista_klientow ();
-void dodaj_klienta();
-int edytuj_klienta();
-int usun_klienta();
-void rabaty();
+int lista_produktow (int);
+void dodaj_produkt(void);
+int edytuj_produkt (void);
+int usun_produkt (void);
+void promocje (void);
+void sprzedaj_produkt(void);
+
+void menu(void);
+void szukaj(void);
+void wczytaj_dane(void);
+void zapisz(void);

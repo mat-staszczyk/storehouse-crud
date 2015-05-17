@@ -1,6 +1,6 @@
-#include "Header.h"
+#include "./Header.h"
 
-int lista_klientow () {
+int lista_klientow (void) {
     int i;
     int pusta = 0;
     cout << endl << "Lista klientów:" << endl << endl;
@@ -22,7 +22,7 @@ int lista_klientow () {
     }
 }
 
-void dodaj_klienta () {
+void dodaj_klienta (void) {
     string nazwa;
     cout << "Podaj nazwę klienta, którego chcesz dodać:" << endl;
     cin >> nazwa;
@@ -44,7 +44,7 @@ void dodaj_klienta () {
     }
 }
 
-int edytuj_klienta () {
+int edytuj_klienta (void) {
     string nazwa;
     int pom = 0;
     if (lista_klientow()) {
@@ -78,7 +78,7 @@ int edytuj_klienta () {
     return 0;
 }
 
-int usun_klienta () {
+int usun_klienta (void) {
     if (lista_klientow()) {
         return 1;
     }
@@ -118,7 +118,7 @@ int usun_klienta () {
     return 0;
 }
 
-void rabaty () {
+void rabaty (void) {
     string nazwa;
     int pom = 0;
     if (!lista_klientow()) {

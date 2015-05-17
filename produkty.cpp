@@ -1,6 +1,6 @@
-#include "Header.h"
+#include "./Header.h"
 
-int lista_produktow (int promocja=0) {
+int lista_produktow (int promocja = 0) {
     int i;
     int pusta = 0;
     cout << endl << "Lista produktów:" << endl << endl;
@@ -28,7 +28,7 @@ int lista_produktow (int promocja=0) {
     }
 }
 
-void dodaj_produkt() {
+void dodaj_produkt(void) {
     string nazwa;
     
     cout << "Podaj nazwę produktu, który chcesz dodać:" << endl;
@@ -54,7 +54,7 @@ void dodaj_produkt() {
     }
 }
 
-int edytuj_produkt () {
+int edytuj_produkt (void) {
     string nazwa;
     int pom = 0;
     if (lista_produktow()) {
@@ -83,7 +83,7 @@ int edytuj_produkt () {
     return 0;
 }
 
-int usun_produkt () {
+int usun_produkt (void) {
     string nazwa;
     int pom = 0;
     char odp;
@@ -123,7 +123,7 @@ int usun_produkt () {
     return 0;
 }
 
-void promocje () {
+void promocje (void) {
     string nazwa;
     int pom = 0;
     if (!lista_produktow(1)) {
@@ -149,7 +149,7 @@ void promocje () {
     }
 }
 
-void sprzedaj_produkt() {
+void sprzedaj_produkt(void) {
     string produkt;
     string klient;
     char wybor;

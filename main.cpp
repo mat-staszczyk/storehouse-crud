@@ -1,5 +1,9 @@
 #include "./Header.h"
 
+int wybor;
+Produkt produkty[N];
+Klient klienci[N];
+
 int main(void) {
     
     while (1)

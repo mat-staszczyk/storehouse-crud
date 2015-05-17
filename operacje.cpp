@@ -1,4 +1,4 @@
-#include "Header.h"
+#include "./Header.h"
 
 void menu() {
     cout << "###########################" << endl;
@@ -24,7 +24,7 @@ void menu() {
     cout << "Wybór: ";
 }
 
-void szukaj() {
+void szukaj(void) {
     string fraza;
     int pom = 0;
     cout << "Wyszukaj hasło:" << endl;
@@ -56,7 +56,7 @@ void szukaj() {
     cin.get();
 }
 
-void wczytaj_dane () {
+void wczytaj_dane(void) {
     FILE * produkty_arch;
     FILE * klienci_arch;
     
@@ -75,7 +75,7 @@ void wczytaj_dane () {
     fclose(klienci_arch);
 }
 
-void zapisz () {
+void zapisz(void) {
     FILE *produkty_arch;
     FILE *klienci_arch;
     produkty_arch = fopen("produkty.store", "wb");
