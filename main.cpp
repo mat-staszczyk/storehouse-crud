@@ -64,7 +64,7 @@ int main(void) {
                 wczytaj_dane();
                 break;
             case 15:
-                cout << "Możesz teraz bezpiecznie wyłączyć program." << endl;
+                cout << "Działanie programu zostało zakończone." << endl;
                 return 0;
             default:
                 cout << "Błędny wybór." << endl;
