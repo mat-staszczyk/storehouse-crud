@@ -5,17 +5,17 @@ Produkt produkty[N];
 Klient klienci[N];
 
 int main(void) {
-    
+
     while (1)
     {
         menu ();
         cin >> wybor;
-        
+
         switch (wybor)
         {
             case 1:
                 if (!lista_produktow(0)) {
-                    cout << "Naciśnij klawisz enter, aby konynuować" << endl;
+                    cout << "Naciśnij klawisz enter, aby kontynuować" << endl;
                     cin.ignore();
                     cin.get();
                 }
@@ -37,7 +37,7 @@ int main(void) {
                 break;
             case 7:
                 if (!lista_klientow()) {
-                    cout << "Nacisnij klawisz enter, aby kontyunować." << endl;
+                    cout << "Nacisnij klawisz enter, aby kontynuować." << endl;
                     cin.ignore();
                     cin.get();
                 }
@@ -71,5 +71,5 @@ int main(void) {
                 break;
         }
     }
-    
+
 }
