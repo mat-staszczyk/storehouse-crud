@@ -103,21 +103,26 @@ void wyszukiwanie() {
 
     int i;
     for (i = 0; i < N; i++) {
-        int j = 0, k = 0;
-        while (fraza[k] != '\0' && produkty[i].nazwa[j] != '\0') {
-            if (produkty[i].nazwa[j] == fraza[k]) {
-                znacznik = true;
-                k++;
-            } else {
-                znacznik = false;
-                k = 0;
+        int j = 0;
+        while (produkty[i].nazwa[j] != '\0') {
+            if (produkty[i].nazwa[j] == fraza[0]) {
+                int k = 0;
+                while (fraza[k] != '\0') {
+                    if (produkty[i].nazwa[j+k] == fraza[k]) {
+                        znacznik = true;
+                    } else {
+                        znacznik = false;
+                        break;
+                    }
+                    k++;
+                }
+                if (znacznik) {
+                    cout << "ID: #" << i << "   " << "nazwa: " << produkty[i].nazwa << "   " << "typ: " << produkty[i].typ << "   " << "ilość: " << produkty[i].ilosc << " szt." << "   " << "cena: " << produkty[i].cena << " PLN" << "   " << "promocja: " << produkty[i].promocja << "%" << endl << endl;
+                }
             }
             j++;
         }
-        if (znacznik) {
-            cout << "ID: #" << i << "   " << "nazwa: " << produkty[i].nazwa << "   " << "typ: " << produkty[i].typ << "   " << "ilość: " << produkty[i].ilosc << " szt." << "   " << "cena: " << produkty[i].cena << " PLN" << "   " << "promocja: " << produkty[i].promocja << "%" << endl << endl;
-        } else {
-            cout << "Nie znaleziono podanej frazy." << endl;
-        }
     }
+
+
 }
