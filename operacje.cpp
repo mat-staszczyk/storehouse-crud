@@ -107,7 +107,7 @@ void wyszukiwanie() {
     for (i = 0; i < N; i++) {
         while (produkty[i].nazwa[j] != '\0') {
             if (produkty[i].nazwa[j] == fraza[0]) {
-                int k = 0;
+                int k = 1;
                 while (fraza[k] != '\0') {
                     if (produkty[i].nazwa[j+k] == fraza[k]) {
                         znacznik = true;
@@ -129,7 +129,7 @@ void wyszukiwanie() {
         j = 0;
         while (produkty[i].typ[j] != '\0') {
             if (produkty[i].typ[j] == fraza[0]) {
-                int k = 0;
+                int k = 1;
                 while (fraza[k] != '\0') {
                     if (produkty[i].typ[j+k] == fraza[k]) {
                         znacznik = true;
@@ -148,13 +148,17 @@ void wyszukiwanie() {
         }
     }
 
+    if (pusta) {
+        cout << "brak wyników" << endl << endl;
+    }
+
     cout << endl << "Wyniki wyszukiwania dla kategorii 'Klienci':" << endl << endl;
 
     for (i = 0; i < N; i++) {
         j = 0;
         while (klienci[i].nazwa[j] != '\0') {
             if (klienci[i].nazwa[j] == fraza[0]) {
-                int k = 0;
+                int k = 1;
                 while (fraza[k] != '\0') {
                     if (klienci[i].nazwa[j+k] == fraza[k]) {
                         znacznik = true;
@@ -177,7 +181,7 @@ void wyszukiwanie() {
         j = 0;
         while (klienci[i].grupa[j] != '\0') {
             if (klienci[i].grupa[j] == fraza[0]) {
-                int k = 0;
+                int k = 1;
                 while (fraza[k] != '\0') {
                     if (klienci[i].grupa[j+k] == fraza[k]) {
                         znacznik = true;
@@ -200,7 +204,7 @@ void wyszukiwanie() {
         j = 0;
         while (klienci[i].nip[j] != '\0') {
             if (klienci[i].nip[j] == fraza[0]) {
-                int k = 0;
+                int k = 1;
                 while (fraza[k] != '\0') {
                     if (klienci[i].nip[j+k] == fraza[k]) {
                         znacznik = true;
