@@ -55,7 +55,7 @@ int main(void) {
                 rabaty();
                 break;
             case 12:
-                szukaj();
+                wyszukiwanie();
                 break;
             case 13:
                 zapisz();

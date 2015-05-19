@@ -49,3 +49,4 @@ void menu(void);
 void szukaj(void);
 void wczytaj_dane(void);
 void zapisz(void);
+void wyszukiwanie(void);

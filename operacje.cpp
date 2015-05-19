@@ -20,7 +20,7 @@ void menu() {
     cout << "13. Zapisz aktualny stan." << endl;
     cout << "14. Wczytaj ostatni stan." << endl;
     cout << "15. Zakończ." << endl << endl;
-    
+
     cout << "Wybór: ";
 }
 
@@ -59,10 +59,10 @@ void szukaj(void) {
 void wczytaj_dane(void) {
     FILE * produkty_arch;
     FILE * klienci_arch;
-    
+
     produkty_arch = fopen("produkty.store", "rb");
     klienci_arch = fopen("klienci.store", "rb");
-    
+
     if (fread(&produkty, sizeof(produkty), N, produkty_arch) &&
         fread(&klienci, sizeof(klienci), N, klienci_arch))
     {
@@ -70,7 +70,7 @@ void wczytaj_dane(void) {
     } else {
         cout << "Brak dostępu do danych." << endl;
     }
-    
+
     fclose(produkty_arch);
     fclose(klienci_arch);
 }
@@ -80,7 +80,7 @@ void zapisz(void) {
     FILE *klienci_arch;
     produkty_arch = fopen("produkty.store", "wb");
     klienci_arch = fopen("klienci.store", "wb");
-    
+
     if (fwrite(produkty, sizeof(struct Produkt), N, produkty_arch) &&
         fwrite(klienci, sizeof(struct Klient), N, klienci_arch))
     {
@@ -93,4 +93,31 @@ void zapisz(void) {
     cout << "Naciśnij klawisz enter, aby konynuować" << endl;
     cin.ignore();
     cin.get();
+}
+
+void wyszukiwanie() {
+    string fraza;
+    cout << "Podaj frazę, której chcesz wyszukać:" << endl;
+    cin >> fraza;
+    bool znacznik = false;
+
+    int i;
+    for (i = 0; i < N; i++) {
+        int j = 0, k = 0;
+        while (fraza[k] != '\0' && produkty[i].nazwa[j] != '\0') {
+            if (produkty[i].nazwa[j] == fraza[k]) {
+                znacznik = true;
+                k++;
+            } else {
+                znacznik = false;
+                k = 0;
+            }
+            j++;
+        }
+        if (znacznik) {
+            cout << "ID: #" << i << "   " << "nazwa: " << produkty[i].nazwa << "   " << "typ: " << produkty[i].typ << "   " << "ilość: " << produkty[i].ilosc << " szt." << "   " << "cena: " << produkty[i].cena << " PLN" << "   " << "promocja: " << produkty[i].promocja << "%" << endl << endl;
+        } else {
+            cout << "Nie znaleziono podanej frazy." << endl;
+        }
+    }
 }
