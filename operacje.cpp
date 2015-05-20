@@ -28,8 +28,8 @@ void wczytaj_dane(void) {
     FILE * produkty_arch;
     FILE * klienci_arch;
 
-    produkty_arch = fopen("produkty.store", "rb");
-    klienci_arch = fopen("klienci.store", "rb");
+	fopen_s(&produkty_arch, "produkty.store", "rb");
+	fopen_s(&klienci_arch, "klienci.store", "rb");
 
     if (fread(&produkty, sizeof(produkty), N, produkty_arch) &&
         fread(&klienci, sizeof(klienci), N, klienci_arch))
@@ -46,8 +46,8 @@ void wczytaj_dane(void) {
 void zapisz(void) {
     FILE *produkty_arch;
     FILE *klienci_arch;
-    produkty_arch = fopen("produkty.store", "wb");
-    klienci_arch = fopen("klienci.store", "wb");
+	fopen_s(&produkty_arch, "produkty.store", "wb");
+	fopen_s(&klienci_arch, "klienci.store", "wb");
 
     if (fwrite(produkty, sizeof(struct Produkt), N, produkty_arch) &&
         fwrite(klienci, sizeof(struct Klient), N, klienci_arch))
