@@ -1,6 +1,7 @@
 #include "./Header.h"
 
 int wybor;
+string temp;
 Produkt produkty[N];
 Klient klienci[N];
 
@@ -9,7 +10,8 @@ int main(void) {
     while (1)
     {
         menu ();
-        cin >> wybor;
+        cin >> temp;
+        wybor = atoi(temp.c_str());
 
         switch (wybor)
         {
