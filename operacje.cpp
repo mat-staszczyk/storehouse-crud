@@ -44,20 +44,19 @@ void wczytaj_dane(void) {
 }
 
 void zapisz(void) {
-    FILE *produkty_arch;
-    FILE *klienci_arch;
-	fopen_s(&produkty_arch, "produkty.store", "wb");
-	fopen_s(&klienci_arch, "klienci.store", "wb");
+    fstream produkty_arch, klienci_arch;
+	produkty_arch.open ("produkty.store", fstream::out | fstream::binary);
+	klienci_arch.open("klienci.store", fstream::out | fstream::binary);
 
-    if (fwrite(produkty, sizeof(struct Produkt), N, produkty_arch) &&
-        fwrite(klienci, sizeof(struct Klient), N, klienci_arch))
+    if (produkty_arch << produkty &&
+        klienci_arch << klienci)
     {
         cout << "Zapisywanie zakończone powodzeniem." << endl;
     } else {
         cout << "Brak dostępu do dysku!" << endl;
     }
-    fclose(produkty_arch);
-    fclose(klienci_arch);
+    produkty_arch.close();
+    klienci_arch.close();
     cout << "Naciśnij klawisz enter, aby konynuować" << endl;
     cin.ignore();
     cin.get();
