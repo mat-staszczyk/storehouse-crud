@@ -29,17 +29,15 @@ void wczytaj_dane(void) {
 	produkty_arch.open("produkty.store", fstream::in | fstream::binary);
 	klienci_arch.open("klienci.store", fstream::in | fstream::binary);
 
-	produkty_arch.read((char*)&produkty, sizeof(Produkt));
-	klienci_arch.read((char*)&klienci, sizeof(Klient));
-	/*
-    if (produkty_arch >> produkty &&
-        klienci_arch >> klienci)
+
+
+    if (produkty_arch.read((char*)&produkty, sizeof(Produkt)) &&
+		klienci_arch.read((char*)&klienci, sizeof(Klient)))
     {
         cout << "Dane wczytane prawidłowo." << endl;
     } else {
         cout << "Brak dostępu do danych." << endl;
     }
-	*/
 
     produkty_arch.close();
     klienci_arch.close();
@@ -52,18 +50,16 @@ void zapisz(void) {
     fstream produkty_arch, klienci_arch;
 	produkty_arch.open ("produkty.store", fstream::out | fstream::binary);
 	klienci_arch.open("klienci.store", fstream::out | fstream::binary);
-	/*
-    if (produkty_arch << produkty &&
-        klienci_arch << klienci)
+    
+	if (produkty_arch.write((char*)&produkty, sizeof(Produkt)) &&
+		klienci_arch.write((char*)klienci, sizeof(Klient)))
     {
         cout << "Zapisywanie zakończone powodzeniem." << endl;
     } else {
         cout << "Brak dostępu do dysku!" << endl;
     }
-	*/
 
-	produkty_arch.write((char*)&produkty, sizeof(Produkt));
-	klienci_arch.write((char*)klienci, sizeof(Klient));
+
 
     produkty_arch.close();
     klienci_arch.close();
