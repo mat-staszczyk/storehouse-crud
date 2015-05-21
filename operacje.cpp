@@ -25,29 +25,34 @@ void menu() {
 }
 
 void wczytaj_dane(void) {
-    FILE * produkty_arch;
-    FILE * klienci_arch;
+	fstream produkty_arch, klienci_arch;
+	produkty_arch.open("produkty.store", fstream::in | fstream::binary);
+	klienci_arch.open("klienci.store", fstream::in | fstream::binary);
 
-	fopen_s(&produkty_arch, "produkty.store", "rb");
-	fopen_s(&klienci_arch, "klienci.store", "rb");
-
-    if (fread(&produkty, sizeof(produkty), N, produkty_arch) &&
-        fread(&klienci, sizeof(klienci), N, klienci_arch))
+	produkty_arch.read((char*)&produkty, sizeof(Produkt));
+	klienci_arch.read((char*)&klienci, sizeof(Klient));
+	/*
+    if (produkty_arch >> produkty &&
+        klienci_arch >> klienci)
     {
         cout << "Dane wczytane prawidłowo." << endl;
     } else {
         cout << "Brak dostępu do danych." << endl;
     }
+	*/
 
-    fclose(produkty_arch);
-    fclose(klienci_arch);
+    produkty_arch.close();
+    klienci_arch.close();
+	cout << "Naciśnij klawisz enter, aby konynuować" << endl;
+	cin.ignore();
+	cin.get();
 }
 
 void zapisz(void) {
     fstream produkty_arch, klienci_arch;
 	produkty_arch.open ("produkty.store", fstream::out | fstream::binary);
 	klienci_arch.open("klienci.store", fstream::out | fstream::binary);
-
+	/*
     if (produkty_arch << produkty &&
         klienci_arch << klienci)
     {
@@ -55,6 +60,11 @@ void zapisz(void) {
     } else {
         cout << "Brak dostępu do dysku!" << endl;
     }
+	*/
+
+	produkty_arch.write((char*)&produkty, sizeof(Produkt));
+	klienci_arch.write((char*)klienci, sizeof(Klient));
+
     produkty_arch.close();
     klienci_arch.close();
     cout << "Naciśnij klawisz enter, aby konynuować" << endl;
