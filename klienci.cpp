@@ -45,16 +45,16 @@ void dodaj_klienta (void) {
 }
 
 int edytuj_klienta (void) {
-    string nazwa;
+	int id;
     int pom = 0;
     if (lista_klientow()) {
         return 1;
     }
-    cout << "Podaj nazwę klienta, którego chcesz edytować:" << endl;
-    cin >> nazwa;
+    cout << "Podaj ID klienta, którego chcesz edytować:" << endl;
+    cin >> id;
     int i;
     for (i = 1; i < N; i++) {
-        if (klienci[i].nazwa == nazwa) {
+        if (klienci[i].id_klienta == id) {
             pom = 1;
             cout << "Edycja danych klienta o id #" << i << ":" << endl;
             cout << "Podaj nową nazwę klienta (aktualna nazwa: " << klienci[i].nazwa << "):" << endl;
@@ -66,7 +66,7 @@ int edytuj_klienta (void) {
         }
     }
     if (!pom) {
-        cout << "Nie znaleziono klienta o podanej nazwie." << endl << "Naciśnij klawisz enter, aby konynuować" << endl;
+        cout << "Nie znaleziono klienta o podanym ID." << endl << "Naciśnij klawisz enter, aby konynuować" << endl;
         cin.ignore();
         cin.get();
     } else {
