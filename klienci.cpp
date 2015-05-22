@@ -82,15 +82,15 @@ int usun_klienta (void) {
     if (lista_klientow()) {
         return 1;
     }
-    string nazwa;
+    int id;
     int pom = 0;
     char odp;
     lista_klientow();
-    cout << "Podaj nazwę klienta, którego chcesz usunąć z bazy: " << endl;
-    cin >> nazwa;
+    cout << "Podaj ID, którego chcesz usunąć z bazy: " << endl;
+    cin >> id;
     int i;
     for (i = 1; i < N; i++) {
-        if (klienci[i].nazwa == nazwa) {
+        if (klienci[i].id_klienta == id) {
             pom = 1;
             cout << "Czy na pewno chcesz usunąć wpis klienta o nazwie " << klienci[i].nazwa << "? (T/n)" << endl;
             cin >> odp;
@@ -103,11 +103,8 @@ int usun_klienta (void) {
                 klienci[i].saldo = 0;
                 cout << "Wpis klienta został usunięty." << endl;
                 break;
-            } else if (odp == 'n') {
-                cout << "Usuwanie anulowane.";
-                break;
             } else {
-                cout << "Błędna odpowiedź.";
+                cout << "Usuwanie anulowane.";
                 break;
             }
         }
