@@ -97,7 +97,9 @@ int usun_produkt (void) {
     cin >> id;
     int i;
     for (i = 1; i < N; i++) {
-        if (produkty[i].id_produktu == id) {
+		if (id == 0) {
+			break;
+		} else if (produkty[i].id_produktu == id) {
             pom = 1;
             cout << "Czy na pewno chcesz usunąć produkt o nazwie " << produkty[i].nazwa << "? (T/n)" << endl;
             cin >> odp;
@@ -111,9 +113,10 @@ int usun_produkt (void) {
                 
                 cout << "Produkt został usunięty." << endl;
                 break;
-            } else if (odp == 'n') {
-                cout << "Usuwanie anulowane." << endl;
-                break;
+			}
+			else if (odp == 'n') {
+				cout << "Usuwanie anulowane." << endl;
+				break;
             } else {
                 cout << "Błędna odpowiedź." << endl;
                 break;
