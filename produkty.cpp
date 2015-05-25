@@ -88,17 +88,16 @@ int edytuj_produkt (void) {
 }
 
 int usun_produkt (void) {
-    string nazwa;
-    int pom = 0;
+    int id, pom = 0;
     char odp;
     if (lista_produktow()) {
         return 1;
     };
-    cout << "Podaj nazwę produktu, który chcesz usunąć: " << endl;
-    cin >> nazwa;
+    cout << "Podaj ID produktu, który chcesz usunąć: " << endl;
+    cin >> id;
     int i;
     for (i = 1; i < N; i++) {
-        if (produkty[i].nazwa == nazwa) {
+        if (produkty[i].id_produktu == id) {
             pom = 1;
             cout << "Czy na pewno chcesz usunąć produkt o nazwie " << produkty[i].nazwa << "? (T/n)" << endl;
             cin >> odp;
@@ -122,7 +121,7 @@ int usun_produkt (void) {
         }
     }
     if (!pom) {
-        cout << "Nie znaleziono produktu o podanej nazwie." << endl;
+        cout << "Nie znaleziono produktu o podanym ID." << endl;
     }
     return 0;
 }
