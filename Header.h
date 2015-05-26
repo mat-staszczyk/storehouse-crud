@@ -13,7 +13,7 @@ struct Produkt
     int id_produktu;
     string nazwa;
     string typ;
-    int ilosc;
+    float ilosc;
     float cena;
     float cena_reg;
     int promocja;
