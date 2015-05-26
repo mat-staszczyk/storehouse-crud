@@ -130,14 +130,13 @@ int usun_produkt (void) {
 }
 
 void promocje (void) {
-    string nazwa;
-    int pom = 0;
+    int id, pom = 0;
     if (!lista_produktow(1)) {
-        cout << "Podaj nazwę produktu, który chcesz objąć promocją: " << endl;
-        cin >> nazwa;
+        cout << "Podaj ID produktu, który chcesz objąć promocją: " << endl;
+        cin >> id;
         int i;
         for (i = 1; i < N; i++) {
-            if (produkty[i].nazwa == nazwa) {
+            if (produkty[i].id_produktu == id) {
                 pom = 1;
                 cout << "Podaj wartość promocji (np. 15%)";
                 cin >> produkty[i].promocja;
@@ -145,7 +144,7 @@ void promocje (void) {
             }
         }
         if (!pom) {
-            cout << "Nie znaleziono produktu o podanej nazwie." << endl;
+            cout << "Nie znaleziono produktu o podanym ID." << endl;
         } else {
             lista_produktow(1);
             cout << "Naciśnij klawisz enter, aby konynuować" << endl;
