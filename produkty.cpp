@@ -155,24 +155,20 @@ void promocje (void) {
 }
 
 void sprzedaj_produkt(void) {
-    string produkt;
-    string klient;
     char wybor;
     bool sukces = false;
-    int ilosc;
-    int i;
-    int indeks = 0;
+    int ilosc, produkt_id, klient_id, i, indeks = 0;
     
     if (lista_klientow()) {
         return;
     }
     cout << endl;
     
-    cout << "Podaj nazwę klienta, który chce dokonać transakcji:" << endl;
-    cin >> klient;
+    cout << "Podaj ID klienta, który chce dokonać transakcji:" << endl;
+    cin >> klient_id;
     
     for (i = 1; i < N; i++) {
-        if (klienci[i].nazwa == klient) {
+        if (klienci[i].id_klienta == klient_id) {
             indeks = i;
             sukces = true;
             break;
@@ -183,12 +179,12 @@ void sprzedaj_produkt(void) {
             return;
         }
         cout << endl;
-        cout << "Podaj nazwę produktu, który chce kupić " << klienci[indeks].nazwa << ":" << endl;
-        cin >> produkt;
+        cout << "Podaj ID produktu, który chce kupić " << klienci[indeks].nazwa << ":" << endl;
+        cin >> produkt_id;
         
         sukces = false;
         for (i = 1; i < N; i++) {
-            if (produkty[i].nazwa == produkt) {
+            if (produkty[i].id_produktu == produkt_id) {
                 cout << "Ile sztuk produktu '" << produkty[i].nazwa << "' chcesz sprzedac? (stan: " << produkty[i].ilosc << ")" << endl;
                 cin >> ilosc;
                 if (ilosc <= produkty[i].ilosc) {
@@ -208,7 +204,7 @@ void sprzedaj_produkt(void) {
             }
         }
         if (!sukces) {
-            cout << endl <<"Nie znaleziono produktu '" << produkt << "' na liście produktów." << endl << endl;
+			cout << endl <<"Nie znaleziono produktu o ID #" << produkt_id << "' na liście produktów." << endl << endl;
         }
         
         cout << "Czy klient chce dokonać kolejnej transakcji? (T/n):" << endl;
