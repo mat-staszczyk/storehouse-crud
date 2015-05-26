@@ -32,7 +32,7 @@ void dodaj_klienta (void) {
         if (klienci[i].nazwa == nazwa) {
             cout << "Nazwa klienta istnieje już w bazie." << endl;
             break;
-        } else if (produkty[i].nazwa.empty()) {
+        } else if (klienci[i].nazwa.empty()) {
             klienci[i].nazwa = nazwa;
             klienci[i].id_klienta = i;
             cout << "Podaj grupę klienta" << endl;;
