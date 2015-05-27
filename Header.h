@@ -2,6 +2,7 @@
 #include <string>
 #include <cstdlib>
 #include <stdio.h>
+#include <math.h>
 
 using namespace std;
 
