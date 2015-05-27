@@ -130,6 +130,7 @@ int usun_produkt (void) {
 }
 
 void promocje (void) {
+	float cena;
     int id, pom = 0;
     if (!lista_produktow(1)) {
         cout << "Podaj ID produktu, który chcesz objąć promocją: " << endl;
@@ -140,7 +141,8 @@ void promocje (void) {
                 pom = 1;
                 cout << "Podaj wartość promocji (np. 15%)";
                 cin >> produkty[i].promocja;
-                produkty[i].cena = produkty[i].cena_reg - (produkty[i].cena_reg * (produkty[i].promocja / 100.00));
+                cena = produkty[i].cena_reg - (produkty[i].cena_reg * (produkty[i].promocja / 100.00));
+				produkty[i].cena = roundf(cena * 100) / 100;
             }
         }
         if (!pom) {
