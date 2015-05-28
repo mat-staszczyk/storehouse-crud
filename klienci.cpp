@@ -117,17 +117,18 @@ int usun_klienta (void) {
 
 void rabaty (void) {
     int wybor, id, pom = 0;
-	string grupa;
+	string grupa, temp;
 	float rabat;
-	cout << "Komu chciałyś przyznać rabat?" << endl <<
-			"1. Konkretnemu klientowi" << endl <<
-			"2. Grupie klinetów" << endl;
-	cin >> wybor;
+	cout << "Czyj rabat zostanie zmieniony?" << endl <<
+			"1. Pojedynczy klient" << endl <<
+			"2. Grupa klinetów" << endl;
+	cin >> temp;
+	wybor = atoi(temp.c_str());
 
 	switch (wybor) {
 	case 1:
 		if (!lista_klientow()) {
-			cout << "Podaj ID klienta, którego chcesz objąć rabatem: " << endl;
+			cout << "Podaj ID klienta, którego rabat ma zostać zmieniony: " << endl;
 			cin >> id;
 			int i;
 			for (i = 1; i < N; i++) {
