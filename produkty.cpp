@@ -194,7 +194,8 @@ void sprzedaj_produkt(void) {
                         produkty[i].cena -= ((produkty[i].cena * klienci[indeks].rabat) / 100.00);
                         cout << "Przyznano rabat w wysokości: " << klienci[indeks].rabat << "." << endl << endl;;
                     }
-                    float cena = produkty[i].cena * ilosc;
+					float cena = roundf(produkty[i].cena * 100) / 100;
+					cena *= ilosc;
                     klienci[indeks].saldo -= cena;
                     produkty[i].ilosc -= ilosc;
                     sukces = true;
