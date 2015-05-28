@@ -23,9 +23,13 @@ int lista_klientow (void) {
 }
 
 void dodaj_klienta (void) {
-    string nazwa;
+    string nazwa, grupa, nip;
     cout << "Podaj nazwę klienta, którego chcesz dodać:" << endl;
     cin >> nazwa;
+	cout << "Podaj grupę klienta" << endl;;
+	cin >> grupa;
+	cout << "Podaj NIP klienta:" << endl;
+	cin >> nip;
     int i;
     for (i = 1; i < N; i++)
     {
@@ -35,10 +39,8 @@ void dodaj_klienta (void) {
         } else if (klienci[i].nazwa.empty()) {
             klienci[i].nazwa = nazwa;
             klienci[i].id_klienta = i;
-            cout << "Podaj grupę klienta" << endl;;
-            cin >> klienci[i].grupa;
-            cout << "Podaj NIP klienta:" << endl;
-            cin >> klienci[i].nip;
+            klienci[i].grupa = grupa;
+            klienci[i].nip = nip;
             break;
         }
     }
@@ -118,7 +120,7 @@ int usun_klienta (void) {
 void rabaty (void) {
     int wybor, id, pom = 0;
 	string grupa, temp;
-	float rabat;
+	int rabat;
 	cout << "Czyj rabat zostanie zmieniony?" << endl <<
 			"1. Pojedynczy klient" << endl <<
 			"2. Grupa klinetów" << endl;
