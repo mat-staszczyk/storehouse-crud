@@ -132,12 +132,14 @@ void rabaty (void) {
 		if (!lista_klientow()) {
 			cout << "Podaj ID klienta, którego rabat ma zostać zmieniony: " << endl;
 			cin >> id;
+			cout << "Podaj wysokość rabatu (np. 5%):" << endl;
+			cin >> rabat;
 			int i;
 			for (i = 1; i < N; i++) {
 				if (klienci[i].id_klienta == id) {
 					pom = 1;
 					cout << "Podaj wysokość rabatu (np. 5%):" << endl;
-					cin >> klienci[i].rabat;
+					klienci[i].rabat = rabat;
 				}
 			}
 			if (!pom) {
