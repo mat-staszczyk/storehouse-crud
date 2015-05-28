@@ -116,25 +116,64 @@ int usun_klienta (void) {
 }
 
 void rabaty (void) {
-    int id, pom = 0;
-    if (!lista_klientow()) {
-        cout << "Podaj ID klienta, którego chcesz objąć rabatem: " << endl;
-        cin >> id;
-        int i;
-        for (i = 1; i < N; i++) {
-            if (klienci[i].id_klienta == id) {
-                pom = 1;
-                cout << "Podaj wysokość rabatu (np. 5%):" << endl;
-                cin >> klienci[i].rabat;
-            }
-        }
-        if (!pom) {
-            cout << "Nie znaleziono wpisu o podanym ID klienta." << endl;
-        } else {
-            lista_klientow();
-            cout << "Naciśnij klawisz enter, aby konynuować" << endl;
-            cin.ignore();
-            cin.get();
-        }
-    }
+    int wybor, id, pom = 0;
+	string grupa;
+	float rabat;
+	cout << "Komu chciałyś przyznać rabat?" << endl <<
+			"1. Konkretnemu klientowi" << endl <<
+			"2. Grupie klinetów" << endl;
+	cin >> wybor;
+
+	switch (wybor) {
+	case 1:
+		if (!lista_klientow()) {
+			cout << "Podaj ID klienta, którego chcesz objąć rabatem: " << endl;
+			cin >> id;
+			int i;
+			for (i = 1; i < N; i++) {
+				if (klienci[i].id_klienta == id) {
+					pom = 1;
+					cout << "Podaj wysokość rabatu (np. 5%):" << endl;
+					cin >> klienci[i].rabat;
+				}
+			}
+			if (!pom) {
+				cout << "Nie znaleziono wpisu o podanym ID klienta." << endl;
+			}
+			else {
+				lista_klientow();
+				cout << "Naciśnij klawisz enter, aby konynuować" << endl;
+				cin.ignore();
+				cin.get();
+			}
+		}
+		break;
+	case 2:
+		if (!lista_klientow()) {
+			cout << "Podaj nazwę grupy, której ma zostać przyznany rabat" << endl;
+			cin >> grupa;
+			cout << "Podaj wysokość rabatu (np. 5%):" << endl;
+			cin >> rabat;
+			int i;
+			for (i = 1; i < N; i++) {
+				if (klienci[i].grupa == grupa) {
+					pom = 1;
+					klienci[i].rabat = rabat;
+				}
+			}
+			if (!pom) {
+				cout << "Nie znaleziono grupy o podanej nazwie." << endl;
+			}
+			else {
+				lista_klientow();
+				cout << "Naciśnij klawisz enter, aby konynuować" << endl;
+				cin.ignore();
+				cin.get();
+			}
+		}
+		break;
+	default:
+		cout << "Błędny wybór." << endl;
+		break;
+	}
 }
