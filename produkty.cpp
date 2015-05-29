@@ -144,7 +144,7 @@ void promocje (void) {
             if (produkty[i].id_produktu == id) {
                 pom = 1;
 				produkty[i].promocja = promocja;
-                cena = produkty[i].cena_reg - (produkty[i].cena_reg * (produkty[i].promocja / 100.00));
+                cena = produkty[i].cena_reg - (produkty[i].cena_reg * (produkty[i].promocja / static_cast<float>(100)));
 				produkty[i].cena = roundf(cena * 100) / 100;
             }
         }
