@@ -35,22 +35,26 @@ struct Klient
 
 extern Klient klienci[N];
 
+void sprzedaj_produkt(void);
+
 int lista_klientow (void);
 void dodaj_klienta (void);
 int edytuj_klienta (void);
 int usun_klienta (void);
-void rabaty (void);
 
 int lista_produktow (int);
 void dodaj_produkt(void);
 int edytuj_produkt (void);
 int usun_produkt (void);
-void promocje (void);
-void sprzedaj_produkt(void);
+
+void rabaty(void);
+void promocje(void);
 
 void menu(void);
 void menu_produkty(void);
 void menu_klienci(void);
+void menu_rabaty(void);
+
 void wczytaj_dane(void);
 void zapisz(void);
 void wyszukiwanie(void);

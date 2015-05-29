@@ -109,6 +109,40 @@ void menu_klienci() {
 	}
 }
 
+void menu_rabaty() {
+	int wybor;
+	string temp;
+	bool go = 1;
+	while (go) {
+		cout << "##############################" << endl
+			<< "### MENU PROMOCJE I RABATY ###" << endl
+			<< "##############################" << endl << endl
+			<< "Proszę wybrać jedną z poniższych opcji:" << endl << endl
+			<< "1. Zarządzanie promocjami produktów." << endl
+			<< "2. Zarządzanie rabatami klientów." << endl
+			<< "3. Powrót do głównego menu." << endl << endl
+			<< "Wybór: ";
+		cin >> temp;
+		wybor = atoi(temp.c_str());
+
+		switch (wybor) {
+		case 1:
+			promocje();
+			break;
+		case 2:
+			rabaty();
+			break;
+		case 3:
+			go = false;
+			break;
+		default:
+			cout << "Błędny wybór.";
+			break;
+
+		}
+	}
+}
+
 void wczytaj_dane(void) {
 	FILE * produkty_arch;
 	FILE * klienci_arch;

@@ -25,7 +25,7 @@ int main(void) {
 				menu_klienci();
                 break;
             case 4:
-                edytuj_produkt();
+				menu_rabaty();
                 break;
             case 5:
                 wyszukiwanie();
