@@ -16,14 +16,10 @@ int main(void) {
         switch (wybor)
         {
             case 1:
-                if (!lista_produktow(0)) {
-                    cout << "Naciśnij klawisz enter, aby kontynuować" << endl;
-                    cin.ignore();
-                    cin.get();
-                }
+				sprzedaj_produkt();
                 break;
             case 2:
-                sprzedaj_produkt();
+				menu_produkty();
                 break;
             case 3:
                 dodaj_produkt();

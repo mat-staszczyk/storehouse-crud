@@ -1,27 +1,67 @@
 #include "./Header.h"
 
 void menu() {
-	cout << "###########################" << endl;
-	cout << "### ZARZĄDZANIE TOWAREM ###" << endl;
-	cout << "###########################" << endl << endl;
-	cout << "Proszę wybrać jedną z poniższych opcji:" << endl << endl;
-	cout << "1. Wyświetl listę produktów." << endl;
-	cout << "2. Sprzedaj produkt." << endl;
-	cout << "3. Dodaj nowy produkt." << endl;
-	cout << "4. Edytuj produkty na liście." << endl;
-	cout << "5. Usuń produkt z listy." << endl;
-	cout << "6. Zarządzanie promocjami." << endl;
-	cout << "7. Wyświetl listę klientów." << endl;
-	cout << "8. Dodaj nowego klienta." << endl;
-	cout << "9. Edytuj listę klientów." << endl;
-	cout << "10. Usuń klienta z listy." << endl;
-	cout << "11. Zarządzanie rabatami." << endl;
-	cout << "12. Przeszukaj bazę." << endl;
-	cout << "13. Zapisz aktualny stan." << endl;
-	cout << "14. Wczytaj ostatni stan." << endl;
-	cout << "15. Zakończ." << endl << endl;
+	cout << "###########################" << endl
+		 << "### ZARZĄDZANIE TOWAREM ###" << endl
+		 << "###########################" << endl << endl
+		 << "Proszę wybrać jedną z poniższych opcji:" << endl << endl;
+	cout << "1. Sprzedaż." << endl;
+	cout << "2. Zarządzaj bazą produktów." << endl;
+	cout << "3. Zarządzaj bazą klientów." << endl;
+	cout << "4. Rabaty i promocje." << endl;
+	cout << "5. Przeszukaj bazę." << endl;
+	cout << "6. Zapisz aktualny stan." << endl;
+	cout << "7. Wczytaj ostatni stan." << endl;
+	cout << "8. Zakończ." << endl << endl;
 
 	cout << "Wybór: ";
+}
+
+void menu_produkty() {
+	int wybor;
+	string temp;
+	bool go = 1;
+	while (go) {
+		cout << "######################" << endl
+			<< "### MENU PRODUKTÓW ###" << endl
+			<< "######################" << endl << endl
+			<< "Proszę wybrać jedną z poniższych opcji:" << endl << endl
+			<< "1. Wyświetl listę produktów." << endl
+			<< "2. Dodaj nowy produkt." << endl
+			<< "3. Edytuj produkty na liście." << endl
+			<< "4. Usuń produkt z listy." << endl
+			<< "5. Powrót do głównego menu." << endl << endl
+			<< "Wybór: ";
+			cin >> temp;
+			wybor = atoi(temp.c_str());
+
+			switch (wybor) {
+			case 1:
+				if (!lista_produktow(0)) {
+					cout << "Naciśnij klawisz enter, aby kontynuować" << endl;
+					cin.ignore();
+					cin.get();
+				}
+				break;
+			case 2:
+				dodaj_produkt();
+				break;
+			case 3:
+				edytuj_produkt();
+				break;
+			case 4:
+				usun_produkt();
+				break;
+			case 5:
+				go = false;
+				break;
+			default:
+				cout << "Błędny wybór.";
+				break;
+
+			}
+	}
+	
 }
 
 void wczytaj_dane(void) {

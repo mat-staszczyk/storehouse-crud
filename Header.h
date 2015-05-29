@@ -49,6 +49,7 @@ void promocje (void);
 void sprzedaj_produkt(void);
 
 void menu(void);
+void menu_produkty(void);
 void wczytaj_dane(void);
 void zapisz(void);
 void wyszukiwanie(void);
