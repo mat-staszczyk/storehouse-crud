@@ -50,6 +50,7 @@ void sprzedaj_produkt(void);
 
 void menu(void);
 void menu_produkty(void);
+void menu_klienci(void);
 void wczytaj_dane(void);
 void zapisz(void);
 void wyszukiwanie(void);

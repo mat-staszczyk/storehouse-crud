@@ -22,46 +22,21 @@ int main(void) {
 				menu_produkty();
                 break;
             case 3:
-                dodaj_produkt();
+				menu_klienci();
                 break;
             case 4:
                 edytuj_produkt();
                 break;
             case 5:
-                usun_produkt();
-                break;
-            case 6:
-                promocje();
-                break;
-            case 7:
-                if (!lista_klientow()) {
-                    cout << "Nacisnij klawisz enter, aby kontynuować." << endl;
-                    cin.ignore();
-                    cin.get();
-                }
-                break;
-            case 8:
-                dodaj_klienta();
-                break;
-            case 9:
-                edytuj_klienta();
-                break;
-            case 10:
-                usun_klienta();
-                break;
-            case 11:
-                rabaty();
-                break;
-            case 12:
                 wyszukiwanie();
                 break;
-            case 13:
+            case 6:
                 zapisz();
                 break;
-            case 14:
+            case 7:
                 wczytaj_dane();
                 break;
-            case 15:
+            case 8:
                 cout << "Działanie programu zostało zakończone." << endl;
                 return 0;
             default:
