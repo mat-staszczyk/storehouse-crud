@@ -87,7 +87,6 @@ int usun_klienta (void) {
     int id;
     int pom = 0;
     char odp;
-    lista_klientow();
     cout << "Podaj ID, którego chcesz usunąć z bazy: " << endl;
     cin >> id;
     int i;
