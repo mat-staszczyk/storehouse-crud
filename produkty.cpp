@@ -184,17 +184,18 @@ void sprzedaj_produkt(void) {
             return;
         }
         cout << endl;
+
         cout << "Podaj ID produktu, który chce kupić " << klienci[indeks].nazwa << ":" << endl;
         cin >> produkt_id;
+		cout << "Ile sztuk produktu '" << produkty[i].nazwa << "' chcesz sprzedac? (stan: " << produkty[i].ilosc << ")" << endl;
+		cin >> ilosc;
         
         sukces = false;
         for (i = 1; i < N; i++) {
             if (produkty[i].id_produktu == produkt_id) {
-                cout << "Ile sztuk produktu '" << produkty[i].nazwa << "' chcesz sprzedac? (stan: " << produkty[i].ilosc << ")" << endl;
-                cin >> ilosc;
                 if (ilosc <= produkty[i].ilosc) {
                     if (klienci[indeks].rabat) {
-                        produkty[i].cena -= ((produkty[i].cena * klienci[indeks].rabat) / 100.00);
+                        produkty[i].cena -= ((produkty[i].cena * klienci[indeks].rabat) / static_cast<float>(100));
                         cout << "Przyznano rabat w wysokości: " << klienci[indeks].rabat << "." << endl << endl;;
                     }
 					float cena = roundf(produkty[i].cena * 100) / 100;
