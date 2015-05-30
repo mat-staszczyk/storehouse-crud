@@ -120,9 +120,9 @@ void rabaty (void) {
     int wybor, id, pom = 0;
 	string grupa, temp;
 	int rabat;
-	cout << "Czyj rabat zostanie zmieniony?" << endl <<
-			"1. Pojedynczy klient" << endl <<
-			"2. Grupa klinetów" << endl;
+	cout << "Zmień wysokość rabatu:" << endl <<
+			"1. Pojedynczego klienta" << endl <<
+			"2. Grupy klinetów" << endl;
 	cin >> temp;
 	wybor = atoi(temp.c_str());
 
