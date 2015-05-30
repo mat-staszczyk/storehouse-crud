@@ -153,7 +153,7 @@ void wczytaj_dane(void) {
 	if (fread(&produkty, sizeof(produkty), N, produkty_arch) &&
 		fread(&klienci, sizeof(klienci), N, klienci_arch))
 	{
-		cout << "Dane wczytane prawidłowo." << endl;
+        cout << "Dane wczytane prawidłowo." << endl << endl;
 	}
 	else {
 		cout << "Brak dostępu do danych." << endl;
@@ -175,13 +175,10 @@ void zapisz(void) {
 		cout << "Zapisywanie zakończone powodzeniem." << endl;
 	}
 	else {
-		cout << "Brak dostępu do dysku!" << endl;
+        cout << "Brak dostępu do dysku!" << endl << endl;
 	}
 	fclose(produkty_arch);
 	fclose(klienci_arch);
-	cout << "Naciśnij klawisz enter, aby konynuować" << endl;
-	cin.ignore();
-	cin.get();
 }
 
 void wyszukiwanie() {
