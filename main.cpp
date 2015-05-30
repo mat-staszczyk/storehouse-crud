@@ -37,6 +37,7 @@ int main(void) {
                 wczytaj_dane();
                 break;
             case 8:
+                zapisz();
                 cout << "Działanie programu zostało zakończone." << endl;
                 return 0;
             default:
