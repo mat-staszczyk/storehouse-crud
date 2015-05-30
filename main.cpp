@@ -6,7 +6,7 @@ Produkt produkty[N];
 Klient klienci[N];
 
 int main(void) {
-
+    wczytaj_dane();
     while (1)
     {
         menu ();
