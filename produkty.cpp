@@ -60,6 +60,9 @@ void dodaj_produkt(void) {
 }
 
 int edytuj_produkt (void) {
+    string s_temp;
+    int i_temp;
+    float f_temp;
     int id, pom = 0;
     if (lista_produktow()) {
         return 1;
@@ -71,10 +74,22 @@ int edytuj_produkt (void) {
         if (produkty[i].id_produktu == id) {
             pom = 1;
             cout << "Edycja obiektu #" << i << ":" << endl;
-            cout << "Podaj nową nazwę produktu (aktualna nazwa: " << produkty[i].nazwa << "):" << endl;
-            cin >> produkty[i].nazwa;
+            cout << "Podaj nową nazwę produktu (aktualna nazwa: " << produkty[i].nazwa << ") lub pozostaw aktualną (Enter):" << endl;
+            cin.ignore();
+            getline(cin,s_temp);
+            if (s_temp == "") {
+                cout << "(" << produkty[i].nazwa << ")" << endl;
+            } else {
+                produkty[i].nazwa = s_temp;
+            }
+            
             cout << "Podaj nowy typ produktu (aktualny typ: " << produkty[i].typ << "):" << endl;
-            cin >> produkty[i].typ;
+            getline(cin, s_temp);
+            if (s_temp.length() == 0) {
+                cout << produkty[i].typ << endl;
+            } else {
+                produkty[i].typ = s_temp;
+            }
             cout << "Podaj nową ilość produktu na stanie (aktualny stan: " << produkty[i].ilosc << "):" << endl;
             cin >> produkty[i].ilosc;
             cout << "Podaj nową cenę (aktualny cena: " << produkty[i].cena << "):" << endl;
