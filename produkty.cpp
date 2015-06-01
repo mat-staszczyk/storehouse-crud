@@ -81,15 +81,18 @@ int edytuj_produkt (void) {
                 cout << "(" << produkty[i].nazwa << ")" << endl;
             } else {
                 produkty[i].nazwa = s_temp;
+				s_temp = "";
             }
             
             cout << "Podaj nowy typ produktu (aktualny typ: " << produkty[i].typ << "):" << endl;
-            getline(cin, s_temp);
-            if (s_temp.length() == 0) {
-                cout << produkty[i].typ << endl;
-            } else {
-                produkty[i].typ = s_temp;
-            }
+			getline(cin,s_temp);
+			if (s_temp == "") {
+				cout << "(" << produkty[i].typ << ")" << endl;
+			}
+			else {
+				produkty[i].typ = s_temp;
+			}
+
             cout << "Podaj nową ilość produktu na stanie (aktualny stan: " << produkty[i].ilosc << "):" << endl;
             cin >> produkty[i].ilosc;
             cout << "Podaj nową cenę (aktualny cena: " << produkty[i].cena << "):" << endl;
