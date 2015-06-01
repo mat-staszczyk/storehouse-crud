@@ -70,9 +70,9 @@ int edytuj_produkt (void) {
     int i;
     for (i = 1; i < N; i++) {
         if (produkty[i].id_produktu == id) {
-            pom = 1;
+            pom = id;
             cout << "Edycja obiektu #" << i << ":" << endl;
-            cout << "Podaj nową nazwę produktu (aktualna nazwa: " << produkty[i].nazwa << ") lub pozostaw aktualną (Enter):" << endl;
+            cout << "Podaj nową nazwę produktu lub nacisnij Enter i pozostaw aktualną (" << produkty[i].nazwa << "):" << endl;
             cin.ignore();
             getline(cin,s_temp);
             if (s_temp == "") {
@@ -82,7 +82,7 @@ int edytuj_produkt (void) {
 				s_temp = "";
             }
             
-            cout << "Podaj nowy typ produktu (aktualny typ: " << produkty[i].typ << "):" << endl;
+            cout << "Podaj nowy typ produktu lub nacisnij Enter i pozostaw aktualny (" << produkty[i].typ << "):" << endl;
 			getline(cin,s_temp);
 			if (s_temp == "") {
 				cout << "(" << produkty[i].typ << ")" << endl;
@@ -91,7 +91,7 @@ int edytuj_produkt (void) {
 				produkty[i].typ = s_temp;
 			}
 
-            cout << "Podaj nową ilość produktu na stanie (aktualny stan: " << produkty[i].ilosc << "):" << endl;
+            cout << "Podaj nową ilość produktu na stanie lub nacisnij Enter i pozostaw aktualną (" << produkty[i].ilosc << "):" << endl;
 			getline(cin, s_temp);
 			if (s_temp == "") {
 				cout << "(" << produkty[i].ilosc << ")" << endl;
@@ -100,7 +100,7 @@ int edytuj_produkt (void) {
 				produkty[i].ilosc = atof(s_temp.c_str());
 			}
 
-            cout << "Podaj nową cenę (aktualny cena: " << produkty[i].cena << "):" << endl;
+            cout << "Podaj nową cenę lub nacisnij Enter i pozostaw aktualną (" << produkty[i].cena << "):" << endl;
 			getline(cin, s_temp);
 			if (s_temp == "") {
 				cout << "(" << produkty[i].cena << ")" << endl;
@@ -112,7 +112,9 @@ int edytuj_produkt (void) {
     }
     if (!pom) {
         cout << "Nie znaleziono produktu o podanym ID." << endl;
-    }
+	} else {
+		cout << endl << "ID: #" << pom << "   " << "nazwa: " << produkty[pom].nazwa << "   " << "typ: " << produkty[pom].typ << "   " << "ilość: " << produkty[pom].ilosc << " szt." << "   " << "cena: " << produkty[pom].cena << " PLN" << endl << endl;
+	}
     return 0;
 }
 
