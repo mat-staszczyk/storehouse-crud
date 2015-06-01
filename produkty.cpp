@@ -61,8 +61,6 @@ void dodaj_produkt(void) {
 
 int edytuj_produkt (void) {
     string s_temp;
-    int i_temp;
-    float f_temp;
     int id, pom = 0;
     if (lista_produktow()) {
         return 1;
@@ -94,12 +92,25 @@ int edytuj_produkt (void) {
 			}
 
             cout << "Podaj nową ilość produktu na stanie (aktualny stan: " << produkty[i].ilosc << "):" << endl;
-            cin >> produkty[i].ilosc;
+			getline(cin, s_temp);
+			if (s_temp == "") {
+				cout << "(" << produkty[i].ilosc << ")" << endl;
+			}
+			else {
+				produkty[i].ilosc = atof(s_temp.c_str());
+			}
+
             cout << "Podaj nową cenę (aktualny cena: " << produkty[i].cena << "):" << endl;
-            cin >> produkty[i].cena;
+			getline(cin, s_temp);
+			if (s_temp == "") {
+				cout << "(" << produkty[i].cena << ")" << endl;
+			}
+			else {
+				produkty[i].cena = atof(s_temp.c_str());
+			}
         }
     }
-    if (pom) {
+    if (!pom) {
         cout << "Nie znaleziono produktu o podanym ID." << endl;
     }
     return 0;
