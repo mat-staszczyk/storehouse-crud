@@ -70,10 +70,25 @@ int edytuj_klienta (void) {
 				klienci[i].nazwa = s_temp;
 				s_temp = "";
 			}
+
             cout << "Podaj nową nazwę grupy (aktualna grupa: " << klienci[i].grupa << "):" << endl;
-            cin >> klienci[i].grupa;
+			getline(cin, s_temp);
+			if (s_temp == "") {
+				cout << "(" << klienci[i].grupa << ")" << endl;
+			}
+			else {
+				klienci[i].grupa = s_temp;
+				s_temp = "";
+			}
+
             cout << "Podaj nowy nr NIP (aktualny nip: " << klienci[i].nip << "):" << endl;
-            cin >> klienci[i].nip;
+			getline(cin, s_temp);
+			if (s_temp == "") {
+				cout << "(" << klienci[i].nip << ")" << endl;
+			}
+			else {
+				klienci[i].nip = atof(s_temp.c_str());
+			}
         }
     }
     if (!pom) {
@@ -81,7 +96,7 @@ int edytuj_klienta (void) {
         cin.ignore();
         cin.get();
     } else {
-        lista_klientow();
+        lista_klientow(1);
         cout << "Naciśnij klawisz enter, aby konynuować" << endl;
         cin.ignore();
         cin.get();
