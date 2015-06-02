@@ -47,6 +47,7 @@ void dodaj_klienta (void) {
 }
 
 int edytuj_klienta (void) {
+	string s_temp;
 	int id;
     int pom = 0;
     if (lista_klientow()) {
@@ -60,7 +61,15 @@ int edytuj_klienta (void) {
             pom = 1;
             cout << "Edycja danych klienta o id #" << i << ":" << endl;
             cout << "Podaj nową nazwę klienta (aktualna nazwa: " << klienci[i].nazwa << "):" << endl;
-            cin >> klienci[i].nazwa;
+			cin.ignore();
+			getline(cin, s_temp);
+			if (s_temp == "") {
+				cout << "(" << klienci[i].nazwa << ")" << endl;
+			}
+			else {
+				klienci[i].nazwa = s_temp;
+				s_temp = "";
+			}
             cout << "Podaj nową nazwę grupy (aktualna grupa: " << klienci[i].grupa << "):" << endl;
             cin >> klienci[i].grupa;
             cout << "Podaj nowy nr NIP (aktualny nip: " << klienci[i].nip << "):" << endl;
