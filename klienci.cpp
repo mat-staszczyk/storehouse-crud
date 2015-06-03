@@ -41,6 +41,8 @@ void dodaj_klienta (void) {
             klienci[i].id_klienta = i;
             klienci[i].grupa = grupa;
             klienci[i].nip = nip;
+			klienci[i].rabat = 0;
+			klienci[i].saldo = 0;
             break;
         }
     }
