@@ -54,6 +54,7 @@ void dodaj_produkt(void) {
             cout << "Podaj cenę jednego produktu:" << endl;
             cin >> produkty[i].cena_reg;
             produkty[i].cena = produkty[i].cena_reg;
+			produkty[i].promocja = 0;
             break;
         }
     }
