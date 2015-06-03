@@ -21,8 +21,6 @@ struct Produkt
     int promocja;
 };
 
-extern Produkt produkty[N];
-
 struct Klient
 {
     int id_klienta;
@@ -33,7 +31,8 @@ struct Klient
     float saldo;
 };
 
-extern Klient klienci[N];
+extern Klient *klienci;
+extern Produkt *produkty;
 
 void sprzedaj_produkt(void);
 
