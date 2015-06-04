@@ -1,10 +1,10 @@
-# storehouse-crud
+# Storehouse management system
 
-Basic [CRUD](https://pl.wikipedia.org/wiki/CRUD) warehouse management application. 
+Basic [CRUD](https://pl.wikipedia.org/wiki/CRUD) application. 
 
-### Functionalities
-1. Products management:
-2. Customers management:
+##### Functionalities
+1. Products management
+2. Customers management
 3. Search database
 4. Save database to file
 5. Load database from file
