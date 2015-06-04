@@ -3,13 +3,11 @@
 int wybor;
 string temp;
 
-Klient* klienci = { new Klient [N] };
-Produkt* produkty = { new Produkt [N] };
+Klient klienci[N];
+Produkt produkty[N];
 
 int main(void) {
     wczytaj_dane();
-    klienci = new Klient [N];
-    produkty = new Produkt [N];
     while (1)
     {
         menu ();
@@ -41,8 +39,6 @@ int main(void) {
                 break;
             case 8:
                 zapisz();
-                delete[] klienci;
-                delete[] produkty;
                 cout << "Działanie programu zostało zakończone." << endl;
                 return 0;
             default:
