@@ -1,6 +1,6 @@
 #include "./Header.h"
 
-int lista_produktow (int promocja = 0) {
+int lista_produktow (int promocja = 0, bool przegladanie = false) {
     int i;
     int pusta = 0;
     int licznik = 0;
@@ -15,13 +15,15 @@ int lista_produktow (int promocja = 0) {
                 }
                 cout << "   " << "wysokość rabatu: " << produkty[i].promocja << "%" << endl;
             }
-            licznik++;
-            if (licznik == 10)
-            {
-                licznik = 0;
-                cout << endl << "Naciśnij klawisz enter, aby wyświetlić 10 kolejnych pozycji." << endl;
-                cin.ignore();
-                cin.get();
+            if (przegladanie) {
+                licznik++;
+                if (licznik == 10)
+                {
+                    licznik = 0;
+                    cout << endl << "Naciśnij klawisz enter, aby wyświetlić 10 kolejnych pozycji." << endl;
+                    cin.ignore();
+                    cin.get();
+                }
             }
         }
     }

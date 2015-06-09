@@ -41,7 +41,7 @@ void dodaj_klienta (void);
 int edytuj_klienta (void);
 int usun_klienta (void);
 
-int lista_produktow (int);
+int lista_produktow (int, bool);
 void dodaj_produkt(void);
 int edytuj_produkt (void);
 int usun_produkt (void);

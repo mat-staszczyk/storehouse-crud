@@ -37,7 +37,7 @@ void menu_produkty() {
 
 			switch (wybor) {
 			case 1:
-				if (!lista_produktow(0)) {
+				if (!lista_produktow(0, true)) {
 					cout << "Naciśnij klawisz enter, aby kontynuować" << endl;
 					cin.ignore();
 					cin.get();
