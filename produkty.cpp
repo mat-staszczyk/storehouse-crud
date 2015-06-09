@@ -3,6 +3,7 @@
 int lista_produktow (int promocja = 0) {
     int i;
     int pusta = 0;
+    int licznik = 0;
     cout << endl << "Lista produktów:" << endl << endl;
     for (i = 1; i < N; i++) {
         if (produkty[i].nazwa != "") {
@@ -13,6 +14,14 @@ int lista_produktow (int promocja = 0) {
                     cout << "   " << "cena regularna: " << produkty[i].cena_reg << " PLN";
                 }
                 cout << "   " << "wysokość rabatu: " << produkty[i].promocja << "%" << endl;
+            }
+            licznik++;
+            if (licznik == 10)
+            {
+                licznik = 0;
+                cout << endl << "Naciśnij klawisz enter, aby wyświetlić 10 kolejnych pozycji." << endl;
+                cin.ignore();
+                cin.get();
             }
         }
     }
