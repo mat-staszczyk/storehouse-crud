@@ -207,7 +207,7 @@ void sprzedaj_produkt(void) {
     bool sukces = false, err = false;
     int ilosc, produkt_id, klient_id, i, indeks = 0;
     
-    if (lista_klientow()) {
+    if (lista_klientow(false)) {
         return;
     }
     cout << endl;

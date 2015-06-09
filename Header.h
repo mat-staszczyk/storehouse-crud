@@ -36,7 +36,7 @@ extern Produkt produkty[N];
 
 void sprzedaj_produkt(void);
 
-int lista_klientow (void);
+int lista_klientow (bool);
 void dodaj_klienta (void);
 int edytuj_klienta (void);
 int usun_klienta (void);

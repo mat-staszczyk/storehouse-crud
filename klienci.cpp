@@ -1,13 +1,26 @@
 #include "./Header.h"
 
-int lista_klientow (void) {
+int lista_klientow (bool przegladanie = false) {
+    int licznik = 0;
     int i;
     int pusta = 0;
     cout << endl << "Lista klientów:" << endl << endl;
     for (i = 1; i < N; i++) {
-        if (!klienci[i].nazwa.empty()) {
+        if (!klienci[i].nazwa.empty())
+        {
             cout << i << ". " << klienci[i].nazwa << "   " << "grupa: " << klienci[i].grupa << "   " << "NIP: " << klienci[i].nip << "   " << "saldo: " << klienci[i].saldo << " PLN" << "   " << "rabat: " << klienci[i].rabat << "%" << endl;
             pusta = 1;
+            if (przegladanie)
+            {
+                licznik++;
+                if (licznik == 10)
+                {
+                    licznik = 0;
+                    cout << endl << "Naciśnij klawisz enter, aby wyświetlić 10 kolejnych pozycji." << endl;
+                    cin.ignore();
+                    cin.get();
+                }
+            }
         }
     }
     if (!pusta) {
