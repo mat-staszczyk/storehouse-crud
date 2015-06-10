@@ -31,8 +31,8 @@ struct Klient
     float saldo;
 };
 
-extern Klient klienci[N];
-extern Produkt produkty[N];
+extern Klient * klienci;
+extern Produkt * produkty;
 
 void sprzedaj_produkt(void);
 

@@ -150,8 +150,8 @@ void wczytaj_dane(void) {
 	produkty_arch = fopen("produkty.store", "rb");
 	klienci_arch = fopen("klienci.store", "rb");
 
-	if (fread(&produkty, sizeof(produkty), N, produkty_arch) &&
-		fread(&klienci, sizeof(klienci), N, klienci_arch))
+	if (fread(produkty, sizeof(Produkt), N, produkty_arch) &&
+		fread(klienci, sizeof(Klient), N, klienci_arch))
 	{
         cout << "Dane wczytane prawidłowo." << endl << endl;
 	}
@@ -169,8 +169,8 @@ void zapisz(void) {
 	produkty_arch = fopen("produkty.store", "wb");
 	klienci_arch = fopen("klienci.store", "wb");
 
-	if (fwrite(produkty, sizeof(struct Produkt), N, produkty_arch) &&
-		fwrite(klienci, sizeof(struct Klient), N, klienci_arch))
+	if (fwrite(produkty, sizeof(struct Produkt), sizeof(produkty), produkty_arch) &&
+		fwrite(klienci, sizeof(struct Klient), sizeof(klienci), klienci_arch))
 	{
 		cout << "Zapisywanie zakończone powodzeniem." << endl;
 	}
