@@ -224,6 +224,26 @@ void wyszukiwanie() {
             pusta = true;
         }
     }
+ 
+    for (int i = 0; i < N; i++)
+    {
+        if (klienci[i].grupa.find(fraza) != string::npos) {
+            pusta = false;
+            cout << "ID: #" << i << "   " << "nazwa: " << klienci[i].nazwa << "   " << "grupa: " << klienci[i].grupa << "   " << "NIP: " << klienci[i].nip << "   " << "saldo: " << klienci[i].saldo << " PLN" << "   " << "rabat: " << klienci[i].rabat << "%" << endl << endl;
+        } else {
+            pusta = true;
+        }
+    }
+    
+    for (int i = 0; i < N; i++)
+    {
+        if (klienci[i].nip.find(fraza) != string::npos) {
+            pusta = false;
+            cout << "ID: #" << i << "   " << "nazwa: " << klienci[i].nazwa << "   " << "grupa: " << klienci[i].grupa << "   " << "NIP: " << klienci[i].nip << "   " << "saldo: " << klienci[i].saldo << " PLN" << "   " << "rabat: " << klienci[i].rabat << "%" << endl << endl;
+        } else {
+            pusta = true;
+        }
+    }
     
     if (pusta) {
         cout << "brak wyników" << endl << endl;
@@ -303,9 +323,6 @@ void wyszukiwanie() {
 	}
      */
 
-	if (pusta) {
-		cout << "brak wyników" << endl << endl;
-	}
 	cout << "Naciśnij klawisz enter, aby konynuować" << endl;
 	cin.ignore();
 	cin.get();
