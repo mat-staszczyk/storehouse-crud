@@ -182,7 +182,7 @@ void zapisz(void) {
 }
 
 void wyszukiwanie() {
-	char fraza;
+	string fraza;
 	cout << "Podaj frazę, której chcesz wyszukać:" << endl;
 	cin >> fraza;
 	bool pusta = true;
