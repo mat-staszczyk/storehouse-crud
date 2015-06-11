@@ -182,12 +182,24 @@ void zapisz(void) {
 }
 
 void wyszukiwanie() {
-	string fraza;
+	char fraza;
 	cout << "Podaj frazę, której chcesz wyszukać:" << endl;
 	cin >> fraza;
-	bool znacznik = false, pusta = true;
+	bool pusta = true;
 
-
+    
+    cout << endl << "Wyniki wyszukiwania dla kategorii 'Produkty':" << endl << endl;
+    for (int i = 0; i < N; i++)
+    {
+        if (produkty[i].nazwa.find(fraza) != string::npos) {
+            pusta = false;
+            cout << "ID: #" << i << "   " << "nazwa: " << produkty[i].nazwa << "   " << "typ: " << produkty[i].typ << "   " << "ilość: " << produkty[i].ilosc << " szt." << "   " << "cena: " << produkty[i].cena << " PLN" << "   " << "promocja: " << produkty[i].promocja << "%" << endl << endl;
+        } else {
+            pusta = true;
+        }
+    }
+    
+    /*
 	cout << endl << "Wyniki wyszukiwania dla kategorii 'Produkty':" << endl << endl;
 	int i, j = 0;
 	for (i = 0; i < N; i++) {
@@ -313,6 +325,7 @@ void wyszukiwanie() {
 			j++;
 		}
 	}
+     */
 
 	if (pusta) {
 		cout << "brak wyników" << endl << endl;
