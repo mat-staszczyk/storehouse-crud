@@ -199,60 +199,36 @@ void wyszukiwanie() {
         }
     }
     
+    for (int i = 0; i < N; i++)
+    {
+        if (produkty[i].typ.find(fraza) != string::npos) {
+            pusta = false;
+            cout << "ID: #" << i << "   " << "nazwa: " << produkty[i].nazwa << "   " << "typ: " << produkty[i].typ << "   " << "ilość: " << produkty[i].ilosc << " szt." << "   " << "cena: " << produkty[i].cena << " PLN" << "   " << "promocja: " << produkty[i].promocja << "%" << endl << endl;
+        } else {
+            pusta = true;
+        }
+    }
+    
+    if (pusta) {
+        cout << "brak wyników" << endl << endl;
+    }
+    
+    cout << endl << "Wyniki wyszukiwania dla kategorii 'Klienci':" << endl << endl;
+    
+    for (int i = 0; i < N; i++)
+    {
+        if (klienci[i].nazwa.find(fraza) != string::npos) {
+            pusta = false;
+                cout << "ID: #" << i << "   " << "nazwa: " << klienci[i].nazwa << "   " << "grupa: " << klienci[i].grupa << "   " << "NIP: " << klienci[i].nip << "   " << "saldo: " << klienci[i].saldo << " PLN" << "   " << "rabat: " << klienci[i].rabat << "%" << endl << endl;
+        } else {
+            pusta = true;
+        }
+    }
+    
+    if (pusta) {
+        cout << "brak wyników" << endl << endl;
+    }
     /*
-	cout << endl << "Wyniki wyszukiwania dla kategorii 'Produkty':" << endl << endl;
-	int i, j = 0;
-	for (i = 0; i < N; i++) {
-		while (produkty[i].nazwa[j] != '\0') {
-			if (produkty[i].nazwa[j] == fraza[0]) {
-				int k = 1;
-				while (fraza[k] != '\0') {
-					if (produkty[i].nazwa[j + k] == fraza[k]) {
-						znacznik = true;
-					}
-					else {
-						znacznik = false;
-						break;
-					}
-					k++;
-				}
-				if (znacznik) {
-					pusta = false;
-					cout << "ID: #" << i << "   " << "nazwa: " << produkty[i].nazwa << "   " << "typ: " << produkty[i].typ << "   " << "ilość: " << produkty[i].ilosc << " szt." << "   " << "cena: " << produkty[i].cena << " PLN" << "   " << "promocja: " << produkty[i].promocja << "%" << endl << endl;
-				}
-			}
-			j++;
-		}
-	}
-	for (i = 0; i < N; i++) {
-		j = 0;
-		while (produkty[i].typ[j] != '\0') {
-			if (produkty[i].typ[j] == fraza[0]) {
-				int k = 1;
-				while (fraza[k] != '\0') {
-					if (produkty[i].typ[j + k] == fraza[k]) {
-						znacznik = true;
-					}
-					else {
-						znacznik = false;
-						break;
-					}
-					k++;
-				}
-				if (znacznik) {
-					pusta = false;
-					cout << "ID: #" << i << "   " << "nazwa: " << produkty[i].nazwa << "   " << "typ: " << produkty[i].typ << "   " << "ilość: " << produkty[i].ilosc << " szt." << "   " << "cena: " << produkty[i].cena << " PLN" << "   " << "promocja: " << produkty[i].promocja << "%" << endl << endl;
-				}
-			}
-			j++;
-		}
-	}
-
-	if (pusta) {
-		cout << "brak wyników" << endl << endl;
-	}
-
-	cout << endl << "Wyniki wyszukiwania dla kategorii 'Klienci':" << endl << endl;
 
 	for (i = 0; i < N; i++) {
 		j = 0;
