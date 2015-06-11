@@ -233,87 +233,13 @@ void wyszukiwanie() {
         if (klienci[i].nip.find(fraza) != string::npos) {
             pusta = false;
             cout << "ID: #" << i << "   " << "nazwa: " << klienci[i].nazwa << "   " << "grupa: " << klienci[i].grupa << "   " << "NIP: " << klienci[i].nip << "   " << "saldo: " << klienci[i].saldo << " PLN" << "   " << "rabat: " << klienci[i].rabat << "%" << endl << endl;
-        } 
+        }
     }
     
     if (pusta) {
         cout << "brak wyników" << endl << endl;
     }
-    /*
-
-	for (i = 0; i < N; i++) {
-		j = 0;
-		while (klienci[i].nazwa[j] != '\0') {
-			if (klienci[i].nazwa[j] == fraza[0]) {
-				int k = 1;
-				while (fraza[k] != '\0') {
-					if (klienci[i].nazwa[j + k] == fraza[k]) {
-						znacznik = true;
-					}
-					else {
-						znacznik = false;
-						break;
-					}
-					k++;
-				}
-				if (znacznik) {
-					pusta = false;
-					cout << "ID: #" << i << "   " << "nazwa: " << klienci[i].nazwa << "   " << "grupa: " << klienci[i].grupa << "   " << "NIP: " << klienci[i].nip << "   " << "saldo: " << klienci[i].saldo << " PLN" << "   " << "rabat: " << klienci[i].rabat << "%" << endl << endl;
-				}
-			}
-			j++;
-		}
-	}
-
-	for (i = 0; i < N; i++) {
-		j = 0;
-		while (klienci[i].grupa[j] != '\0') {
-			if (klienci[i].grupa[j] == fraza[0]) {
-				int k = 1;
-				while (fraza[k] != '\0') {
-					if (klienci[i].grupa[j + k] == fraza[k]) {
-						znacznik = true;
-					}
-					else {
-						znacznik = false;
-						break;
-					}
-					k++;
-				}
-				if (znacznik) {
-					pusta = false;
-					cout << "ID: #" << i << "   " << "nazwa: " << klienci[i].nazwa << "   " << "grupa: " << klienci[i].grupa << "   " << "NIP: " << klienci[i].nip << "   " << "saldo: " << klienci[i].saldo << " PLN" << "   " << "rabat: " << klienci[i].rabat << "%" << endl << endl;
-				}
-			}
-			j++;
-		}
-	}
-
-	for (i = 0; i < N; i++) {
-		j = 0;
-		while (klienci[i].nip[j] != '\0') {
-			if (klienci[i].nip[j] == fraza[0]) {
-				int k = 1;
-				while (fraza[k] != '\0') {
-					if (klienci[i].nip[j + k] == fraza[k]) {
-						znacznik = true;
-					}
-					else {
-						znacznik = false;
-						break;
-					}
-					k++;
-				}
-				if (znacznik) {
-					pusta = false;
-					cout << "ID: #" << i << "   " << "nazwa: " << klienci[i].nazwa << "   " << "grupa: " << klienci[i].grupa << "   " << "NIP: " << klienci[i].nip << "   " << "saldo: " << klienci[i].saldo << " PLN" << "   " << "rabat: " << klienci[i].rabat << "%" << endl << endl;
-				}
-			}
-			j++;
-		}
-	}
-     */
-
+    
 	cout << "Naciśnij klawisz enter, aby konynuować" << endl;
 	cin.ignore();
 	cin.get();
