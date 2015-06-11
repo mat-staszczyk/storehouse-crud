@@ -194,8 +194,6 @@ void wyszukiwanie() {
         if (produkty[i].nazwa.find(fraza) != string::npos) {
             pusta = false;
             cout << "ID: #" << i << "   " << "nazwa: " << produkty[i].nazwa << "   " << "typ: " << produkty[i].typ << "   " << "ilość: " << produkty[i].ilosc << " szt." << "   " << "cena: " << produkty[i].cena << " PLN" << "   " << "promocja: " << produkty[i].promocja << "%" << endl << endl;
-        } else {
-            pusta = true;
         }
     }
     
@@ -204,8 +202,6 @@ void wyszukiwanie() {
         if (produkty[i].typ.find(fraza) != string::npos) {
             pusta = false;
             cout << "ID: #" << i << "   " << "nazwa: " << produkty[i].nazwa << "   " << "typ: " << produkty[i].typ << "   " << "ilość: " << produkty[i].ilosc << " szt." << "   " << "cena: " << produkty[i].cena << " PLN" << "   " << "promocja: " << produkty[i].promocja << "%" << endl << endl;
-        } else {
-            pusta = true;
         }
     }
     
@@ -213,6 +209,7 @@ void wyszukiwanie() {
         cout << "brak wyników" << endl << endl;
     }
     
+    pusta = true;
     cout << endl << "Wyniki wyszukiwania dla kategorii 'Klienci':" << endl << endl;
     
     for (int i = 0; i < N; i++)
@@ -220,8 +217,6 @@ void wyszukiwanie() {
         if (klienci[i].nazwa.find(fraza) != string::npos) {
             pusta = false;
                 cout << "ID: #" << i << "   " << "nazwa: " << klienci[i].nazwa << "   " << "grupa: " << klienci[i].grupa << "   " << "NIP: " << klienci[i].nip << "   " << "saldo: " << klienci[i].saldo << " PLN" << "   " << "rabat: " << klienci[i].rabat << "%" << endl << endl;
-        } else {
-            pusta = true;
         }
     }
  
@@ -230,8 +225,6 @@ void wyszukiwanie() {
         if (klienci[i].grupa.find(fraza) != string::npos) {
             pusta = false;
             cout << "ID: #" << i << "   " << "nazwa: " << klienci[i].nazwa << "   " << "grupa: " << klienci[i].grupa << "   " << "NIP: " << klienci[i].nip << "   " << "saldo: " << klienci[i].saldo << " PLN" << "   " << "rabat: " << klienci[i].rabat << "%" << endl << endl;
-        } else {
-            pusta = true;
         }
     }
     
@@ -240,9 +233,7 @@ void wyszukiwanie() {
         if (klienci[i].nip.find(fraza) != string::npos) {
             pusta = false;
             cout << "ID: #" << i << "   " << "nazwa: " << klienci[i].nazwa << "   " << "grupa: " << klienci[i].grupa << "   " << "NIP: " << klienci[i].nip << "   " << "saldo: " << klienci[i].saldo << " PLN" << "   " << "rabat: " << klienci[i].rabat << "%" << endl << endl;
-        } else {
-            pusta = true;
-        }
+        } 
     }
     
     if (pusta) {
