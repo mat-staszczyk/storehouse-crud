@@ -8,22 +8,22 @@ int lista_produktow (int promocja = 0, bool przegladanie = false) {
     for (i = 1; i < N; i++) {
         if (produkty[i].nazwa != "") {
             pusta = 1;
-            cout << i << ". " << produkty[i].nazwa << "   " << "rodzaj: " << produkty[i].typ << "   " << "ilość: " << produkty[i].ilosc << " szt." << "   " << "cena: " << produkty[i].cena << " PLN" << endl;
-            if (promocja) {
-                if (produkty[i].promocja != 0) {
-                    cout << "   " << "cena regularna: " << produkty[i].cena_reg << " PLN";
-                }
-                cout << "   " << "wysokość rabatu: " << produkty[i].promocja << "%" << endl;
-            }
             if (przegladanie) {
                 licznik++;
-                if (licznik == 10)
+                if (licznik > 10)
                 {
                     licznik = 0;
                     cout << endl << "Naciśnij klawisz enter, aby wyświetlić 10 kolejnych pozycji." << endl;
                     cin.ignore();
                     cin.get();
                 }
+            }
+            cout << i << ". " << produkty[i].nazwa << "   " << "rodzaj: " << produkty[i].typ << "   " << "ilość: " << produkty[i].ilosc << " szt." << "   " << "cena: " << produkty[i].cena << " PLN" << endl;
+            if (promocja) {
+                if (produkty[i].promocja != 0) {
+                    cout << "   " << "cena regularna: " << produkty[i].cena_reg << " PLN";
+                }
+                cout << "   " << "wysokość rabatu: " << produkty[i].promocja << "%" << endl;
             }
         }
     }

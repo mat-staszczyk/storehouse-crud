@@ -8,12 +8,10 @@ int lista_klientow (bool przegladanie = false) {
     for (i = 1; i < N; i++) {
         if (!klienci[i].nazwa.empty())
         {
-            cout << i << ". " << klienci[i].nazwa << "   " << "grupa: " << klienci[i].grupa << "   " << "NIP: " << klienci[i].nip << "   " << "saldo: " << klienci[i].saldo << " PLN" << "   " << "rabat: " << klienci[i].rabat << "%" << endl;
-            pusta = 1;
             if (przegladanie)
             {
                 licznik++;
-                if (licznik == 10)
+                if (licznik > 10)
                 {
                     licznik = 0;
                     cout << endl << "Naciśnij klawisz enter, aby wyświetlić 10 kolejnych pozycji." << endl;
@@ -21,6 +19,8 @@ int lista_klientow (bool przegladanie = false) {
                     cin.get();
                 }
             }
+            cout << i << ". " << klienci[i].nazwa << "   " << "grupa: " << klienci[i].grupa << "   " << "NIP: " << klienci[i].nip << "   " << "saldo: " << klienci[i].saldo << " PLN" << "   " << "rabat: " << klienci[i].rabat << "%" << endl;
+            pusta = 1;
         }
     }
     if (!pusta) {
