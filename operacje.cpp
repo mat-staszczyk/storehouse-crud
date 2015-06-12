@@ -1,6 +1,6 @@
 #include "./Header.h"
 
-int len = 1;
+int p_len = 1;
 
 void menu() {
 	cout << "###########################" << endl
@@ -173,10 +173,10 @@ void zapisz(void) {
     
     for (int i = 0; i < N; i++) {
         if (produkty[i].nazwa != "")
-            len++;
+            p_len++;
     }
 
-	if (fwrite(produkty, sizeof(struct Produkt), len, produkty_arch) &&
+	if (fwrite(produkty, sizeof(struct Produkt), p_len, produkty_arch) &&
 		fwrite(klienci, sizeof(struct Klient), sizeof(klienci), klienci_arch))
 	{
 		cout << "Zapisywanie zakończone powodzeniem." << endl;

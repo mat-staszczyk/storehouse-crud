@@ -7,7 +7,7 @@
 using namespace std;
 
 const int N = 100;
-extern int len;
+extern int p_len;
 extern int wybor;
 extern string temp;
 
