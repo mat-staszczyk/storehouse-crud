@@ -8,6 +8,7 @@ using namespace std;
 
 const int N = 100;
 extern int p_len;
+extern int k_len;
 extern int wybor;
 extern string temp;
 

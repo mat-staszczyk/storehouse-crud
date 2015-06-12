@@ -1,6 +1,7 @@
 #include "./Header.h"
 
 int p_len = 1;
+int k_len = 1;
 
 void menu() {
 	cout << "###########################" << endl
