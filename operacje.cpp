@@ -1,6 +1,6 @@
 #include "./Header.h"
 
-int len = 0;
+int len = 1;
 
 void menu() {
 	cout << "###########################" << endl
@@ -170,8 +170,13 @@ void zapisz(void) {
 	FILE *klienci_arch;
 	produkty_arch = fopen("produkty.store", "wb");
 	klienci_arch = fopen("klienci.store", "wb");
+    
+    for (int i = 0; i < N; i++) {
+        if (produkty[i].nazwa != "")
+            len++;
+    }
 
-	if (fwrite(produkty, sizeof(struct Produkt), sizeof(produkty), produkty_arch) &&
+	if (fwrite(produkty, sizeof(struct Produkt), len, produkty_arch) &&
 		fwrite(klienci, sizeof(struct Klient), sizeof(klienci), klienci_arch))
 	{
 		cout << "Zapisywanie zakończone powodzeniem." << endl;
