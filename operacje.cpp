@@ -176,9 +176,14 @@ void zapisz(void) {
         if (produkty[i].nazwa != "")
             p_len++;
     }
+    
+    for (int i = 0; i < N; i++) {
+        if (klienci[i].nazwa != "")
+            k_len++;
+    }
 
 	if (fwrite(produkty, sizeof(struct Produkt), p_len, produkty_arch) &&
-		fwrite(klienci, sizeof(struct Klient), sizeof(klienci), klienci_arch))
+		fwrite(klienci, sizeof(struct Klient), k_len, klienci_arch))
 	{
 		cout << "Zapisywanie zakończone powodzeniem." << endl;
 	}
