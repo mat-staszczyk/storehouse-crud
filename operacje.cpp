@@ -1,5 +1,7 @@
 #include "./Header.h"
 
+int len = 0;
+
 void menu() {
 	cout << "###########################" << endl
 		 << "### ZARZĄDZANIE TOWAREM ###" << endl

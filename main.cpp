@@ -2,7 +2,6 @@
 
 int wybor;
 string temp;
-auto l = 0;
 
 Klient * klienci = new Klient [N];
 Produkt * produkty = new Produkt [N];
@@ -44,10 +43,6 @@ int main(void) {
                 delete [] produkty;
                 cout << "Działanie programu zostało zakończone." << endl;
                 return 0;
-            case 9:
-                l = sizeof(klienci)/sizeof(Klient);
-                cout << l << endl;
-                break;
             default:
                 cout << "Błędny wybór." << endl;
                 break;
