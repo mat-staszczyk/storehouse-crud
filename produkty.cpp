@@ -2,12 +2,12 @@
 
 int lista_produktow (int promocja = 0, bool przegladanie = false) {
     int i;
-    int pusta = 0;
+    int pusta = 1;
     int licznik = 0;
     cout << endl << "Lista produktów:" << endl << endl;
     for (i = 1; i < N; i++) {
         if (produkty[i].nazwa != "") {
-            pusta = 1;
+            pusta = 0;
             if (przegladanie) {
                 licznik++;
                 if (licznik > 10)
@@ -27,11 +27,11 @@ int lista_produktow (int promocja = 0, bool przegladanie = false) {
             }
         }
     }
-    if (!pusta) {
+    if (pusta) {
         cout << "Lista produktów jest pusta." << endl
         << endl << "Naciśnij klawisz enter, aby konynuować" << endl;
-        cin.ignore();
         cin.get();
+        cin.ignore();
         return 1;
     } else {
         cout << endl << endl;
