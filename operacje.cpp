@@ -42,6 +42,7 @@ void menu_produkty() {
 			case 1:
 				if (!lista_produktow(0, true)) {
 					cout << "Naciśnij klawisz enter, aby kontynuować" << endl;
+                    cin.ignore();
 					cin.get();
 				}
 				break;
@@ -87,6 +88,7 @@ void menu_klienci() {
 		case 1:
 			if (!lista_klientow(true)) {
 				cout << "Nacisnij klawisz enter, aby kontynuować." << endl;
+                cin.ignore();
 				cin.get();
 			}
 			break;

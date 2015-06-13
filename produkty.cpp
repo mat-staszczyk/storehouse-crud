@@ -34,7 +34,7 @@ int lista_produktow (int promocja = 0, bool przegladanie = false) {
         cin.ignore();
         return 1;
     } else {
-        cout << endl << endl;
+        cout << endl;
         return 0;
     }
 }

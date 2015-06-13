@@ -140,7 +140,7 @@ int usun_klienta (void) {
                 klienci[i].saldo = 0;
                 for (int j = i; j < N; j++)
                 {
-                    klienci[j] = klienci[j+1];
+                    *klienci = *(klienci+1);
                 }
                 cout << "Wpis klienta został usunięty." << endl;
                 break;
