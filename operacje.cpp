@@ -153,8 +153,8 @@ void wczytaj_dane(void) {
 	produkty_arch = fopen("produkty.store", "rb");
 	klienci_arch = fopen("klienci.store", "rb");
 
-	if (fread(&produkty, sizeof(Produkt), N, produkty_arch) &&
-		fread(&klienci, sizeof(Klient), N, klienci_arch))
+	if (fread(produkty, sizeof(Produkt), N, produkty_arch) &&
+		fread(klienci, sizeof(Klient), N, klienci_arch))
 	{
         cout << "Dane wczytane prawidłowo." << endl << endl;
 	}

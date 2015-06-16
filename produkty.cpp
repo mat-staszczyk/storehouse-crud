@@ -154,6 +154,7 @@ int usun_produkt (void) {
                 produkty[i].typ = "";
                 produkty[i].promocja = 0;
 
+				// Uporządkowanie rozmiaru listy po usunięciu pozycji
 				int j = i;
 				while (j < N) {
 					*(klienci + j) = *(klienci + (++j));
