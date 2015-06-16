@@ -139,6 +139,7 @@ int usun_klienta (void) {
                 klienci[i].rabat = 0;
                 klienci[i].saldo = 0;
 
+				// Uporządkowanie rozmiaru listy po usunięciu pozycji
 				int j = i;
 				while (j < N) {
 					*(klienci + j) = *(klienci + (++j));
