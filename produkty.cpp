@@ -154,9 +154,9 @@ int usun_produkt (void) {
                 produkty[i].typ = "";
                 produkty[i].promocja = 0;
 
-				for (int j = i; j < N; j++) {
-					int k = 0;
-					*(produkty+k) = *(produkty+(++k));
+				int j = i;
+				while (j < N) {
+					*(klienci + j) = *(klienci + (++j));
 				}
 
                 cout << "Produkt został usunięty." << endl;
