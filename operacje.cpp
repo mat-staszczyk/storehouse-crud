@@ -183,6 +183,7 @@ void zapisz(void) {
     }
 
 	produkty[0].promocja = p_len;
+	klienci[0].rabat = k_len;
 
 	if (fwrite(produkty, sizeof(struct Produkt), p_len, produkty_arch) &&
 		fwrite(klienci, sizeof(struct Klient), k_len, klienci_arch))
