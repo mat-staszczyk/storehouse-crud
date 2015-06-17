@@ -182,6 +182,9 @@ void zapisz(void) {
             k_len++;
     }
 
+	// Zachowuje wielkość tablicy w niewykorzystanym elemence,
+	// aby można było łatwo wczytać odpowiednią wielkość talbicy. 
+
 	produkty[0].promocja = p_len;
 	klienci[0].rabat = k_len;
 
