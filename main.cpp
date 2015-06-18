@@ -39,9 +39,9 @@ int main(void) {
                 break;
             case 8:
                 zapisz();
-                delete [] klienci;
-                delete [] produkty;
                 cout << "Działanie programu zostało zakończone." << endl;
+				//delete[] klienci;
+				//delete[] produkty;
                 return 0;
             default:
                 cout << "Błędny wybór." << endl;

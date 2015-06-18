@@ -146,26 +146,6 @@ void menu_rabaty() {
 	}
 }
 
-void wczytaj_dane(void) {
-	FILE * produkty_arch;
-	FILE * klienci_arch;
-
-	produkty_arch = fopen("produkty.store", "rb");
-	klienci_arch = fopen("klienci.store", "rb");
-
-	if (fread(produkty, sizeof(Produkt), N, produkty_arch) &&
-		fread(klienci, sizeof(Klient), N, klienci_arch))
-	{
-        cout << "Dane wczytane prawidłowo." << endl << endl;
-	}
-	else {
-		cout << "Brak dostępu do danych." << endl;
-	}
-
-	fclose(produkty_arch);
-	fclose(klienci_arch);
-}
-
 void zapisz(void) {
 	FILE *produkty_arch;
 	FILE *klienci_arch;
@@ -196,6 +176,26 @@ void zapisz(void) {
 	else {
         cout << "Brak dostępu do dysku!" << endl << endl;
 	}
+	fclose(produkty_arch);
+	fclose(klienci_arch);
+}
+
+void wczytaj_dane(void) {
+	FILE * produkty_arch;
+	FILE * klienci_arch;
+
+	produkty_arch = fopen("produkty.store", "rb");
+	klienci_arch = fopen("klienci.store", "rb");
+
+	if (fread(produkty, sizeof(Produkt), N, produkty_arch) &&
+		fread(klienci, sizeof(Klient), N, klienci_arch))
+	{
+		cout << "Dane wczytane prawidłowo." << endl << endl;
+	}
+	else {
+		cout << "Brak dostępu do danych." << endl;
+	}
+
 	fclose(produkty_arch);
 	fclose(klienci_arch);
 }
