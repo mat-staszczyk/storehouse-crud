@@ -40,8 +40,8 @@ int main(void) {
             case 8:
                 zapisz();
                 cout << "Działanie programu zostało zakończone." << endl;
-				//delete[] klienci;
-				//delete[] produkty;
+				delete[] klienci;
+				delete[] produkty;
                 return 0;
             default:
                 cout << "Błędny wybór." << endl;

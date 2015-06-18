@@ -153,12 +153,12 @@ void zapisz(void) {
 	klienci_arch = fopen("klienci.store", "wb");
     
     for (int i = 0; i < N; i++) {
-        if (produkty[i].nazwa != "")
+        if (!produkty[i].nazwa.empty())
             p_len++;
     }
     
     for (int i = 0; i < N; i++) {
-        if (klienci[i].nazwa != "")
+        if (!klienci[i].nazwa.empty())
             k_len++;
     }
 
