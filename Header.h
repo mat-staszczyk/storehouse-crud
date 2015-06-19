@@ -6,7 +6,7 @@
 
 using namespace std;
 
-const int N = 100;
+extern int N;
 extern int p_len;
 extern int k_len;
 extern int wybor;
