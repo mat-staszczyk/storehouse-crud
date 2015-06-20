@@ -43,10 +43,11 @@ int main(void) {
                 cout << "Działanie programu zostało zakończone." << endl;
 				delete[] klienci;
 				delete[] produkty;
-                return 0;
+                return EXIT_SUCCESS;
             default:
                 cout << "Błędny wybór." << endl;
                 break;
         }
     }
+    return EXIT_FAILURE;
 }
