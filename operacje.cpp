@@ -187,14 +187,17 @@ void wczytaj_dane(void) {
 	produkty_arch = fopen("produkty.store", "rb");
 	klienci_arch = fopen("klienci.store", "rb");
     
-    Produkt temp;
+    Produkt temp_p;
+    Klient temp_k;
     
-    fread(&temp, sizeof(Produkt), 1, produkty_arch);
+    fread(produkty, sizeof(Produkt), 1, produkty_arch);
+    fread(klienci, sizeof(Klient), 1, klienci_arch);
     
-    int N1 = temp.promocja;
+    N1 = ++produkty->promocja;
+    N2 = ++klienci->rabat;
 
 	if (fread(produkty, sizeof(Produkt), N1, produkty_arch) &&
-		fread(klienci, sizeof(Klient), N, klienci_arch))
+		fread(klienci, sizeof(Klient), N2, klienci_arch))
 	{
 		cout << "Dane wczytane prawidłowo." << endl << endl;
 	}
