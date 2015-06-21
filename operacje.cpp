@@ -163,7 +163,7 @@ void zapisz(void) {
     }
 
 	// Zachowuje wielkość tablicy w niewykorzystanym elemence,
-	// aby można było tablicę o odpowiedniej wielkości. 
+	// aby można było tablicę o odpowiedniej wielkości.
 
 	produkty[0].promocja = p_len;
 	klienci[0].rabat = k_len;
@@ -186,8 +186,14 @@ void wczytaj_dane(void) {
 
 	produkty_arch = fopen("produkty.store", "rb");
 	klienci_arch = fopen("klienci.store", "rb");
+    
+    Produkt temp;
+    
+    fread(&temp, sizeof(Produkt), 1, produkty_arch);
+    
+    int N1 = temp.promocja;
 
-	if (fread(produkty, sizeof(Produkt), N, produkty_arch) &&
+	if (fread(produkty, sizeof(Produkt), N1, produkty_arch) &&
 		fread(klienci, sizeof(Klient), N, klienci_arch))
 	{
 		cout << "Dane wczytane prawidłowo." << endl << endl;
