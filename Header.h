@@ -6,11 +6,8 @@
 
 using namespace std;
 
-extern int N;
-extern int N1;
-extern int N2;
-extern int p_len;
-extern int k_len;
+extern int N, N1, N2;
+extern int p_len, k_len;
 extern int wybor;
 extern string temp;
 
