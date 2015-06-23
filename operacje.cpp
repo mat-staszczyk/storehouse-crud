@@ -187,11 +187,9 @@ void wczytaj_dane(void) {
 	produkty_arch = fopen("produkty.store", "rb");
 	klienci_arch = fopen("klienci.store", "rb");
     
-    Produkt temp_p;
-    Klient temp_k;
-    
     fread(produkty, sizeof(Produkt), 1, produkty_arch);
     fread(klienci, sizeof(Klient), 1, klienci_arch);
+
     
     N1 = ++produkty->promocja;
     N2 = ++klienci->rabat;
