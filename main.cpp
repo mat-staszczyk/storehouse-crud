@@ -1,6 +1,5 @@
 #include "./Header.h"
 
-int N = 100;
 int wybor;
 string temp;
 

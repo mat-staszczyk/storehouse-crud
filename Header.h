@@ -6,7 +6,7 @@
 
 using namespace std;
 
-extern int N;
+const int N = 100;
 extern int wybor;
 extern string temp;
 
