@@ -152,24 +152,6 @@ void zapisz(void) {
 	produkty_arch = fopen("produkty.store", "wb");
 	klienci_arch = fopen("klienci.store", "wb");
 
-   /* 
-    for (int i = 0; i < N; i++) {
-        if (!produkty[i].nazwa.empty())
-            p_len++;
-    }
-    
-    for (int i = 0; i < N; i++) {
-        if (!klienci[i].nazwa.empty())
-            k_len++;
-    }
-
-	// Zachowuje wielkość tablicy w niewykorzystanym elemence,
-	// aby można było tablicę o odpowiedniej wielkości.
-
-	produkty[0].promocja = p_len;
-	klienci[0].rabat = k_len;
-	*/
-
 	if (fwrite(produkty, sizeof(struct Produkt), N, produkty_arch) &&
 		fwrite(klienci, sizeof(struct Klient), N, klienci_arch))
 	{
