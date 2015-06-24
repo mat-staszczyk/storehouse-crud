@@ -151,7 +151,8 @@ void zapisz(void) {
 	FILE *klienci_arch;
 	produkty_arch = fopen("produkty.store", "wb");
 	klienci_arch = fopen("klienci.store", "wb");
-    
+
+   /* 
     for (int i = 0; i < N; i++) {
         if (!produkty[i].nazwa.empty())
             p_len++;
@@ -167,9 +168,10 @@ void zapisz(void) {
 
 	produkty[0].promocja = p_len;
 	klienci[0].rabat = k_len;
+	*/
 
-	if (fwrite(produkty, sizeof(struct Produkt), p_len, produkty_arch) &&
-		fwrite(klienci, sizeof(struct Klient), k_len, klienci_arch))
+	if (fwrite(produkty, sizeof(struct Produkt), N, produkty_arch) &&
+		fwrite(klienci, sizeof(struct Klient), N, klienci_arch))
 	{
 		cout << "Zapisywanie zakończone powodzeniem." << endl;
 	}
@@ -186,16 +188,9 @@ void wczytaj_dane(void) {
 
 	produkty_arch = fopen("produkty.store", "rb");
 	klienci_arch = fopen("klienci.store", "rb");
-    
-    fread(produkty, sizeof(Produkt), 1, produkty_arch);
-    fread(klienci, sizeof(Klient), 1, klienci_arch);
 
-    
-    N1 = ++produkty->promocja;
-    N2 = ++klienci->rabat;
-
-	if (fread(produkty, sizeof(Produkt), N1, produkty_arch) &&
-		fread(klienci, sizeof(Klient), N2, klienci_arch))
+	if (fread(produkty, sizeof(Produkt), N, produkty_arch) &&
+		fread(klienci, sizeof(Klient), N, klienci_arch))
 	{
 		cout << "Dane wczytane prawidłowo." << endl << endl;
 	}
