@@ -13,7 +13,7 @@ int lista_produktow (int promocja = 0, bool przegladanie = false) {
                 if (licznik > 10)
                 {
                     licznik = 0;
-                    cout << endl << "Naciśnij klawisz enter, aby wyświetlić 10 kolejnych pozycji." << endl;
+					cout << endl << "Naciśnij klawisz enter, aby wyświetlić 10 kolejnych pozycji." << endl;
                     cin.ignore();
                     cin.get();
                 }
