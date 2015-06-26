@@ -87,7 +87,7 @@ void menu_klienci() {
 		switch (wybor) {
 		case 1:
 			if (!lista_klientow(true)) {
-				cout << "Nacisnij klawisz enter, aby kontynuować." << endl;
+                cout << "Nacisnij klawisz enter, aby kontynuować." << endl << flush;
                 cin.ignore();
 				cin.get();
 			}
