@@ -272,7 +272,7 @@ void sprzedaj_produkt(void) {
     }
     
     if (!indeks) {
-        cout << "Klient o podanej nazwie nie figuruje w bazie." << endl;
+        cout << "Klient o podanym ID nie figuruje w bazie." << endl;
     }
     
     if (!sukces) {
