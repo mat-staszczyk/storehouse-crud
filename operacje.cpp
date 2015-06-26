@@ -158,7 +158,7 @@ void zapisz(void) {
 		cout << "Zapisywanie zakończone powodzeniem." << endl;
 	}
 	else {
-        cout << "Brak dostępu do dysku!" << endl << endl;
+        cout << "Brak dostępu do danych!" << endl << endl;
 	}
 	fclose(produkty_arch);
 	fclose(klienci_arch);
