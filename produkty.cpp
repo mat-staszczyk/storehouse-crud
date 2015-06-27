@@ -157,7 +157,7 @@ int usun_produkt (void) {
 				// Uporządkowanie rozmiaru listy po usunięciu pozycji
 				int j = i;
 				while (j < N) {
-					*(klienci + j) = *(klienci + (++j));
+					*(klienci + j++) = *(klienci + j);
 				}
 
                 cout << "Produkt został usunięty." << endl;

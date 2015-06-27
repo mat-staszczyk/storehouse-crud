@@ -38,11 +38,15 @@ int lista_klientow (bool przegladanie = false) {
 void dodaj_klienta (void) {
     string nazwa, grupa, nip;
     cout << "Podaj nazwę klienta, którego chcesz dodać:" << endl;
-    cin >> nazwa;
-	cout << "Podaj grupę klienta" << endl;;
-	cin >> grupa;
+    cin.ignore();
+    fflush( stdin );
+    getline(cin, nazwa);
+	cout << "Podaj grupę klienta" << endl;
+    fflush( stdin );
+	getline(cin, grupa);
 	cout << "Podaj NIP klienta:" << endl;
-	cin >> nip;
+    fflush( stdin );
+	getline(cin, nip);
     int i;
     for (i = 1; i < N; i++)
     {
@@ -142,7 +146,7 @@ int usun_klienta (void) {
 				// Uporządkowanie rozmiaru listy po usunięciu pozycji
 				int j = i;
 				while (j < N) {
-					*(klienci + j) = *(klienci + (++j));
+					*(klienci + j++) = *(klienci + j);
 				}
 
                 cout << "Wpis klienta został usunięty." << endl;
