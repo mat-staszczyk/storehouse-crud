@@ -211,7 +211,8 @@ void promocje (void) {
 void sprzedaj_produkt(void) {
     char wybor;
     bool sukces = false, err = false;
-    int ilosc, produkt_id, klient_id, i, indeks = 0;
+    int produkt_id, klient_id, i, indeks = 0;
+    unsigned int ilosc;
     
     if (lista_klientow(false)) {
         return;
