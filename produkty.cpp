@@ -252,7 +252,7 @@ void sprzedaj_produkt(void) {
 					cout << "Ile sztuk produktu '" << produkty[i].nazwa << "' chcesz sprzedac? (stan: " << produkty[i].ilosc << ")" << endl;
 					cin >> ilosc;
 					if (ilosc <= 0) {
-						cout << "Proszę podać prawidłową ilość produktów." << endl;
+						cout << "Proszę podać prawidłową ilość produktu." << endl;
 						err = true;
 					}
 				} while (err);
