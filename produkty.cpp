@@ -212,7 +212,7 @@ void sprzedaj_produkt(void) {
     char wybor;
     bool sukces = false, err = false;
     int produkt_id, klient_id, i, indeks = 0;
-    unsigned int ilosc;
+    int ilosc;
     
     if (lista_klientow(false)) {
         return;
@@ -242,23 +242,28 @@ void sprzedaj_produkt(void) {
             if (produkty[i].id_produktu == produkt_id) {
 				cout << "Ile sztuk produktu '" << produkty[i].nazwa << "' chcesz sprzedac? (stan: " << produkty[i].ilosc << ")" << endl;
 				cin >> ilosc;
-                if (ilosc <= produkty[i].ilosc) {
-                    if (klienci[indeks].rabat) {
-                        produkty[i].cena -= ((produkty[i].cena * klienci[indeks].rabat) / static_cast<float>(100));
-                        cout << "Przyznano rabat w wysokości: " << klienci[indeks].rabat << "." << endl << endl;;
-                    }
-					float cena = roundf(produkty[i].cena * 100) / 100;
-					cena *= ilosc;
-                    klienci[indeks].saldo -= cena;
-                    produkty[i].ilosc -= ilosc;
-                    sukces = true;
-                    cout << "Wartość transakcji to: " << cena << " PLN." << endl << endl;
-                    break;
+				if (ilosc <= 0) {
+					cout << "Proszę podać prawidłową ilość produktów." << endl;
 				}
 				else {
-					cout << "Nie posiadamy wystarczającej ilości produktu." << endl << endl;
-					err = true;
-                }
+					if (ilosc <= produkty[i].ilosc) {
+						if (klienci[indeks].rabat) {
+							produkty[i].cena -= ((produkty[i].cena * klienci[indeks].rabat) / static_cast<float>(100));
+							cout << "Przyznano rabat w wysokości: " << klienci[indeks].rabat << "." << endl << endl;;
+						}
+						float cena = roundf(produkty[i].cena * 100) / 100;
+						cena *= ilosc;
+						klienci[indeks].saldo -= cena;
+						produkty[i].ilosc -= ilosc;
+						sukces = true;
+						cout << "Wartość transakcji to: " << cena << " PLN." << endl << endl;
+						break;
+					}
+					else {
+						cout << "Nie posiadamy wystarczającej ilości produktu." << endl << endl;
+						err = true;
+					}
+				}
             }
         }
         if (!sukces && !err) {
