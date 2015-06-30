@@ -52,7 +52,7 @@ void dodaj_produkt(void) {
 	for (i = 1; i < N; i++)
 	{
 		if (produkty[i].nazwa == nazwa) {
-			cout << "Nazwa produktu istnieje już w bazie." << endl
+			cout << "Produkt o podanej nazwie istnieje w bazie." << endl
 				<< "Aktualna ilość '" << produkty[i].nazwa << "' to " << produkty[i].ilosc << "." << endl
 				<< "Ile produktów dodać?" << endl;
 			cin >> dodaj;
