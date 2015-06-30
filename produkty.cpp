@@ -45,7 +45,9 @@ void dodaj_produkt(void) {
 	int dodaj;
 
 	cout << "Podaj nazwę produktu, który chcesz dodać:" << endl;
-	cin >> nazwa;
+	cin.ignore();
+	fflush(stdin);
+	getline(cin, nazwa);
 	int i;
 	for (i = 1; i < N; i++)
 	{
