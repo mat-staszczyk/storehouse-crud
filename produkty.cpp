@@ -62,7 +62,7 @@ void dodaj_produkt(void) {
 		else if (produkty[i].nazwa.empty()) {
 			produkty[i].nazwa = nazwa;
 			produkty[i].id_produktu = i;
-			cout << "Podaj typ produktu:" << endl;;
+			cout << "Podaj typ produktu:" << endl;
 			cin >> produkty[i].typ;
 			cout << "Podaj ilość produktów na stanie:" << endl;
 			cin >> produkty[i].ilosc;
