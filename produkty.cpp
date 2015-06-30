@@ -63,7 +63,6 @@ void dodaj_produkt(void) {
 			produkty[i].nazwa = nazwa;
 			produkty[i].id_produktu = i;
 			cout << "Podaj typ produktu:" << endl;
-			cin.ignore();
 			fflush(stdin);
 			getline(cin, produkty[i].typ);
 			cout << "Podaj ilość produktów na stanie:" << endl;
