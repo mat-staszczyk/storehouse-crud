@@ -91,6 +91,7 @@ int edytuj_produkt(void) {
 			cout << "Edycja obiektu #" << i << ":" << endl;
 			cout << "Podaj nową nazwę produktu lub naciśnij Enter i pozostaw aktualną (" << produkty[i].nazwa << "):" << endl;
 			cin.ignore();
+			fflush(stdin);
 			getline(cin, s_temp);
 			if (s_temp == "") {
 				cout << "(" << produkty[i].nazwa << ")" << endl;
@@ -101,6 +102,7 @@ int edytuj_produkt(void) {
 			}
 
 			cout << "Podaj nowy typ produktu lub naciśnij Enter i pozostaw aktualny (" << produkty[i].typ << "):" << endl;
+			fflush(stdin);
 			getline(cin, s_temp);
 			if (s_temp == "") {
 				cout << "(" << produkty[i].typ << ")" << endl;
@@ -110,6 +112,7 @@ int edytuj_produkt(void) {
 			}
 
 			cout << "Podaj nową ilość produktu na stanie lub naciśnij Enter i pozostaw aktualną (" << produkty[i].ilosc << "):" << endl;
+			fflush(stdin);
 			getline(cin, s_temp);
 			if (s_temp == "") {
 				cout << "(" << produkty[i].ilosc << ")" << endl;
@@ -119,6 +122,7 @@ int edytuj_produkt(void) {
 			}
 
 			cout << "Podaj nową cenę lub naciśnij Enter i pozostaw aktualną (" << produkty[i].cena << "):" << endl;
+			fflush(stdin);
 			getline(cin, s_temp);
 			if (s_temp == "") {
 				cout << "(" << produkty[i].cena << ")" << endl;
