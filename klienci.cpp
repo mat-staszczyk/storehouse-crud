@@ -103,6 +103,7 @@ int edytuj_klienta (void) {
 			}
 
             cout << "Podaj nowy nr NIP lub naciśnij Enter i pozostaw aktualny (" << klienci[i].nip << "):" << endl;
+            fflush( stdin );
 			getline(cin, s_temp);
 			if (s_temp == "") {
 				cout << "(" << klienci[i].nip << ")" << endl;
