@@ -78,7 +78,7 @@ int edytuj_klienta (void) {
     for (i = 1; i < N; i++) {
         if (klienci[i].id_klienta == id) {
             pom = i;
-            cout << "Edycja danych klienta o id #" << i << ":" << endl;
+            cout << "Edycja danych klienta #" << i << " " << klienci[i].nazwa << ":" << endl;
 			cout << "Podaj nową nazwę klienta lub naciśnij Enter i pozostaw aktualną (" << klienci[i].nazwa << "):" << endl;
 			cin.ignore();
             fflush( stdin );
