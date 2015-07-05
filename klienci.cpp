@@ -179,7 +179,7 @@ void rabaty (void) {
 	switch (wybor) {
 	case 1:
 		if (!lista_klientow()) {
-			cout << "Podaj ID klienta, którego rabat ma zostać zmieniony: " << endl;
+			cout << "Podaj ID klienta, którego rabat ma zostać zmodyfikowany:" << endl;
 			cin >> id;
 			cout << "Podaj wysokość rabatu (np. 5%):" << endl;
 			cin >> rabat;
@@ -196,7 +196,7 @@ void rabaty (void) {
 			}
 			else {
 				lista_klientow();
-				cout << "Naciśnij klawisz enter, aby konynuować" << endl;
+				cout << "Naciśnij klawisz enter, aby konynuować." << endl;
 				cin.ignore();
 				cin.get();
 			}
@@ -204,7 +204,7 @@ void rabaty (void) {
 		break;
 	case 2:
 		if (!lista_klientow()) {
-			cout << "Podaj nazwę grupy, której ma zostać przyznany rabat" << endl;
+			cout << "Podaj nazwę grupy, której ma zostać przyznany rabat:" << endl;
 			cin >> grupa;
 			cout << "Podaj wysokość rabatu (np. 5%):" << endl;
 			cin >> rabat;
@@ -220,7 +220,7 @@ void rabaty (void) {
 			}
 			else {
 				lista_klientow();
-				cout << "Naciśnij klawisz enter, aby konynuować" << endl;
+				cout << "Naciśnij klawisz enter, aby konynuować." << endl;
 				cin.ignore();
 				cin.get();
 			}
