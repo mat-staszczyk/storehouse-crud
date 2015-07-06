@@ -1,6 +1,6 @@
 # Storehouse management system
 
-Basic [CRUD](https://pl.wikipedia.org/wiki/CRUD) application. 
+Basic terminal [CRUD](https://pl.wikipedia.org/wiki/CRUD) application. 
 
 ##### Functionalities
 1. Products management
