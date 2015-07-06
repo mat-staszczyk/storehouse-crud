@@ -14,7 +14,8 @@ Basic [CRUD](https://pl.wikipedia.org/wiki/CRUD) application.
   - edit customer
   - delete customer
 3. Search database
-4. Save database to file
-5. Load database from file
+4. Transaction system
+5. Save database to file
+6. Load database from file
 
 This app was written in Polish.
