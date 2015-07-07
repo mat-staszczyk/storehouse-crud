@@ -248,7 +248,7 @@ void sprzedaj_produkt(void) {
 			return;
 		}
 
-		cout << "Podaj ID produktu, który chce kupić " << klienci[indeks].nazwa << ":" << endl;
+		cout << "Podaj ID produktu, który chce kupić:" << klienci[indeks].nazwa << ":" << endl;
 		cin >> produkt_id;
 
 		sukces = false;
@@ -283,7 +283,7 @@ void sprzedaj_produkt(void) {
 			}
 		}
 		if (!sukces && !err) {
-			cout << endl << "Nie znaleziono produktu o ID #" << produkt_id << "' na liście produktów." << endl << endl;
+			cout << endl << "Nie znaleziono produktu o ID #" << produkt_id << "' w bazie produktów." << endl << endl;
 		}
 
 		cout << "Czy klient chce dokonać kolejnej transakcji? (T/n):" << endl;
