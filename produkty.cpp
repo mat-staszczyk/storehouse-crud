@@ -289,7 +289,11 @@ void sprzedaj_produkt(void) {
 		cout << "Czy klient chce dokonać kolejnej transakcji? (T/n):" << endl;
 		cin >> wybor;
 
-		if (wybor != 'T') break;
+		if (wybor == 'T' || wybor == 't') {
+			continue;
+		} else {
+			break;
+		}
 
 	}
 
