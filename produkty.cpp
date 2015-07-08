@@ -198,7 +198,7 @@ void promocje(void) {
 
 		cout << "Podaj ID produktu, który chcesz objąć promocją: " << endl;
 		cin >> id;
-		cout << "Podaj wartość promocji (np. 15%)";
+		cout << "Podaj wartość promocji (np. 15(%)):";
 		cin >> promocja;
 
 		int i;
@@ -215,7 +215,7 @@ void promocje(void) {
 		}
 		else {
 			lista_produktow(1);
-			cout << "Naciśnij klawisz enter, aby konynuować" << endl;
+			cout << "Naciśnij klawisz enter, aby konynuować." << endl;
 			cin.ignore();
 			cin.get();
 		}
