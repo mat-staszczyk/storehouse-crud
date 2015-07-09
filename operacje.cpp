@@ -171,6 +171,8 @@ void wczytaj_dane(void) {
 	produkty_arch = fopen("produkty.store", "rb");
 	klienci_arch = fopen("klienci.store", "rb");
 
+	// use while to check if file exists
+
 	if (fread(produkty, sizeof(Produkt), N, produkty_arch) &&
 		fread(klienci, sizeof(Klient), N, klienci_arch))
 	{
