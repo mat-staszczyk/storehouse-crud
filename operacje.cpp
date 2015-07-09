@@ -211,7 +211,7 @@ void wyszukiwanie() {
     }
     
     if (pusta) {
-        cout << "brak wyników" << endl << endl;
+        cout << "Brak wyników." << endl << endl;
     }
     
     pusta = true;
