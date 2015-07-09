@@ -240,7 +240,7 @@ void wyszukiwanie() {
     }
     
     if (pusta) {
-        cout << "brak wyników" << endl << endl;
+        cout << "Brak wyników." << endl << endl;
     }
     
 	cout << "Naciśnij klawisz enter, aby konynuować." << endl;
