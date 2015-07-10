@@ -165,11 +165,14 @@ void zapisz(void) {
 }
 
 void wczytaj_dane(void) {
-	FILE * produkty_arch;
-	FILE * klienci_arch;
+	FILE * produkty_arch = fopen("produkty.store", "rb");
+	FILE * klienci_arch = fopen("klienci.store", "rb");
 
-	produkty_arch = fopen("produkty.store", "rb");
-	klienci_arch = fopen("klienci.store", "rb");
+	if (!produkty_arch) {
+		produkty_arch = fopen("produkty.store", "wb");
+		cout << "Utworzono plik archiwum produktów." << endl;
+		produkty_arch = fopen("produkty.store", "rb");
+	}
 
 	if (fread(produkty, sizeof(Produkt), N, produkty_arch) &&
 		fread(klienci, sizeof(Klient), N, klienci_arch))
