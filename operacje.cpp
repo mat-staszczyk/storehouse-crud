@@ -174,6 +174,12 @@ void wczytaj_dane(void) {
 		produkty_arch = fopen("produkty.store", "rb");
 	}
 
+	if (!klienci_arch) {
+		klienci_arch = fopen("klienci.store", "wb");
+		cout << "Utworzono plik archiwum klientów." << endl;
+		produkty_arch = fopen("klienci.store", "rb");
+	}
+
 	if (fread(produkty, sizeof(Produkt), N, produkty_arch) &&
 		fread(klienci, sizeof(Klient), N, klienci_arch))
 	{
