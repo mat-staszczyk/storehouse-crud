@@ -186,7 +186,7 @@ void wczytaj_dane(void) {
 		cout << "Dane wczytane prawidłowo." << endl << endl;
 	}
 	else {
-		cout << "Brak dostępu do danych." << endl;
+		cout << "Brak danych." << endl;
 	}
 
 	fclose(produkty_arch);
