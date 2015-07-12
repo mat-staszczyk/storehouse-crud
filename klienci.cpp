@@ -187,7 +187,7 @@ void rabaty (void) {
 			for (i = 1; i < N; i++) {
 				if (klienci[i].id_klienta == id) {
 					pom = 1;
-					cout << "Podaj wysokość rabatu (np. 5%):" << endl;
+					cout << "Podaj procentową wielkość rabatu (np. 5(%)):" << endl;
 					klienci[i].rabat = rabat;
 				}
 			}
