@@ -76,10 +76,11 @@ void menu_klienci() {
 			<< "####################" << endl << endl
 			<< "Proszę wybrać jedną z poniższych opcji:" << endl << endl
 			<< "1. Wyświetl listę klientów." << endl
-			<< "2. Dodaj nowego klienta." << endl
-			<< "3. Edytuj listę klientów." << endl
-			<< "4. Usuń klienta z listy." << endl
-			<< "5. Powrót do głównego menu." << endl << endl
+            << "2. Wpłata środków." << endl
+			<< "3. Dodaj nowego klienta." << endl
+			<< "4. Edytuj listę klientów." << endl
+			<< "5. Usuń klienta z listy." << endl
+			<< "6. Powrót do głównego menu." << endl << endl
 			<< "Wybór: ";
 		cin >> temp;
 		wybor = atoi(temp.c_str());
