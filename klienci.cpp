@@ -65,6 +65,10 @@ void dodaj_klienta (void) {
     }
 }
 
+void wplata_srodkow (void) {
+    
+}
+
 int edytuj_klienta (void) {
 	string s_temp;
 	int id;

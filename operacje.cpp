@@ -93,16 +93,19 @@ void menu_klienci() {
 				cin.get();
 			}
 			break;
-		case 2:
+        case 2:
+            wplata_srodkow();
+            break;
+		case 3:
 			dodaj_klienta();
 			break;
-		case 3:
+		case 4:
 			edytuj_klienta();
 			break;
-		case 4:
+		case 5:
 			usun_klienta();
 			break;
-		case 5:
+		case 6:
 			go = false;
 			break;
 		default:
