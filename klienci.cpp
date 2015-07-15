@@ -65,8 +65,10 @@ void dodaj_klienta (void) {
     }
 }
 
-void wplata_srodkow (void) {
-    
+void zarzadzanie_srodkami (void) {
+    // dodawanie srodków
+    // odejmowanie środków
+    // zerowanie stanu konta
 }
 
 int edytuj_klienta (void) {

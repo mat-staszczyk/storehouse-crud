@@ -94,7 +94,7 @@ void menu_klienci() {
 			}
 			break;
         case 2:
-            wplata_srodkow();
+            zarzadzanie_srodkami();
             break;
 		case 3:
 			dodaj_klienta();
