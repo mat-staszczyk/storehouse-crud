@@ -65,10 +65,22 @@ void dodaj_klienta (void) {
     }
 }
 
-void zarzadzanie_srodkami (void) {
-    // dodawanie srodków
-    // odejmowanie środków
-    // zerowanie stanu konta
+int zarzadzanie_srodkami (void) {
+	int id;
+	int pom = 0;
+	if (lista_klientow()) {
+		return 1;
+	}
+	cout << "Podaj ID klienta, dla którego ma być przeprowadzona operacja:" << endl;
+	cin >> id;
+	for (int i = 1; i < N; i++) {
+		if (klienci[i].id_klienta == id) {
+			pom = i;
+			// dodawanie srodków
+			// odejmowanie środków
+			// zerowanie stanu konta
+		}
+	}
 }
 
 int edytuj_klienta (void) {
