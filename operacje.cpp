@@ -76,8 +76,8 @@ void menu_klienci() {
 			<< "####################" << endl << endl
 			<< "Proszę wybrać jedną z poniższych opcji:" << endl << endl
 			<< "1. Wyświetl listę klientów." << endl
-            << "2. Wpłata środków." << endl
-			<< "3. Dodaj nowego klienta." << endl
+			<< "2. Dodaj nowego klienta." << endl
+			<< "3. Zarządzanie środkami." << endl
 			<< "4. Edytuj listę klientów." << endl
 			<< "5. Usuń klienta z listy." << endl
 			<< "6. Powrót do głównego menu." << endl << endl
@@ -93,11 +93,11 @@ void menu_klienci() {
 				cin.get();
 			}
 			break;
-        case 2:
-            zarzadzanie_srodkami();
-            break;
-		case 3:
+		case 2:
 			dodaj_klienta();
+			break;
+		case 3:
+			zarzadzanie_srodkami();
 			break;
 		case 4:
 			edytuj_klienta();
