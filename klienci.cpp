@@ -82,6 +82,7 @@ int zarzadzanie_srodkami (void) {
 			// zerowanie stanu konta
 		}
 	}
+    return 0;
 }
 
 int edytuj_klienta (void) {
