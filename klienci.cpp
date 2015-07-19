@@ -68,6 +68,8 @@ void dodaj_klienta (void) {
 int zarzadzanie_srodkami (void) {
 	int id;
 	int pom = 0;
+    int wybor;
+    string temp;
 	if (lista_klientow()) {
 		return 1;
 	}
@@ -77,6 +79,8 @@ int zarzadzanie_srodkami (void) {
 		if (klienci[i].id_klienta == id) {
 			pom = i;
 			cout << "Proszę wybrać rodzaj operacji, która ma zostać wykonana dla klienta o nazwie \"" << klienci[i].nazwa << "\": ";
+            cin >> wybor;
+            wybor = atoi(temp.c_str());
 			// dodawanie srodków
 			// odejmowanie środków
 			// zerowanie stanu konta
