@@ -81,9 +81,21 @@ int zarzadzanie_srodkami (void) {
 			cout << "Proszę wybrać rodzaj operacji, która ma zostać wykonana dla klienta o nazwie \"" << klienci[i].nazwa << "\": ";
             cin >> wybor;
             wybor = atoi(temp.c_str());
-			// dodawanie srodków
-			// odejmowanie środków
-			// zerowanie stanu konta
+            switch (wybor)
+            {
+                case 1:
+                    // dodawanie srodków
+                    break;
+                case 2:
+                    // odejmowanie środków
+                    break;
+                case 3:
+                    // zerowanie stanu konta
+                    break;
+                default:
+                    // błędny wybór
+                    break;
+            }
 		}
 	}
     return 0;
