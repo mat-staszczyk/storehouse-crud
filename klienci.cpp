@@ -98,6 +98,7 @@ int zarzadzanie_srodkami (void) {
                     break;
                 default:
                     // błędny wybór
+                    cout << "Błąd wyboru operacji." << endl;
                     break;
             }
 		}
