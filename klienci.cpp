@@ -78,7 +78,7 @@ int zarzadzanie_srodkami (void) {
 	for (int i = 1; i < N; i++) {
 		if (klienci[i].id_klienta == id) {
 			pom = i;
-			cout << "Proszę wybrać rodzaj operacji, która ma zostać wykonana dla klienta o nazwie \"" << klienci[i].nazwa << "\": " << endl <<
+			cout << endl << "Proszę wybrać rodzaj operacji, która ma zostać wykonana dla klienta o nazwie \"" << klienci[i].nazwa << "\": " << endl <<
             "1. Dodawanie środków." << endl <<
             "2. Odejmowanie środków." << endl <<
             "3. Wyzerowanie stanu konta." << endl <<
