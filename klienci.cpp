@@ -95,6 +95,7 @@ int zarzadzanie_srodkami (void) {
                     break;
                 case 3:
                     // zerowanie stanu konta
+                    klienci[i].saldo = 0;
                     break;
                 default:
                     // błędny wybór
