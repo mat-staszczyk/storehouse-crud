@@ -83,7 +83,7 @@ int zarzadzanie_srodkami (void) {
             "2. Odejmowanie środków." << endl <<
             "3. Wyzerowanie stanu konta." << endl <<
             "4. Powrót." << endl;
-            cin >> wybor;
+            cin >> temp;
             wybor = atoi(temp.c_str());
             switch (wybor)
             {
