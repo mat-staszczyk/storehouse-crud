@@ -69,6 +69,7 @@ int zarzadzanie_srodkami (void) {
 	int id;
 	int pom = 0;
     int wybor;
+    int kwota = 0;
     string temp;
 	if (lista_klientow()) {
 		return 1;
@@ -89,6 +90,14 @@ int zarzadzanie_srodkami (void) {
             {
                 case 1:
                     // dodawanie srodków
+                    cout << endl << "Podaj kwotę, która ma zostać dodana:" << endl;
+                    cin >> kwota;
+                    if (kwota > 0) {
+                        klienci[i].saldo += kwota;
+                        cout << "Aktualny stan środków klienta " << klienci[i].nazwa << " to: " << klienci[i].saldo << " PLN." << endl;
+                    } else {
+                        cout << "Podano błędną kwotę." << endl;
+                    }
                     break;
                 case 2:
                     // odejmowanie środków
