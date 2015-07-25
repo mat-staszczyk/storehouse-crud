@@ -101,6 +101,14 @@ int zarzadzanie_srodkami (void) {
                     break;
                 case 2:
                     // odejmowanie środków
+                    cout << endl << "Podaj kwotę, która ma zostać odjęta:" << endl;
+                    cin >> kwota;
+                    if (kwota > 0) {
+                        klienci[i].saldo -= kwota;
+                        cout << "Aktualny stan środków klienta " << klienci[i].nazwa << " to: " << klienci[i].saldo << " PLN." << endl;
+                    } else {
+                        cout << "Podano błędną kwotę." << endl;
+                    }
                     break;
                 case 3:
                     // zerowanie stanu konta
