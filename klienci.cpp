@@ -89,7 +89,6 @@ int zarzadzanie_srodkami (void) {
             switch (wybor)
             {
                 case 1:
-                    // dodawanie srodków
                     cout << endl << "Podaj kwotę, która ma zostać dodana:" << endl;
                     cin >> kwota;
                     if (kwota > 0) {
@@ -100,7 +99,6 @@ int zarzadzanie_srodkami (void) {
                     }
                     break;
                 case 2:
-                    // odejmowanie środków
                     cout << endl << "Podaj kwotę, która ma zostać odjęta:" << endl;
                     cin >> kwota;
                     if (kwota > 0) {
@@ -111,11 +109,9 @@ int zarzadzanie_srodkami (void) {
                     }
                     break;
                 case 3:
-                    // zerowanie stanu konta
                     klienci[i].saldo = 0;
                     break;
                 default:
-                    // błędny wybór
                     cout << "Błąd wyboru operacji." << endl;
                     break;
             }
