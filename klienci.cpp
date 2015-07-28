@@ -67,9 +67,9 @@ void dodaj_klienta (void) {
 
 int zarzadzanie_srodkami (void) {
 	int id;
-	int pom = 0;
     int wybor;
     int kwota = 0;
+    bool go = true;
     string temp;
 	if (lista_klientow()) {
 		return 1;
@@ -78,41 +78,48 @@ int zarzadzanie_srodkami (void) {
 	cin >> id;
 	for (int i = 1; i < N; i++) {
 		if (klienci[i].id_klienta == id) {
-			cout << endl << "Proszę wybrać rodzaj operacji, która ma zostać wykonana dla klienta o nazwie \"" << klienci[i].nazwa << "\": " << endl <<
-            "1. Dodawanie środków." << endl <<
-            "2. Odejmowanie środków." << endl <<
-            "3. Wyzerowanie stanu konta." << endl <<
-            "4. Powrót." << endl;
-            cin >> temp;
-            wybor = atoi(temp.c_str());
-            switch (wybor)
+            while (go)
             {
-                case 1:
-                    cout << endl << "Podaj kwotę, która ma zostać dodana:" << endl;
-                    cin >> kwota;
-                    if (kwota > 0) {
-                        klienci[i].saldo += kwota;
-                        cout << "Aktualny stan środków klienta " << klienci[i].nazwa << " to: " << klienci[i].saldo << " PLN." << endl;
-                    } else {
-                        cout << "Podano błędną kwotę." << endl;
-                    }
-                    break;
-                case 2:
-                    cout << endl << "Podaj kwotę, która ma zostać odjęta:" << endl;
-                    cin >> kwota;
-                    if (kwota > 0) {
-                        klienci[i].saldo -= kwota;
-                        cout << "Aktualny stan środków klienta " << klienci[i].nazwa << " to: " << klienci[i].saldo << " PLN." << endl;
-                    } else {
-                        cout << "Podano błędną kwotę." << endl;
-                    }
-                    break;
-                case 3:
-                    klienci[i].saldo = 0;
-                    break;
-                default:
-                    cout << "Błąd wyboru operacji." << endl;
-                    break;
+                cout << endl << "Proszę wybrać rodzaj operacji, która ma zostać wykonana dla klienta o nazwie \"" << klienci[i].nazwa << "\": " << endl <<
+                "1. Dodawanie środków." << endl <<
+                "2. Odejmowanie środków." << endl <<
+                "3. Wyzerowanie stanu konta." << endl <<
+                "4. Powrót." << endl;
+                cin >> temp;
+                wybor = atoi(temp.c_str());
+
+                switch (wybor)
+                {
+                    case 1:
+                        cout << endl << "Podaj kwotę, która ma zostać dodana:" << endl;
+                        cin >> kwota;
+                        if (kwota > 0) {
+                            klienci[i].saldo += kwota;
+                            cout << "Aktualny stan środków klienta " << klienci[i].nazwa << " to: " << klienci[i].saldo << " PLN." << endl;
+                        } else {
+                            cout << "Podano błędną kwotę." << endl;
+                        }
+                        go = false;
+                        break;
+                    case 2:
+                        cout << endl << "Podaj kwotę, która ma zostać odjęta:" << endl;
+                        cin >> kwota;
+                        if (kwota > 0) {
+                            klienci[i].saldo -= kwota;
+                            cout << "Aktualny stan środków klienta " << klienci[i].nazwa << " to: " << klienci[i].saldo << " PLN." << endl;
+                        } else {
+                            cout << "Podano błędną kwotę." << endl;
+                        }
+                        go = false;
+                        break;
+                    case 3:
+                        klienci[i].saldo = 0;
+                        go = false;
+                        break;
+                    default:
+                        cout << "Błąd wyboru operacji." << endl;
+                        break;
+                }
             }
 		}
 	}
