@@ -69,7 +69,7 @@ int zarzadzanie_srodkami (void) {
 	int id;
     int wybor;
     int kwota = 0;
-    bool go = true;
+    bool problem = true;
     string temp;
 	if (lista_klientow()) {
 		return 1;
@@ -78,7 +78,7 @@ int zarzadzanie_srodkami (void) {
 	cin >> id;
 	for (int i = 1; i < N; i++) {
 		if (klienci[i].id_klienta == id) {
-            while (go)
+            while (problem)
             {
                 cout << endl << "Proszę wybrać rodzaj operacji, która ma zostać wykonana dla klienta o nazwie \"" << klienci[i].nazwa << "\": " << endl <<
                 "1. Dodawanie środków." << endl <<
@@ -99,7 +99,7 @@ int zarzadzanie_srodkami (void) {
                         } else {
                             cout << "Podano błędną kwotę." << endl;
                         }
-                        go = false;
+                        problem = false;
                         break;
                     case 2:
                         cout << endl << "Podaj kwotę, która ma zostać odjęta:" << endl;
@@ -110,11 +110,11 @@ int zarzadzanie_srodkami (void) {
                         } else {
                             cout << "Podano błędną kwotę." << endl;
                         }
-                        go = false;
+                        problem = false;
                         break;
                     case 3:
                         klienci[i].saldo = 0;
-                        go = false;
+                        problem = false;
                         break;
                     default:
                         cout << "Błąd wyboru operacji." << endl;
