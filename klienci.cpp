@@ -80,10 +80,10 @@ int zarzadzanie_srodkami (void) {
 		if (klienci[i].id_klienta == id) {
             while (problem)
             {
-                cout << endl << "Proszę wybrać rodzaj operacji, która ma zostać wykonana dla klienta o nazwie \"" << klienci[i].nazwa << "\": " << endl <<
+                cout << endl << "Proszę wybrać rodzaj operacji, która ma zostać wykonana dla klienta o nazwie \"" << klienci[i].nazwa << "\": " << endl << endl <<
                 "1. Dodawanie środków." << endl <<
                 "2. Odejmowanie środków." << endl <<
-                "3. Wyzerowanie stanu konta." << endl <<
+                "3. Zerowanie stanu konta." << endl <<
                 "4. Powrót." << endl;
                 cin >> temp;
                 wybor = atoi(temp.c_str());
