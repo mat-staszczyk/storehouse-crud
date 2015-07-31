@@ -117,7 +117,7 @@ int zarzadzanie_srodkami (void) {
                         problem = false;
                         break;
                     default:
-                        cout << "Błąd wyboru operacji." << endl;
+                        cout << endl << "Błąd wyboru operacji. Proszę o ponowny wybór." << endl;
                         break;
                 }
             }
