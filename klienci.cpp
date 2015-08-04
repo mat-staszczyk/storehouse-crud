@@ -91,7 +91,7 @@ int zarzadzanie_srodkami (void) {
                 switch (wybor)
                 {
                     case 1:
-                        cout << endl << "Podaj kwotę, która ma zostać dodana:" << endl;
+                        cout << endl << "Podaj kwotę, o którą ma zostać zwiększony stan konta:" << endl;
                         cin >> kwota;
                         if (kwota > 0) {
                             klienci[i].saldo += kwota;
