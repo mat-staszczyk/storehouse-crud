@@ -102,7 +102,7 @@ int zarzadzanie_srodkami (void) {
                         problem = false;
                         break;
                     case 2:
-                        cout << endl << "Podaj kwotę, która ma zostać odjęta:" << endl;
+                        cout << endl << "Podaj kwotę, o którą ma zostać zmniejszony stan konta:" << endl;
                         cin >> kwota;
                         if (kwota > 0) {
                             klienci[i].saldo -= kwota;
