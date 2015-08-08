@@ -152,7 +152,7 @@ int edytuj_klienta (void) {
 				s_temp = "";
 			}
 
-            cout << "Podaj nową nazwę grupy lub naciśnij Enter i pozostaw aktualną (" << klienci[i].grupa << "):" << endl;
+            cout << "Podaj nową nazwę grupy lub naciśnij klawisz Enter i pozostaw aktualną (" << klienci[i].grupa << "):" << endl;
             fflush( stdin );
 			getline(cin, s_temp);
 			if (s_temp == "") {
@@ -163,7 +163,7 @@ int edytuj_klienta (void) {
 				s_temp = "";
 			}
 
-            cout << "Podaj nowy nr NIP lub naciśnij Enter i pozostaw aktualny (" << klienci[i].nip << "):" << endl;
+            cout << "Podaj nowy nr NIP lub naciśnij klawisz Enter i pozostaw aktualny (" << klienci[i].nip << "):" << endl;
             fflush( stdin );
 			getline(cin, s_temp);
 			if (s_temp == "") {
@@ -175,7 +175,7 @@ int edytuj_klienta (void) {
         }
     }
     if (!pom) {
-        cout << "Nie znaleziono klienta o podanym ID." << endl << "Naciśnij klawisz enter, aby konynuować" << endl;
+        cout << "Nie znaleziono klienta o podanym ID." << endl << "Naciśnij klawisz Enter, aby konynuować" << endl;
         cin.ignore();
         cin.get();
     } else {
