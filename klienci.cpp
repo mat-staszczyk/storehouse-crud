@@ -257,7 +257,7 @@ void rabaty (void) {
 			}
 			else {
 				lista_klientow();
-				cout << "Naciśnij klawisz enter, aby konynuować." << endl;
+				cout << "Naciśnij klawisz Enter, aby konynuować." << endl;
 				cin.ignore();
 				cin.get();
 			}
@@ -281,7 +281,7 @@ void rabaty (void) {
 			}
 			else {
 				lista_klientow();
-				cout << "Naciśnij klawisz enter, aby konynuować." << endl;
+				cout << "Naciśnij klawisz Enter, aby konynuować." << endl;
 				cin.ignore();
 				cin.get();
 			}
