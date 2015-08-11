@@ -210,6 +210,7 @@ int usun_klienta (void) {
 				// Uporządkowanie rozmiaru listy po usunięciu pozycji
 				int j = i;
 				while (j < N) {
+                    // Zmiana pozycji bez naruszenia numeru id
 					*(klienci + j++) = *(klienci + j);
 				}
 
