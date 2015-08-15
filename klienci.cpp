@@ -63,6 +63,7 @@ void dodaj_klienta (void) {
     } else {
         // błędna długość
     }
+    // test poprawności formatu
     int i;
     for (i = 1; i < N; i++)
     {
@@ -74,8 +75,8 @@ void dodaj_klienta (void) {
             klienci[i].id_klienta = i;
             klienci[i].grupa = grupa;
             klienci[i].nip = nip;
-			klienci[i].rabat = 0;
-			klienci[i].saldo = 0;
+            klienci[i].rabat = 0;
+            klienci[i].saldo = 0;
             break;
         }
     }
