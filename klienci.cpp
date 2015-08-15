@@ -36,7 +36,7 @@ int lista_klientow (bool przegladanie = false) {
 }
 
 void dodaj_klienta (void) {
-    string nazwa, grupa, nip;
+    string nazwa, grupa, nip, temp = "";
     cout << "Podaj nazwę klienta, którego chcesz dodać:" << endl;
     cin.ignore();
     fflush( stdin );
@@ -50,7 +50,14 @@ void dodaj_klienta (void) {
     // Sprawdzenie poprawności nr NIP
     int nip_len = nip.length();
     if (nip_len == 10) {
-        // konwersja do formatu xxx-xxx-xx-xx
+        for (int i = 0; i < 10; i++)
+        {
+            if (i == 3 || i == 6 || i == 8) {
+                temp.append("-");
+            }
+            temp.append(nip, i, 1);
+        }
+        nip = temp;
     } else if (nip_len == 13) {
         // prawidłowa długość
     } else {
