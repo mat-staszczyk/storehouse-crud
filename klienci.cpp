@@ -48,7 +48,7 @@ void dodaj_klienta (void) {
     fflush( stdin );
 	getline(cin, nip);
     // Sprawdzenie poprawności nr NIP
-    int nip_len = nip.length();
+    int nip_len = (int) nip.length();
     if (nip_len == 10) {
         for (int i = 0; i < 10; i++)
         {
