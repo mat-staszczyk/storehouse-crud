@@ -37,6 +37,7 @@ int lista_klientow (bool przegladanie = false) {
 
 void dodaj_klienta (void) {
     string nazwa, grupa, nip, temp = "";
+    bool nip_err = true;
     cout << "Podaj nazwę klienta, którego chcesz dodać:" << endl;
     cin.ignore();
     fflush( stdin );
@@ -44,25 +45,29 @@ void dodaj_klienta (void) {
 	cout << "Podaj grupę klienta" << endl;
     fflush( stdin );
 	getline(cin, grupa);
-	cout << "Podaj NIP klienta:" << endl;
-    fflush( stdin );
-	getline(cin, nip);
-    // Sprawdzenie poprawności nr NIP
-    int nip_len = (int) nip.length();
-    if (nip_len == 10) {
-        for (int i = 0; i < 10; i++)
-        {
-            if (i == 3 || i == 6 || i == 8) {
-                temp.append("-");
+    while (nip_err)
+    {
+        cout << "Podaj NIP klienta:" << endl;
+        fflush( stdin );
+        getline(cin, nip);
+        // Sprawdzenie poprawności nr NIP
+        int nip_len = (int) nip.length();
+        if (nip_len == 10) {
+            for (int i = 0; i < 10; i++)
+            {
+                if (i == 3 || i == 6 || i == 8) {
+                    temp.append("-");
+                }
+                temp.append(nip, i, 1);
             }
-            temp.append(nip, i, 1);
-        }
-        nip = temp;
-    } else if (nip_len != 13) {
-        // błędna długość
-        cout << "Błędna długość" << endl;;
+            nip = temp;
+            nip_err = true;
+        } else if (nip_len != 13) {
+            // błędna długość
+            cout << "Błędna długość" << endl;;
     }
     // test poprawności formatu
+    }
     int i;
     for (i = 1; i < N; i++)
     {
