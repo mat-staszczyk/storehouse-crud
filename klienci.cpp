@@ -61,7 +61,7 @@ void dodaj_klienta (void) {
                 temp.append(nip, i, 1);
             }
             nip = temp;
-            nip_err = true;
+            nip_err = false;
         } else if (nip_len != 13) {
             // błędna długość
             cout << "Błędna długość" << endl;;
