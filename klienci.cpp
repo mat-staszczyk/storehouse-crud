@@ -52,8 +52,9 @@ void dodaj_klienta (void) {
         getline(cin, nip);
         // Sprawdzenie poprawności nr NIP
         int nip_len = (int) nip.length();
+        int i = 0;
         if (nip_len == 10) {
-            for (int i = 0; i < 10; i++)
+            for (; i < 10; i++)
             {
                 if (i == 3 || i == 6 || i == 8) {
                     temp.append("-");
