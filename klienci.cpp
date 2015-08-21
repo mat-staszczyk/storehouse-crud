@@ -25,7 +25,7 @@ int lista_klientow (bool przegladanie = false) {
     }
     if (!pusta) {
         cout << "Lista klientów jest pusta." << endl
-        << endl << "Naciśnij klawisz enter, aby konynuować" << endl;
+        << endl << "Naciśnij klawisz enter, aby konynuować." << endl;
         cin.ignore();
         cin.get();
         return 1;
