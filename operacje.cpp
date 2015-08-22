@@ -199,7 +199,7 @@ void wczytaj_dane(void) {
 
 void wyszukiwanie() {
 	string fraza;
-	cout << "Podaj frazę, której chcesz wyszukać:" << endl;
+	cout << "Podaj frazę, którą chcesz wyszukać:" << endl;
 	cin >> fraza;
 	bool pusta = true;
 
