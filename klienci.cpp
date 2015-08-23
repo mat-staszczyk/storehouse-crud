@@ -38,6 +38,7 @@ int lista_klientow (bool przegladanie = false) {
 void dodaj_klienta (void) {
     string nazwa, grupa, nip, temp = "";
     bool nip_err = true;
+    regex nip_format ("[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}");
     cout << "Podaj nazwę klienta, którego chcesz dodać:" << endl;
     cin.ignore();
     fflush( stdin );
