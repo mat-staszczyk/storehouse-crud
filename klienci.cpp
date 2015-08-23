@@ -65,7 +65,8 @@ void dodaj_klienta (void) {
             nip_err = false;
         } else if (nip_len != 13) {
             // błędna długość
-            cout << "Błędna długość" << endl;;
+            cout << "Błędna długość" << endl;
+            nip_err = true;
         }
         // test poprawności formatu (regex)
         // nip_err = true;
