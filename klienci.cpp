@@ -48,6 +48,7 @@ void dodaj_klienta (void) {
 	getline(cin, grupa);
     while (nip_err)
     {
+        nip_err = true;
         cout << "Podaj NIP klienta:" << endl;
         fflush( stdin );
         getline(cin, nip);
@@ -64,13 +65,18 @@ void dodaj_klienta (void) {
             }
             nip = temp;
             nip_err = false;
-        } else if (nip_len != 13) {
+        } else if (nip_len == 13) {
+            nip_err = false;
+        } else {
             // błędna długość
             cout << "Błędna długość" << endl;
             nip_err = true;
         }
-        // test poprawności formatu (regex)
-        // nip_err = true;
+        
+        // test poprawności formatu
+        if (!regex_match(nip, nip_format)) {
+            nip_err = true;
+        }
     }
     
     int i;
