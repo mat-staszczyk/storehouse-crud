@@ -52,10 +52,10 @@ void dodaj_klienta (void) {
         cout << "Podaj NIP klienta:" << endl;
         fflush( stdin );
         getline(cin, nip);
-        // Sprawdzenie poprawności nr NIP
         int nip_len = (int) nip.length();
         int i = 0;
         if (nip_len == 10) {
+            // zmiana czytelności formatu
             for (; i < 10; i++)
             {
                 if (i == 3 || i == 6 || i == 8) {
@@ -66,6 +66,7 @@ void dodaj_klienta (void) {
             nip = temp;
             nip_err = false;
         } else if (nip_len == 13) {
+            // poprawna długość
             nip_err = false;
         } else {
             // błędna długość
