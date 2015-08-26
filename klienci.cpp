@@ -107,7 +107,7 @@ int zarzadzanie_srodkami (void) {
 	if (lista_klientow()) {
 		return 1;
 	}
-	cout << "Podaj ID klienta, dla którego ma być przeprowadzona operacja:" << endl;
+	cout << "Podaj ID klienta, którego stan konta ma zostać zmieniony:" << endl;
 	cin >> id;
 	for (int i = 1; i < N; i++) {
 		if (klienci[i].id_klienta == id) {
