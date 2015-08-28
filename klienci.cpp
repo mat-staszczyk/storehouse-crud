@@ -173,7 +173,7 @@ int edytuj_klienta (void) {
         if (klienci[i].id_klienta == id) {
             pom = i;
             cout << "Edycja danych klienta #" << i << " " << klienci[i].nazwa << ":" << endl;
-			cout << "Podaj nową nazwę klienta lub naciśnij Enter, aby pozostawić aktualną (" << klienci[i].nazwa << "):" << endl;
+			cout << "Podaj nową nazwę klienta lub naciśnij klawisz Enter, aby pozostawić aktualną (" << klienci[i].nazwa << "):" << endl;
 			cin.ignore();
             fflush( stdin );
 			getline(cin, s_temp);
@@ -185,7 +185,7 @@ int edytuj_klienta (void) {
 				s_temp = "";
 			}
 
-            cout << "Podaj nową nazwę grupy lub naciśnij klawisz Enter i pozostaw aktualną (" << klienci[i].grupa << "):" << endl;
+            cout << "Podaj nową nazwę grupy lub naciśnij klawisz Enter, aby pozostawić aktualną (" << klienci[i].grupa << "):" << endl;
             fflush( stdin );
 			getline(cin, s_temp);
 			if (s_temp == "") {
