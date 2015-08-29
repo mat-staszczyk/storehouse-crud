@@ -244,7 +244,8 @@ int usun_klienta (void) {
 				int j = i;
 				while (j < N) {
                     // Zmiana pozycji bez naruszenia numeru id
-					*(klienci + j++) = *(klienci + j);
+                    ++j;
+					*(klienci + j) = *(klienci + (j - 1));
 				}
 
                 cout << "Wpis klienta został usunięty." << endl;
