@@ -36,8 +36,7 @@ int lista_klientow (bool przegladanie = false) {
 }
 
 void dodaj_klienta (void) {
-    string nazwa, grupa, nip, temp = "";
-    bool nip_err = true;
+    string nazwa, grupa, nip = "", temp = "";
     regex nip_format ("[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}");
     cout << "Podaj nazwę klienta, którego chcesz dodać:" << endl;
     cin.ignore();
@@ -46,9 +45,8 @@ void dodaj_klienta (void) {
 	cout << "Podaj grupę klienta" << endl;
     fflush( stdin );
 	getline(cin, grupa);
-    while (nip_err)
+    while (!regex_match(nip, nip_format))
     {
-        nip_err = true;
         cout << "Podaj NIP klienta:" << endl;
         fflush( stdin );
         getline(cin, nip);
@@ -64,20 +62,11 @@ void dodaj_klienta (void) {
                 temp.append(nip, i, 1);
             }
             nip = temp;
-            nip_err = false;
-        } else if (nip_len == 13) {
-            // poprawna długość
-            nip_err = false;
-        } else {
+        } else if (nip_len != 13) {
             // błędna długość
             cout << "Błędna długość" << endl;
-            nip_err = true;
         }
         
-        // test poprawności formatu
-        if (!regex_match(nip, nip_format)) {
-            nip_err = true;
-        }
     }
     
     int i;
