@@ -45,6 +45,7 @@ void dodaj_klienta (void) {
 	cout << "Podaj grupę klienta" << endl;
     fflush( stdin );
 	getline(cin, grupa);
+    // weryfikacja poprawności formatu
     while (!regex_match(nip, nip_format))
     {
         cout << "Podaj NIP klienta:" << endl;
