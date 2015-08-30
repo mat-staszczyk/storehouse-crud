@@ -54,7 +54,7 @@ void dodaj_klienta (void) {
         int nip_len = (int) nip.length();
         int i = 0;
         if (nip_len == 10) {
-            // zmiana czytelności formatu
+            // zmiana formatu NIP dla poprawy czytelności
             for (; i < 10; i++)
             {
                 if (i == 3 || i == 6 || i == 8) {
