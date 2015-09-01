@@ -247,7 +247,7 @@ int usun_klienta (void) {
         }
     }
     if (!pom) {
-        cout << "Nie znaleziono wpisu o podanej nazwie klienta." << endl;
+        cout << "Nie znaleziono klienta o podanej nazwie." << endl;
     }
     return 0;
 }
