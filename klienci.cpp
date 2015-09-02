@@ -278,7 +278,7 @@ void rabaty (void) {
 				}
 			}
 			if (!pom) {
-				cout << "Nie znaleziono wpisu o podanym ID klienta." << endl;
+				cout << "Nie znaleziono klienta o podanym ID." << endl;
 			}
 			else {
 				lista_klientow();
