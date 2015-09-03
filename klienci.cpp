@@ -292,7 +292,7 @@ void rabaty (void) {
 		if (!lista_klientow()) {
 			cout << "Podaj nazwę grupy, której ma zostać przyznany rabat:" << endl;
 			cin >> grupa;
-			cout << "Podaj wysokość rabatu (np. 5%):" << endl;
+			cout << "Podaj procentową wysokość rabatu (np. 5):" << endl;
 			cin >> rabat;
 			int i;
 			for (i = 1; i < N; i++) {
