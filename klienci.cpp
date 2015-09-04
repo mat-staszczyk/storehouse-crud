@@ -214,7 +214,7 @@ int usun_klienta (void) {
     int id;
     int pom = 0;
     char odp;
-    cout << "Podaj ID, którego chcesz usunąć z bazy: " << endl;
+    cout << "Podaj ID klienta, którego chcesz usunąć z bazy: " << endl;
     cin >> id;
     int i;
     for (i = 1; i < N; i++) {
