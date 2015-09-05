@@ -14,7 +14,7 @@ int lista_klientow (bool przegladanie = false) {
                 if (licznik > 10)
                 {
                     licznik = 0;
-                    cout << endl << "Naciśnij klawisz enter, aby wyświetlić 10 kolejnych pozycji." << endl;
+                    cout << endl << "Naciśnij klawisz Enter, aby wyświetlić 10 kolejnych pozycji." << endl;
                     cin.ignore();
                     cin.get();
                 }
@@ -25,7 +25,7 @@ int lista_klientow (bool przegladanie = false) {
     }
     if (!pusta) {
         cout << "Lista klientów jest pusta." << endl
-        << endl << "Naciśnij klawisz enter, aby konynuować." << endl;
+        << endl << "Naciśnij klawisz Enter, aby konynuować." << endl;
         cin.ignore();
         cin.get();
         return 1;
