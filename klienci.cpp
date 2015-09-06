@@ -65,7 +65,7 @@ void dodaj_klienta (void) {
             nip = temp;
         } else if (nip_len != 13) {
             // błędna długość
-            cout << "Błędna długość" << endl;
+            cout << "Podany nr NIP o błędnej długości." << endl;
         }
         
     }
