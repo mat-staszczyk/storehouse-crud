@@ -250,7 +250,7 @@ void sprzedaj_produkt(void) {
 			return;
 		}
 
-		cout << "Podaj ID produktu, który chce kupić:" << klienci[indeks].nazwa << ":" << endl;
+		cout << "Podaj ID produktu, który chcesz sprzedać " << klienci[indeks].nazwa << ":" << endl;
 		cin >> produkt_id;
 
 		sukces = false;
