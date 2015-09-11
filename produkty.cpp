@@ -258,7 +258,7 @@ void sprzedaj_produkt(void) {
 			if (produkty[i].id_produktu == produkt_id) {
 				do {
 					err = false;
-					cout << "Ile sztuk produktu '" << produkty[i].nazwa << "' chcesz sprzedac? (stan: " << produkty[i].ilosc << ")" << endl;
+					cout << "Ile sztuk produktu '" << produkty[i].nazwa << "' chcesz sprzedać? (Stan: " << produkty[i].ilosc << ")" << endl;
 					cin >> ilosc;
 					if (ilosc <= 0) {
 						cout << "Proszę podać prawidłową ilość produktu." << endl;
